@@ -1,4 +1,78 @@
-.welcome-card ion-img {
-  max-height: 35vh;
-  overflow: hidden;
+ion-content {
+	background-color: #f7f7f7;
+}
+
+.top-box {
+	width: 100%;
+	height: 17rem;
+	background-image: url("../../assets/jianzhu_02.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	padding-top: 4rem;
+	img {
+		width: 15rem;
+		margin: 0 auto;
+	}
+	.pin {
+		width: 100%;
+		color: #fff;
+		font-size: 1.6rem;
+		margin-top: 2rem;
+	}
+}
+
+.gonggao-box {
+	display: flex;
+	width: 100%;
+	background-color: #ffffff;
+	height: 3.5rem;
+	line-height: 3.5rem;
+	img {
+		width: 4.9rem;
+		height: 1.2rem;
+		margin-top: 1.2rem;
+		margin-left: 1.5rem;
+	}
+	.message-box {
+		position: relative;
+		flex-grow: 1;
+		color: #262626;
+		overflow: hidden;
+		margin-left: 1.3rem;
+		.message {
+			position: absolute;
+			top: 0;
+			left: 0;
+			div {
+				height: 3.5rem;
+				font-size: 1.2rem;
+			}
+		}
+	}
+}
+
+.sub-list {
+	width: 100%;
+	background-color: #fff;
+	height: 3.5rem;
+	line-height: 3.5rem;
+	display: flex;
+	font-size: 1.4rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	div {
+		width: 33.33%;
+		text-align: center;
+		span {
+			height: 3.4rem;
+			line-height: 3.4rem;
+			display: inline-block;
+			padding: 0 0.5rem;
+			border-bottom: 2px solid transparent;
+		}
+		.acv {
+			color: #fe5a51;
+			border-bottom: 2px solid #fe5a51;
+		}
+	}
 }

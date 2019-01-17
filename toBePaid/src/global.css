@@ -1,0 +1,37 @@
+@import url(~@ionic/angular/css/core.css);
+@import url(~@ionic/angular/css/normalize.css);
+@import url(~@ionic/angular/css/structure.css);
+@import url(~@ionic/angular/css/typography.css);
+@import url(~@ionic/angular/css/padding.css);
+@import url(~@ionic/angular/css/float-elements.css);
+@import url(~@ionic/angular/css/text-alignment.css);
+@import url(~@ionic/angular/css/text-transformation.css);
+@import url(~@ionic/angular/css/flex-utils.css);
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft YaHei"; }
+
+li, ul, ol {
+  list-style: none; }
+
+img {
+  display: block; }
+
+.title-md {
+  text-align: center; }
+
+.header-md:after {
+  background-image: none;
+  height: 1px;
+  background-color: black; }
+
+.center {
+  text-align: center; }
+
+.gray {
+  width: 100%;
+  height: 1rem;
+  background-color: #f7f7f7; }
+
+/*# sourceMappingURL=global.css.map */
