@@ -64,4 +64,75 @@ ion-content {
       color: #fe5a51;
       border-bottom: 2px solid #fe5a51; }
 
+.task-list-box {
+  background-color: #ffffff;
+  margin-bottom: 1rem;
+  position: relative; }
+  .task-list-box .pop {
+    position: absolute;
+    width: 94%;
+    height: 100%;
+    top: 0;
+    left: 3%;
+    background-color: #000000;
+    opacity: .5;
+    z-index: 9; }
+  .task-list-box .text-box {
+    position: absolute;
+    width: 94%;
+    height: 100%;
+    top: 0;
+    left: 3%;
+    z-index: 10;
+    color: #ffffff; }
+    .task-list-box .text-box .nostart {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-top: 2.1rem; }
+    .task-list-box .text-box .clockBox {
+      text-align: center;
+      position: relative;
+      margin-top: 0.9rem; }
+      .task-list-box .text-box .clockBox img {
+        width: 1.4rem;
+        height: 1.4rem;
+        position: absolute;
+        top: 0;
+        left: 28.5%; }
+  .task-list-box .task-list {
+    width: 90%;
+    margin: 0 auto; }
+    .task-list-box .task-list .taskid {
+      display: flex;
+      height: 3rem;
+      line-height: 3rem;
+      border-bottom: 1px dashed #a1a1a1;
+      color: #262626;
+      font-size: 1.2rem; }
+      .task-list-box .task-list .taskid .taskNum {
+        flex-grow: 1; }
+    .task-list-box .task-list .taskPrice {
+      display: flex;
+      padding: 1.45rem 0; }
+      .task-list-box .task-list .taskPrice img {
+        width: 2.3rem;
+        height: 1.9rem; }
+      .task-list-box .task-list .taskPrice div {
+        height: 1.9rem;
+        line-height: 1.9rem; }
+      .task-list-box .task-list .taskPrice .taskPriceNum {
+        color: #fe5a51;
+        font-size: 1.5rem;
+        flex-grow: 1;
+        margin-left: 1rem; }
+      .task-list-box .task-list .taskPrice .now {
+        background-color: #fe5a51;
+        color: #ffffff;
+        width: 7.5rem;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: center;
+        border-radius: 1rem;
+        font-size: 1.2rem; }
+
 /*# sourceMappingURL=tab1.page.css.map */

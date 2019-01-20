@@ -1,0 +1,53 @@
+.logo {
+  width: 6.7rem;
+  height: 7.8rem;
+  margin: 6.3rem auto 8rem auto; }
+
+.tel-box {
+  width: 94%;
+  margin: 0 auto;
+  height: 4rem;
+  line-height: 4rem;
+  display: flex;
+  border-bottom: 1px solid #d8d8d8; }
+  .tel-box img {
+    width: 1.2rem;
+    height: 1.7rem;
+    margin: 1.1rem 0.5rem 0 0.5rem; }
+  .tel-box input {
+    flex-grow: 1;
+    background-color: transparent;
+    font-size: 1.4rem; }
+  .tel-box .pwd {
+    width: 1.3rem;
+    height: 1.5rem;
+    margin: 1.3rem 0.5rem 0 0.5rem; }
+
+.forget {
+  width: 94%;
+  margin: 0 auto;
+  padding: 1.3rem 0;
+  text-align: right;
+  font-size: 1.2rem; }
+
+.login, .register {
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  height: 4.4rem;
+  line-height: 4.4rem;
+  font-size: 1.8rem;
+  border-radius: 2.2rem; }
+
+.login {
+  background-color: #fe5a51;
+  color: #ffffff;
+  margin-top: 5.3rem; }
+
+.register {
+  color: #fe5a51;
+  border: 1px solid #fe5a51;
+  margin-top: 1.1rem; }
+
+/*# sourceMappingURL=login.page.css.map */

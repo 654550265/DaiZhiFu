@@ -17,7 +17,6 @@ export class TabsPage {
     }
 
     change(e) {
-        console.log(e);
         this.tabType = e.detail.tab;
     }
 }

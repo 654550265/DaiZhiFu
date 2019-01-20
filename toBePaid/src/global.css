@@ -18,13 +18,17 @@ li, ul, ol {
 img {
   display: block; }
 
+input {
+  border: 0; }
+
 .title-md {
   text-align: center; }
 
 .header-md:after {
   background-image: none;
   height: 1px;
-  background-color: black; }
+  background-color: transparent;
+  bottom: 0; }
 
 .center {
   text-align: center; }
@@ -33,5 +37,29 @@ img {
   width: 100%;
   height: 1rem;
   background-color: #f7f7f7; }
+
+.sc-ion-buttons-md-s {
+  position: absolute; }
+
+.textLong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.ion-color-mycolor {
+  --ion-color-base: #fe5a51;
+  --ion-color-base-rgb: 254, 90, 81;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #e0540b;
+  --ion-color-tint: #ff7025; }
+
+.ion-color-favorite {
+  --ion-color-base: #f7f7f7;
+  --ion-color-base-rgb: 247, 247, 247;
+  --ion-color-contrast: #262626;
+  --ion-color-contrast-rgb: 38, 38, 38;
+  --ion-color-shade: #5ca56c;
+  --ion-color-tint: #78c288; }
 
 /*# sourceMappingURL=global.css.map */

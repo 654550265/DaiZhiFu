@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>淘宝任务</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content color="favorite">
+    <div class="task-list-box">
+        <div class="task-list" (click)="gotoTaskDteailsPage()">
+            <div class="taskid">
+                <div class="taskNum">ID:D194641687485</div>
+                <div>49元</div>
+            </div>
+            <div class="taskPrice">
+                <img src="../../assets/jifen.png">
+                <div class="taskPriceNum">￥3</div>
+            </div>
+        </div>
+        <div class="pop" *ngIf="false"></div>
+        <div class="text-box" *ngIf="false">
+            <div class="nostart">暂未开始</div>
+            <div class="clockBox">
+                2019-01-04 11:20左右
+                <img src="../../assets/clock.png">
+            </div>
+        </div>
+    </div>
+    <div class="task-yaoqiu">
+        <div class="titles">任务要点</div>
+        <div class="yaoqiu-list">
+            <div class="key">搜索关键字</div>
+            <div class="value textLong">燃气灶家用燃气灶家用燃气灶家用燃气灶家用燃气灶家用燃气灶家用燃气灶家用</div>
+        </div>
+        <div class="yaoqiu-list">
+            <div class="key">搜索关键字</div>
+            <div class="value textLong">燃气灶家用燃气灶家用燃气灶家用燃气灶家用燃气灶家用燃气灶家用燃气灶家用</div>
+        </div>
+        <div class="yaoqiu-list">
+            <div class="key">搜索关键字</div>
+            <div class="value textLong">燃气灶家用燃气灶家用燃气灶家用燃气灶家用燃气灶家用燃气灶家用燃气灶家用</div>
+        </div>
+    </div>
+    <div class="task-yaoqiu">
+        <div class="titles">卖家要求</div>
+        <div class="shopYaoqiu">不要加空格，关键词进店，货比一下别人家的，收藏加购物车，立即购买</div>
+    </div>
+    <div class="nickName center">昵称（今日可接单3）</div>
+</ion-content>

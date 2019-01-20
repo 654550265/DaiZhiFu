@@ -1,4 +1,4 @@
-<ion-content [color]="bgColor">
+<ion-content color="favorite">
     <div class="top-box">
         <img src="../../assets/title.png">
         <div class="pin center">莫羡他人高薪，且看闲时谁在拼</div>
@@ -15,26 +15,49 @@
         </div>
     </div>
     <div class="sub-list">
-        <div>
-            <span class="acv">垫付任务</span>
-        </div>
-        <div>
-            <span>浏览任务</span>
-        </div>
-        <div>
-            <span>推广赚钱</span>
+        <div *ngFor="let item of subList;let index=index" (click)="chooseOne(index)">
+            <span class="{{item.isAcv?'acv':''}}">{{item.text}}</span>
         </div>
     </div>
     <div class="task-list-box">
         <div class="task-list">
-            <div>
-                <div>ID:D194641687485</div>
+            <div class="taskid">
+                <div class="taskNum">ID:D194641687485</div>
                 <div>49元</div>
             </div>
-            <div>
-                <img src="">
-                <div>￥3</div>
-                <div class="">马上抢</div>
+            <div class="taskPrice">
+                <img src="../../assets/jifen.png">
+                <div class="taskPriceNum">￥3</div>
+                <div class="now">马上抢</div>
+            </div>
+        </div>
+        <div class="pop"></div>
+        <div class="text-box" (click)="gotoLoginPage()">
+            <div class="nostart">暂未开始</div>
+            <div class="clockBox">
+                2019-01-04 11:20左右
+                <img src="../../assets/clock.png">
+            </div>
+        </div>
+    </div>
+    <div class="task-list-box">
+        <div class="task-list" (click)="gotoTaskDteailsPage()">
+            <div class="taskid">
+                <div class="taskNum">ID:D194641687485</div>
+                <div>49元</div>
+            </div>
+            <div class="taskPrice">
+                <img src="../../assets/jifen.png">
+                <div class="taskPriceNum">￥3</div>
+                <div class="now">马上抢</div>
+            </div>
+        </div>
+        <div class="pop" *ngIf="false"></div>
+        <div class="text-box" *ngIf="false">
+            <div class="nostart">暂未开始</div>
+            <div class="clockBox">
+                2019-01-04 11:20左右
+                <img src="../../assets/clock.png">
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-tab1',
@@ -7,8 +8,40 @@ import {Component} from '@angular/core';
 })
 export class Tab1Page {
     bgColor: string;
+    subList: Array<any>;
 
-    constructor() {
+    constructor(public nav: NavController) {
         this.bgColor = '#f7f7f7';
+        this.subList = [{
+            text: '垫付任务',
+            type: '1',
+            isAcv: true,
+            isUrl: false
+        }, {
+            text: '浏览任务',
+            type: '2',
+            isAcv: false,
+            isUrl: false
+        }, {
+            text: '推广赚钱',
+            type: '3',
+            isAcv: false,
+            isUrl: true
+        }];
+    }
+
+    chooseOne(index) {
+        for (let values of this.subList) {
+            values.isAcv = false;
+        }
+        this.subList[index].isAcv = true;
+    }
+
+    gotoTaskDteailsPage() {
+        this.nav.navigateForward('/task-details');
+    }
+
+    gotoLoginPage() {
+        this.nav.navigateForward('/login');
     }
 }
