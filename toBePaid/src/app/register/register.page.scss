@@ -1,0 +1,36 @@
+.input-box {
+	background-color: white;
+	.input {
+		display: flex;
+		width: 94%;
+		margin: 0 auto;
+		height: 4rem;
+		line-height: 4rem;
+		div {
+			width: 20%;
+			color: #333;
+			font-size: 1.3rem;
+		}
+		input {
+			flex-grow: 1;
+			font-size: 1.1rem;
+		}
+		img {
+			width: 6.5rem;
+			height: 2rem;
+			margin-top: 0.7rem;
+		}
+		span {
+			color: #fe5a51;
+			font-size: 1.2rem;
+		}
+	}
+}
+
+.save {
+	margin-top: 7.25rem;
+}
+
+.mar-top1 {
+	margin-top: 1rem;
+}

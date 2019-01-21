@@ -1,1 +1,97 @@
 
+.sub-list {
+	width: 100%;
+	background-color: #fff;
+	height: 3.5rem;
+	line-height: 3.5rem;
+	display: flex;
+	font-size: 1.4rem;
+	margin-bottom: 1rem;
+	div {
+		width: 25%;
+		text-align: center;
+		span {
+			height: 3.4rem;
+			line-height: 3.4rem;
+			display: inline-block;
+			padding: 0 0.5rem;
+			border-bottom: 2px solid transparent;
+		}
+		.acv {
+			color: #fe5a51;
+			border-bottom: 2px solid #fe5a51;
+		}
+	}
+}
+
+.shop-box {
+	width: 100%;
+	background-color: #ffffff;
+	margin-bottom: 1rem;
+	.shop-list {
+		width: 94%;
+		margin: 0 auto;
+		.shop-list-top {
+			display: flex;
+			padding-top: 1rem;
+			img {
+				height: 6rem;
+				width: 6rem;
+			}
+			.shop-top-right {
+				flex-grow: 1;
+				margin-left: 1.4rem;
+				width: 77%;
+				.shop-top-right-name-box {
+					display: flex;
+					.shop-name {
+						font-size: 1.2rem;
+						color: #333333;
+						width: 75%;
+					}
+					.time {
+						text-align: right;
+						width: 25%;
+						font-size: 1.2rem;
+						color: #666666;
+					}
+				}
+				.shop-price {
+					color: #666666;
+					font-size: 1.2rem;
+					margin-top: 0.5rem;
+					span {
+						font-size: 1.4rem;
+						color: #fe5a51;
+					}
+				}
+				.make-type {
+					text-align: right;
+					font-size: 1.4rem;
+					color: #fe5a51;
+					margin-top: 0.5rem;
+				}
+			}
+		}
+		.daojishi {
+			text-align: center;
+			height: 3rem;
+			line-height: 3rem;
+			color: #666666;
+			font-size: 1.4rem;
+			border-top: 1px dashed #9a9a9a;
+			margin-top: 0.9rem;
+			position: relative;
+			span {
+				color: #fe5a51;
+			}
+			img {
+				width: 1.4rem;
+				height: 1.25rem;
+				position: absolute;
+				top: 0.9rem;
+				left: 30%;
+			}
+		}
+	}
+}

@@ -1,9 +1,56 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>订单管理</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content color="favorite">
+    <div class="sub-list">
+        <div *ngFor="let item of subList;let index=index" (click)="chooseOne(index)">
+            <span class="{{item.isAcv?'acv':''}}">{{item.text}}</span>
+        </div>
+    </div>
+    <div class="shop-box">
+        <div class="shop-list">
+            <div class="shop-list-top">
+                <img src="../../assets/400951737_wx.png">
+                <div class="shop-top-right">
+                    <div class="shop-top-right-name-box">
+                        <div class="shop-name textLong">淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称</div>
+                        <div class="time">2019-01-11</div>
+                    </div>
+                    <div class="shop-price"><span>￥3</span>/垫资49元</div>
+                    <div class="make-type">待操作</div>
+                </div>
+            </div>
+            <div class="daojishi">
+                倒计时
+                <span>00:24:04</span>
+                <img src="../../assets/barkColock.png">
+            </div>
+        </div>
+    </div>
+    <div class="shop-box">
+        <div class="shop-list">
+            <div class="shop-list-top">
+                <img src="../../assets/400951737_wx.png">
+                <div class="shop-top-right">
+                    <div class="shop-top-right-name-box">
+                        <div class="shop-name textLong">淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称</div>
+                        <div class="time">2019-01-11</div>
+                    </div>
+                    <div class="shop-price"><span>￥3</span>/垫资49元</div>
+                    <div class="make-type">待操作</div>
+                </div>
+            </div>
+            <div class="daojishi">
+                倒计时
+                <span>00:24:04</span>
+                <img src="../../assets/barkColock.png">
+            </div>
+        </div>
+    </div>
+</ion-content>

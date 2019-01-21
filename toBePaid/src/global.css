@@ -46,6 +46,24 @@ input {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
+.mar-top1 {
+  margin-top: 1rem; }
+
+.bor-bottom1 {
+  border-bottom: 1px solid #e6e6e6; }
+
+.save {
+  width: 94%;
+  margin-left: auto;
+  text-align: center;
+  margin-right: auto;
+  color: white;
+  background-color: #fe5a51;
+  border-radius: 2.2rem;
+  height: 4.4rem;
+  line-height: 4.4rem;
+  font-size: 1.8rem; }
+
 .ion-color-mycolor {
   --ion-color-base: #fe5a51;
   --ion-color-base-rgb: 254, 90, 81;

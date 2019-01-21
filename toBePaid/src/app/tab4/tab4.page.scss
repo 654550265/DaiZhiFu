@@ -1,0 +1,103 @@
+.top-box {
+	width: 100%;
+	height: 13.4rem;
+	background-color: #fe5a51;
+	.top-box-bai {
+		float: left;
+		width: 94%;
+		background-color: white;
+		margin-left: 3%;
+		border-radius: 0.5rem;
+		display: flex;
+		height: 8rem;
+		margin-top: 9.5rem;
+		position: relative;
+		box-shadow: #fe5a51 0 0 1rem 0.5rem;
+		.left, .right {
+			width: 50%;
+			text-align: center;
+		}
+		.price {
+			color: #262626;
+			font-size: 1.8rem;
+			margin-top: 2.1rem;
+		}
+		.text {
+			color: #333;
+			font-size: 1.2rem;
+			margin-top: 0.7rem;
+		}
+		img {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 5rem;
+			height: 5rem;
+			margin-left: -2.5rem;
+			margin-top: -2.5rem;
+			border-radius: 50%;
+		}
+	}
+}
+
+.mar-top65 {
+	margin-top: 6.5rem;
+}
+
+.list-box {
+	background-color: white;
+	.list {
+		width: 90%;
+		margin: 0 auto;
+		display: flex;
+		height: 4rem;
+		line-height: 4rem;
+		position: relative;
+		img {
+			width: 2.15rem;
+			height: 1.65rem;
+			margin-top: 1.1rem;
+		}
+		div {
+			flex-grow: 1;
+			margin-left: 1rem;
+			font-size: 1.3rem;
+			color: #262626;
+		}
+		.shengsu {
+			width: 1.9rem;
+			height: 1.85rem;
+			margin-top: 1rem;
+		}
+		.tuiguang {
+			width: 1.85rem;
+			height: 1.85rem;
+		}
+		.kefu {
+			width: 1.9rem;
+			height: 1.7rem;
+		}
+		.banben {
+			width: 2rem;
+			height: 2rem;
+			margin-top: 1rem;
+		}
+		.huancun {
+			width: 1.65rem;
+			height: 2rem;
+			margin-top: 0.9rem;
+		}
+	}
+	.list::after {
+		position: absolute;
+		top: 1.4rem;
+		right: 0;
+		content: "";
+		display: block;
+		width: 0.8rem;
+		height: 0.8rem;
+		border-top: 2px solid #818181;
+		border-right: 2px solid #818181;
+		transform: rotate(45deg);
+	}
+}
