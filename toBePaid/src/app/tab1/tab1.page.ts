@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from '@ionic/angular';
+import {HttpService} from '../http.service';
 
 @Component({
     selector: 'app-tab1',
@@ -10,7 +11,7 @@ export class Tab1Page {
     bgColor: string;
     subList: Array<any>;
 
-    constructor(public nav: NavController) {
+    constructor(public nav: NavController, public http: HttpService) {
         this.bgColor = '#f7f7f7';
         this.subList = [{
             text: '垫付任务',
@@ -28,6 +29,11 @@ export class Tab1Page {
             isAcv: false,
             isUrl: true
         }];
+        http.get('test', {
+            name: 'lianghui'
+        }).subscribe(res => {
+
+        });
     }
 
     chooseOne(index) {
