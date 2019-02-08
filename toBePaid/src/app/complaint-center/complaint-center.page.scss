@@ -1,0 +1,33 @@
+.sublist-box {
+	background-color: white;
+	height: 3rem;
+	line-height: 3rem;
+	display: flex;
+	.sublist {
+		width: 50%;
+		text-align: center;
+		span {
+			display: inline-block;
+			font-size: 1.3rem;
+			padding: 0 0.5rem;
+			height: 2.9rem;
+		}
+		.acv {
+			color: #fe5a51;
+			border-bottom: 2px solid #fe5a51;
+		}
+	}
+}
+
+.nothing {
+	width: 23.8rem;
+	height: 18.65rem;
+	margin: 9.45rem auto 0 auto;
+}
+
+.notext {
+	text-align: center;
+	color: #999;
+	font-size: 1.3rem;
+	margin-top: 1.3rem;
+}

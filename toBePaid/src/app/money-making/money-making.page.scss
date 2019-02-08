@@ -1,0 +1,76 @@
+.list {
+	display: flex;
+	background-color: white;
+	height: 4rem;
+	line-height: 4rem;
+	font-size: 1.3rem;
+	color: #333;
+	.title {
+		margin-left: 3%;
+	}
+	.text {
+		margin-right: 3%;
+		flex-grow: 1;
+		text-align: right;
+		font-size: 1.1rem;
+		color: #999;
+		span {
+			display: inline-block;
+			color: #fe5a51;
+			margin-right: 0.5rem;
+		}
+	}
+}
+
+.lists {
+	background-color: white;
+	display: flex;
+	height: 4rem;
+	line-height: 4rem;
+	padding: 0.2rem 0;
+	.sub-list {
+		width: 50%;
+		display: flex;
+		text-align: center;
+		border-right: 1px solid #e9e9e9;
+		img {
+			width: 1.7rem;
+			height: 1.9rem;
+			margin: 1rem 1rem 0 5rem;
+		}
+	}
+	.sub-list:nth-child(2) {
+		border-right: none;
+	}
+}
+
+.banner {
+	width: 100%;
+	height: 12.35rem;
+}
+
+.jiali {
+	font-size: 1.3rem;
+	color: #262626;
+	background-color: white;
+	.jiali-text {
+		width: 94%;
+		margin: 0 auto;
+		border-bottom: 1px solid #e6e6e6;
+		height: 4rem;
+		line-height: 4rem;
+	}
+	.text {
+		width: 94%;
+		margin: 0 auto;
+		font-size: 1rem;
+		color: #333;
+		line-height: 1.6rem;
+		margin-top: 0.5rem;
+		padding-bottom: 0.5rem;
+	}
+}
+
+.save {
+	margin-top: 3.8rem;
+}
