@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>申诉中心</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content color="favorite">
+    <div class="sublist-box">
+        <div class="sublist" *ngFor="let item of subList;let index=index" (click)="chooseOne(index)">
+            <span class="{{item.isacv?'acv':''}}">{{item.text}}</span>
+        </div>
+    </div>
+    <div>
+        <img src="../../assets/nosomething.png" class="nothing">
+        <div class="notext">矮油，这里还没有东西哦</div>
+    </div>
+
+</ion-content>
