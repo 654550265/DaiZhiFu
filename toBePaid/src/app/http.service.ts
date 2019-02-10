@@ -22,6 +22,4 @@ export class HttpService {
     get(url: string, obj: Object) {
         return this.httpClient.get(this.getUrl(url, obj));
     }
-
-
 }

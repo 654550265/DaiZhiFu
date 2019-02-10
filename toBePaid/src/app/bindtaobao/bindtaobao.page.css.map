@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,KAAM;EACL,UAAU,EAAE,MAAM",
+"sources": ["bindtaobao.page.scss"],
+"names": [],
+"file": "bindtaobao.page.css"
+}

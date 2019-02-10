@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>账户信息</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="favorite">
+    <div class="list-box mar-top1">
+        <div class="list bor-bottom1">
+            <div class="title">用户手机号</div>
+            <div class="text">13541565489</div>
+            <span class="right"></span>
+        </div>
+    </div>
+    <div class="list-box">
+        <div class="list bor-bottom1">
+            <div class="title">待支付ID</div>
+            <div class="text">792744</div>
+        </div>
+    </div>
+    <div class="list-box">
+        <div class="list bor-bottom1">
+            <div class="title">待支付等级</div>
+            <div class="text">LV0</div>
+        </div>
+    </div>
+    <div class="list-box">
+        <div class="list">
+            <div class="title">用户密码</div>
+            <div class="text"></div>
+            <span class="right"></span>
+        </div>
+    </div>
+    <div class="list-box mar-top1">
+        <div class="list bor-bottom1">
+            <div class="title">身份证</div>
+            <div class="text"></div>
+            <span class="right"></span>
+        </div>
+    </div>
+    <div class="list-box" (click)="gotoPages('/bindcard')">
+        <div class="list">
+            <div class="title">添加银行卡</div>
+            <div class="text"></div>
+            <span class="right"></span>
+        </div>
+    </div>
+    <div class="list-box mar-top1" (click)="gotoPages('/bindtaobao')">
+        <div class="list">
+            <div class="title">绑定淘宝账号</div>
+            <div class="text"></div>
+            <span class="right"></span>
+        </div>
+    </div>
+    <div class="loginout">退出登录</div>
+</ion-content>

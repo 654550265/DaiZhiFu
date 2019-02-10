@@ -1,0 +1,32 @@
+.save {
+  margin-top: 3.3rem; }
+
+.bankNames {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 12;
+  background-color: white;
+  width: 100%; }
+  .bankNames .choose {
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+    border-bottom: 1px solid #e5e5e5;
+    padding-left: 3%;
+    font-size: 1.4rem;
+    color: #4c4c4c; }
+  .bankNames .bankName {
+    width: 97%;
+    margin-left: 3%;
+    height: 3.3rem;
+    line-height: 3.3rem;
+    border-bottom: 1px solid #e5e5e5;
+    color: #4c4c4c;
+    font-size: 1.4rem; }
+  .bankNames .bankName:last-child {
+    border-bottom: none; }
+  .bankNames .acv {
+    color: #fe5a51; }
+
+/*# sourceMappingURL=bindcard.page.css.map */

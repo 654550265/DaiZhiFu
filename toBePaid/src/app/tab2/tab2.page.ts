@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-tab2',
@@ -8,7 +9,7 @@ import {Component} from '@angular/core';
 export class Tab2Page {
     subList: Array<any>;
 
-    constructor() {
+    constructor(public nav: NavController) {
         this.subList = [{
             text: '全部订单',
             type: '1',
@@ -33,5 +34,9 @@ export class Tab2Page {
             values.isAcv = false;
         }
         this.subList[index].isAcv = true;
+    }
+
+    gotoTaskDetailPage() {
+        this.nav.navigateForward("/task-details");
     }
 }
