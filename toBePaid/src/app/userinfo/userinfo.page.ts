@@ -18,4 +18,8 @@ export class UserinfoPage implements OnInit {
         this.nav.navigateForward(url);
     }
 
+    gotoidCardInfoPages() {
+        this.nav.navigateForward('id-card-info');
+    }
+
 }

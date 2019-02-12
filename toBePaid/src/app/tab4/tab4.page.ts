@@ -7,8 +7,10 @@ import {NavController} from '@ionic/angular';
     styleUrls: ['./tab4.page.scss'],
 })
 export class Tab4Page implements OnInit {
+    isShow: boolean;
 
     constructor(public nav: NavController) {
+        this.isShow = false;
     }
 
     ngOnInit() {
@@ -16,5 +18,13 @@ export class Tab4Page implements OnInit {
 
     gotoPage(url: string) {
         this.nav.navigateForward(url);
+    }
+
+    showPop() {
+        this.isShow = true;
+    }
+
+    hidePop() {
+        this.isShow = false;
     }
 }

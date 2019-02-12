@@ -1,0 +1,40 @@
+.list-box .list .text {
+	color: #333;
+	font-size: 1.3rem;
+}
+
+.list-box .list .main-col {
+	color: #fe5a51;
+}
+
+.img-boxs {
+	background-color: white;
+	width: 100%;
+	.img-box {
+		width: 94%;
+		margin: 0 auto;
+		display: flex;
+		padding: 1rem 0;
+		div {
+			width: 30%;
+			text-align: center;
+			img {
+				height: 8rem;
+				margin-bottom: 1rem;
+			}
+			span {
+				font-size: 1.3rem;
+				color: #333;
+
+			}
+		}
+		div:nth-child(2) {
+			margin: 0 5%;
+		}
+	}
+}
+
+.save {
+	margin-top: 7.5rem;
+}
+

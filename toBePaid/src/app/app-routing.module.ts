@@ -12,7 +12,12 @@ const routes: Routes = [
     {path: 'complaint-center', loadChildren: './complaint-center/complaint-center.module#ComplaintCenterPageModule'},
     {path: 'money-making', loadChildren: './money-making/money-making.module#MoneyMakingPageModule'},
     {path: 'bindtaobao', loadChildren: './bindtaobao/bindtaobao.module#BindtaobaoPageModule'},
-    {path: 'bindcard', loadChildren: './bindcard/bindcard.module#BindcardPageModule'}
+    {path: 'bindcard', loadChildren: './bindcard/bindcard.module#BindcardPageModule'},
+    {path: 'userinfo', loadChildren: './userinfo/userinfo.module#UserinfoPageModule'},
+    {path: 'id-card-info', loadChildren: './id-card-info/id-card-info.module#IdCardInfoPageModule'},
+  { path: 'change-tel', loadChildren: './change-tel/change-tel.module#ChangeTelPageModule' },
+  { path: 'change-pwd', loadChildren: './change-pwd/change-pwd.module#ChangePwdPageModule' },
+
 ];
 
 @NgModule({

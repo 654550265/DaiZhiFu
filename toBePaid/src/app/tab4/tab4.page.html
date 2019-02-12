@@ -30,7 +30,7 @@
             <div>推广赚钱</div>
         </div>
     </div>
-    <div class="list-box mar-top1">
+    <div class="list-box mar-top1" (click)="showPop()">
         <div class="list bor-bottom1">
             <img src="../../assets/account4.png" class="kefu">
             <div>联系客服</div>
@@ -47,5 +47,17 @@
             <img src="../../assets/account6.png" class="huancun">
             <div>清除缓存</div>
         </div>
+    </div>
+    <div class="pop" *ngIf="isShow"></div>
+    <div class="model-box" *ngIf="isShow">
+        <div class="model">
+            <div class="wechart">
+                <span>微信客服</span>
+            </div>
+            <img src="../../assets/erweicode.png" class="code">
+            <div class="text">保存图片使用微信扫一扫添加或直接点击下方按钮自动复制添加</div>
+            <div class="copy-btn">自动复制添加</div>
+        </div>
+        <img src="../../assets/close.png" class="close" (click)="hidePop()">
     </div>
 </ion-content>

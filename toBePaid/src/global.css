@@ -19,7 +19,8 @@ img {
   display: block; }
 
 input {
-  border: 0; }
+  border: 0;
+  outline: none; }
 
 .title-md {
   text-align: center; }
@@ -52,6 +53,12 @@ input {
 .bor-bottom1 {
   border-bottom: 1px solid #e6e6e6; }
 
+.main-col {
+  color: #fe5a51; }
+
+.main-bg {
+  background-color: #fe5a51; }
+
 .save {
   width: 94%;
   margin-left: auto;
@@ -62,7 +69,8 @@ input {
   border-radius: 2.2rem;
   height: 4.4rem;
   line-height: 4.4rem;
-  font-size: 1.8rem; }
+  font-size: 1.8rem;
+  box-shadow: 0rem 0rem 3rem #f7bdba; }
 
 .list-box {
   background-color: white;
@@ -136,6 +144,16 @@ input {
   background-color: black;
   opacity: 0.5;
   z-index: 11; }
+
+.pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: .5;
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
 
 .ion-color-mycolor {
   --ion-color-base: #fe5a51;
