@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-task-details',
@@ -8,11 +9,16 @@ import {Component, OnInit} from '@angular/core';
 export class TaskDetailsPage implements OnInit {
     color: string;
 
-    constructor() {
+    constructor(public nav: NavController) {
         this.color = '#fe5a51';
     }
 
     ngOnInit() {
     }
 
+    nextStep() {
+        //taobao-task
+        //look-task
+        this.nav.navigateForward('look-task');
+    }
 }

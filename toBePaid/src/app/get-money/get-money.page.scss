@@ -1,0 +1,38 @@
+.tixian {
+	height: 4rem;
+	line-height: 4rem;
+	color: #262626;
+	font-size: 1.2rem;
+	padding-left: 3%;
+}
+
+.message-list {
+	width: 87%;
+	margin-left: 10%;
+	display: flex;
+	height: 3rem;
+	line-height: 3rem;
+	div, input {
+		font-size: 1.2rem;
+		color: #333;
+	}
+	.msg {
+		flex-grow: 1;
+		text-align: right;
+	}
+	input {
+		flex-grow: 1;
+		text-align: right;
+	}
+}
+
+.get-num {
+	width: 94%;
+	margin: 0.5rem auto 0 auto;
+	color: #333;
+	font-size: 1.2rem;
+}
+
+.saves {
+	margin-top: 8rem;
+}

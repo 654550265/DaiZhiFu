@@ -23,9 +23,10 @@ img {
 	display: block;
 }
 
-input {
+input, textarea {
 	border: 0;
 	outline: none;
+	resize: none;
 }
 
 .title-md {
@@ -63,8 +64,20 @@ input {
 	margin-top: 1rem;
 }
 
+.pad-bottom1 {
+	padding-bottom: 1rem;
+}
+
 .bor-bottom1 {
 	border-bottom: 1px solid #e6e6e6;
+}
+
+.bor-top1 {
+	border-top: 1px solid #e6e6e6;
+}
+
+.font-bold {
+	font-weight: bold;
 }
 
 .main-col {
@@ -73,6 +86,10 @@ input {
 
 .main-bg {
 	background-color: #fe5a51;
+}
+
+.bg-white {
+	background-color: white;
 }
 
 .save {
@@ -87,6 +104,11 @@ input {
 	line-height: 4.4rem;
 	font-size: 1.8rem;
 	box-shadow: 0rem 0rem 3rem #f7bdba;
+}
+
+.saves {
+	@extend .save;
+	background-color: #fe736b;
 }
 
 .list-box {

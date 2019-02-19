@@ -19,7 +19,8 @@ export class UserinfoPage implements OnInit {
     }
 
     gotoidCardInfoPages() {
-        this.nav.navigateForward('id-card-info');
+        // this.nav.navigateForward('id-card-info');
+        this.nav.navigateForward('id-card-info-sure');
     }
 
 }

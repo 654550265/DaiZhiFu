@@ -1,0 +1,124 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>浏览任务</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="favorite">
+    <div class="mar-top1 taobao-title">
+        <div class="taobao">
+            <span>目标商品：</span>
+            <span class="main-col">平台系统返款</span>
+        </div>
+        <div class="taobao">
+            <span>店铺名称：</span>
+            <span class="shop-name">艾薇儿旗舰店</span>
+            <span>(请认证核对店铺名称)</span>
+        </div>
+    </div>
+    <div class="bg-white mar-top1">
+        <div class="target-shop">目标商品</div>
+        <div class="target-box">
+            <img src="../../assets/400951737_wx.png">
+            <div class="target-message">
+                <div>搜索展示价格：<span>69.8元</span></div>
+                <div>商品成交单价：<span>69.8元</span></div>
+                <div>件数或规格：<span>1个</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white mar-top1">
+        <div class="target-shop">目标商品 <span>此单不需要聊天</span></div>
+        <div class="btn-box">
+            <div class="btn">
+                <span>复制打开</span>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white mar-top1">
+        <div class="target-shop">任务要点</div>
+        <div class="requirement-list bor-top1">
+            任务类型
+            <span>收藏+购物车</span>
+        </div>
+        <div class="requirement-list bor-top1">
+            评论要求
+            <span>普通好评</span>
+        </div>
+        <div class="requirement-list bor-top1">
+            搜索关键字
+            <span class="open-APP">打开APP</span>
+            <span>上衣女</span>
+        </div>
+    </div>
+    <div class="bg-white mar-top1">
+        <div class="target-shop">浏览任务</div>
+        <div class="bor-top1 hedui-text font-bold main-col">请先核对店铺名称后再进行下一步操作</div>
+        <div class="hedui-text">店铺名称：<span>艾薇儿旗舰店</span></div>
+        <div class="hedui-input-look">
+            <textarea type="text" placeholder="请输入店铺名称进行核对"></textarea>
+            <div class="look-btn-box pad-bottom1">
+                <span>清除</span>
+                <span>核对</span>
+            </div>
+        </div>
+    </div>
+    <div class="mar-top1 bg-white pad-bottom1">
+        <div class="target-shops font-bold mar-top1">上传图片</div>
+        <div class="careful bor-top1">1、请确认代支付买手买号登录淘宝应用；</div>
+        <div class="careful">2、点击复制关键词并打开淘宝按钮，搜索指定关键词找到目标商品；</div>
+        <div class="careful pad-bottom1">3、对目标商品从上到下进行至少两分钟的浏览，在浏览过程中分别截取搜索结果页、目标商品头部、目标商品尾部，上传全部截图提交任务。</div>
+        <div class="card-img-box">
+            <div class="card-img">
+                <div class="add-box" *ngIf="true">
+                    <img src="../../assets/add.png" class="add">
+                </div>
+                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <div class="add-text">搜索页</div>
+            </div>
+            <div class="card-img">
+                <div class="add-box" *ngIf="true">
+                    <img src="../../assets/add.png" class="add">
+                </div>
+                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <div class="add-text">商品头部</div>
+            </div>
+            <div class="card-img">
+                <div class="add-box" *ngIf="true">
+                    <img src="../../assets/add.png" class="add">
+                </div>
+                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <div class="add-text">商品尾部</div>
+            </div>
+        </div>
+        <div class="saves">一次选三张</div>
+        <div class="card-img-box">
+            <div class="card-img">
+                <div class="add-box" *ngIf="true">
+                    <img src="../../assets/add.png" class="add">
+                </div>
+                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <div class="add-text">搜索页</div>
+            </div>
+            <div class="card-img">
+                <div class="add-box" *ngIf="true">
+                    <img src="../../assets/add.png" class="add">
+                </div>
+                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <div class="add-text">商品头部</div>
+            </div>
+            <div class="card-img">
+                <div class="add-box" *ngIf="true">
+                    <img src="../../assets/add.png" class="add">
+                </div>
+                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <div class="add-text">商品尾部</div>
+            </div>
+        </div>
+        <div class="saves">一次选三张</div>
+    </div>
+    <div class="save">提交任务</div>
+</ion-content>

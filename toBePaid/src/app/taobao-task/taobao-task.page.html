@@ -1,0 +1,107 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>淘宝任务</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="favorite">
+    <div class="mar-top1 taobao-title">
+        <div class="taobao">
+            <span>目标商品：</span>
+            <span class="main-col">平台系统返款</span>
+        </div>
+        <div class="taobao">
+            <span>店铺名称：</span>
+            <span class="shop-name">艾薇儿旗舰店</span>
+            <span>(请认证核对店铺名称)</span>
+        </div>
+    </div>
+    <div class="bg-white mar-top1">
+        <div class="target-shop">目标商品</div>
+        <div class="target-box">
+            <img src="../../assets/400951737_wx.png">
+            <div class="target-message">
+                <div>搜索展示价格：<span>69.8元</span></div>
+                <div>商品成交单价：<span>69.8元</span></div>
+                <div>件数或规格：<span>1个</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white mar-top1">
+        <div class="target-shop">目标商品 <span>此单不需要聊天</span></div>
+        <div class="btn-box">
+            <div class="btn">
+                <span>复制打开</span>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white mar-top1">
+        <div class="target-shop">任务要点</div>
+        <div class="requirement-list bor-top1">
+            任务类型
+            <span>淘宝任务</span>
+        </div>
+        <div class="requirement-list bor-top1">
+            件数
+            <span>目标商品拍1件</span>
+        </div>
+        <div class="requirement-list bor-top1">
+            规格尺寸
+            <span></span>
+        </div>
+        <div class="requirement-list bor-top1">
+            评论要求
+            <span>普通好评</span>
+        </div>
+        <div class="requirement-list bor-top1">
+            搜索关键字
+            <span class="open-APP">打开APP</span>
+            <span>上衣女</span>
+        </div>
+    </div>
+    <div class="bg-white mar-top1 pad-bottom1">
+        <div class="target-shop">注意事项</div>
+        <div class="careful bor-top1">1、代支付中接手任务的买号和淘宝实际下单的买号必须一致；</div>
+        <div class="careful">2、要求至少和商家客服有4个问题互动，不得一次性复制4个问题给客服，如果客服不在线，等待时间超过10分钟可直接下单；</div>
+        <div class="careful">3、严禁与卖家聊天提及刷单、信誉等敏感词语；</div>
+        <div class="careful">4、实际下单地址跟代支付绑定的地址必须一致；</div>
+        <div class="careful">5、付款不允许使用信用卡支付，否则将在佣金中扣除购物金额的1%手续费；</div>
+        <div class="careful">6、务必要等到快递真实签收后才能确认收货及好评。</div>
+    </div>
+    <div class="bg-white mar-top1">
+        <div class="target-shop">任务步骤</div>
+        <div class="bor-top1 hedui-text font-bold main-col">请先核对店铺名称后再进行下一步操作</div>
+        <div class="hedui-text">店铺名称：<span>艾薇儿旗舰店</span></div>
+        <div class="hedui-input bor-bottom1">
+            <input type="text" placeholder="请输入店铺名称进行核对">
+            <span>核对</span>
+        </div>
+        <div class="target-shops font-bold">聊天下单支付（查看示例）</div>
+        <div class="careful bor-top1">1、点击联系客服按钮，要求至少和商家客服有4个问题互动，不得一次性复制4个问题给客服，完成截图一张；</div>
+        <div class="careful">2、把商品加入购物车，确认件数、颜色、尺码和留言要求，请于接单5分钟后下单付款；</div>
+        <div class="careful pad-bottom1">3、付款完成后在支付宝截取付款账单详情图一张。</div>
+        <div class="card-img-box bor-bottom1">
+            <div class="card-img">
+                <div class="add-box" *ngIf="true">
+                    <img src="../../assets/add.png" class="add">
+                </div>
+                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <div class="add-text">上传截图</div>
+            </div>
+        </div>
+        <div class="target-shops font-bold">填写单号和实付金额</div>
+        <div class="hedui-text bor-top1">填写淘宝订单编号，请到手机淘宝查看并复制</div>
+        <div class="hedui-input">
+            <input type="text" placeholder="请输入淘宝订单编号">
+        </div>
+        <div class="hedui-text">填写实际付款金额，手机淘宝订单详情显示的金额就是实付金额</div>
+        <div class="hedui-input">
+            <input type="text" placeholder="请输入实际付款金额">
+        </div>
+        <div class="isequally pad-bottom1">请确保下单地址和平台收货地址一致，如若不一致，请联系专属主管修改，否则此单无佣金。</div>
+    </div>
+    <div class="save">提交任务</div>
+</ion-content>

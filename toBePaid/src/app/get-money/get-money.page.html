@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>佣金帐号</ion-title>
+        <ion-button slot="end" color="mycolor" (click)="gotoGetMoneyDetail()">提现记录</ion-button>
+    </ion-toolbar>
+</ion-header>
+<ion-content color="favorite">
+    <div class="bg-white mar-top1">
+        <div class="tixian bor-bottom1">提现信息</div>
+        <div class="message-list bor-bottom1">
+            <div class="msg-title">姓名</div>
+            <div class="msg">李四</div>
+        </div>
+        <div class="message-list bor-bottom1">
+            <div class="msg-title">银行卡号</div>
+            <div class="msg">6125426512354895210</div>
+        </div>
+        <div class="message-list bor-bottom1">
+            <div class="msg-title">总金额</div>
+            <div class="msg">0</div>
+        </div>
+        <div class="message-list bor-bottom1">
+            <div class="msg-title">提现金额</div>
+            <input type="text" placeholder="请输入提现金额">
+        </div>
+        <div class="message-list">
+            <div class="msg-title">密码</div>
+            <input type="password" placeholder="请输入登录密码">
+        </div>
+    </div>
+    <div class="bg-white mar-top1">
+        <div class="tixian bor-bottom1">提现说明</div>
+        <div class="get-num">1、佣金的最低提现金额是50元；</div>
+        <div class="get-num">2、每日1000元封顶；</div>
+        <div class="get-num">3、本金和佣金每天最多只可提现一次；</div>
+        <div class="get-num pad-bottom1">4、资金提现每间隔一天才可以提现，如1号提现一次，3号才可以
+            提现，如有疑问请联系客服。
+        </div>
+    </div>
+    <div class="saves">提交</div>
+</ion-content>

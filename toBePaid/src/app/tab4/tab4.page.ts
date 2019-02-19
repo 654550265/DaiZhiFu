@@ -27,4 +27,8 @@ export class Tab4Page implements OnInit {
     hidePop() {
         this.isShow = false;
     }
+
+    gotoCommission() {
+        this.nav.navigateForward('commission');
+    }
 }
