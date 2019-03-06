@@ -1,4 +1,4 @@
-let env = 'mock';
+let env = 'prod';
 let host = '';
 
 switch (env) {
@@ -9,7 +9,7 @@ switch (env) {
         host = 'http://006yinh.qnbug.cn/api/';
         break;
     case 'prod':
-        host = 'https://www.taskhome.com.cn/api/';
+        host = 'http://222app.qnbug.cn/';
         break;
 }
 

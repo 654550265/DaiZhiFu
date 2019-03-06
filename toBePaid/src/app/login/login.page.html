@@ -2,13 +2,13 @@
     <img src="../../assets/logo.png" class="logo">
     <div class="tel-box">
         <img src="../../assets/tel.png">
-        <input type="text" class="tel" placeholder="请输入手机号">
+        <input type="text" class="tel" placeholder="请输入手机号" [(ngModel)]="tel">
     </div>
     <div class="tel-box">
         <img src="../../assets/pwd.png" class="pwd">
-        <input type="password" class="tel" placeholder="请输入密码">
+        <input type="password" class="tel" placeholder="请输入密码" [(ngModel)]="pass">
     </div>
     <div class="forget" (click)="gotoForgetPage()">忘记密码</div>
-    <div class="login">登录</div>
+    <div class="login" (click)="login()">登录</div>
     <div class="register" (click)="gotoRegisterPage()">立即注册</div>
 </ion-content>
