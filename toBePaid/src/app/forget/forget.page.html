@@ -31,13 +31,13 @@
     <div class="input-box mar-top1">
         <div class="input bor-bottom1">
             <div>密码</div>
-            <input type="text" placeholder="请输入6-16位密码" [(ngModel)]="dataObj.pass">
+            <input type="password" placeholder="请输入6-16位密码" [(ngModel)]="dataObj.pass">
         </div>
     </div>
     <div class="input-box">
         <div class="input">
             <div>确认密码</div>
-            <input type="text" placeholder="请再次输入密码" [(ngModel)]="apass">
+            <input type="password" placeholder="请再次输入密码" [(ngModel)]="apass">
         </div>
     </div>
     <div class="save" (click)="forget()">提交</div>

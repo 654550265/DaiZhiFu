@@ -1,0 +1,18 @@
+.title-box {
+  padding: 0 3% 1rem 3%; }
+  .title-box .title {
+    font-size: 1.5rem;
+    color: #262626;
+    padding: 0.5rem 0; }
+  .title-box .text {
+    margin-bottom: 0.5rem;
+    color: #262626;
+    font-size: 1.3rem; }
+
+.start-do {
+  height: 4.4rem;
+  line-height: 4.4rem;
+  color: #fe5a51;
+  font-size: 1.4rem; }
+
+/*# sourceMappingURL=operation-instructions.page.css.map */

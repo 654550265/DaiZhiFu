@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController} from '@ionic/angular';
 import {HttpService} from '../http.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-tab1',
@@ -10,8 +11,9 @@ import {HttpService} from '../http.service';
 export class Tab1Page {
     bgColor: string;
     subList: Array<any>;
+    taskList: Array<any>;
 
-    constructor(public nav: NavController, public http: HttpService) {
+    constructor(public nav: NavController, public http: HttpService, public router: Router) {
         this.bgColor = '#f7f7f7';
         this.subList = [{
             text: '垫付任务',
@@ -29,10 +31,31 @@ export class Tab1Page {
             isAcv: false,
             isUrl: true
         }];
-        http.get('test', {
-            name: 'lianghui'
-        }).subscribe(res => {
+    }
 
+    ngOnInit() {
+        let user = localStorage.getItem('userInfo');
+        if (!user) {
+            this.nav.navigateForward('/login');
+        } else {
+            let type = '';
+            for (let value of this.subList) {
+                if (value.isAcv) {
+                    type = value.type;
+                    break;
+                }
+            }
+            this.init(type);
+        }
+    }
+
+    init(type) {
+        this.http.post('portal/index/getTaskList', {
+            taskType: type
+        }).then(res => {
+            if (res.code === '1') {
+                this.taskList = res.data;
+            }
         });
     }
 
@@ -41,10 +64,23 @@ export class Tab1Page {
             values.isAcv = false;
         }
         this.subList[index].isAcv = true;
+        this.init(this.subList[index].type);
     }
 
-    gotoTaskDteailsPage() {
-        this.nav.navigateForward('/task-details');
+    gotoTaskDteailsPage(taskNum) {
+        let taskType = '';
+        for (let value of this.subList) {
+            if (value.isAcv) {
+                taskType = value.type;
+                break;
+            }
+        }
+        this.router.navigate(['/task-details'], {
+            queryParams: {
+                taskNum: taskNum,
+                taskType: taskType
+            }
+        });
     }
 
     gotoLoginPage() {

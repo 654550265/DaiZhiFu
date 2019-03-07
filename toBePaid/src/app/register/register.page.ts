@@ -15,6 +15,7 @@ export class RegisterPage implements OnInit {
     text: string;
     isGetCode: boolean;
     codeImg: string;
+    code: string;
 
     constructor(public http: HttpService, public comm: CommentService, public nav: NavController) {
         this.dataObj = {};
@@ -24,9 +25,7 @@ export class RegisterPage implements OnInit {
     }
 
     ngOnInit() {
-        this.http.get('captcha.html', {}).subscribe(res => {
 
-        });
     }
 
     getCode() {
@@ -37,18 +36,23 @@ export class RegisterPage implements OnInit {
             } else if (!this.dataObj.tel) {
                 this.comm.showToast('请输入手机号');
             } else {
-                let time = 60;
-                let t = setInterval(() => {
-                    if (time > 0) {
-                        time--;
-                        this.text = `${time}s`;
-                        this.isGetCode = false;
-                    } else {
-                        this.text = `重新获取`;
-                        this.isGetCode = true;
-                        clearInterval(t);
+                this.http.post('user/login/getSmsCode', {}).subscribe(res => {
+                    if (res.code === '1') {
+                        this.code = res.data;
+                        let time = 60;
+                        let t = setInterval(() => {
+                            if (time > 0) {
+                                time--;
+                                this.text = `${time}s`;
+                                this.isGetCode = false;
+                            } else {
+                                this.text = `重新获取`;
+                                this.isGetCode = true;
+                                clearInterval(t);
+                            }
+                        }, 1000);
                     }
-                }, 1000);
+                });
             }
         }
     }
@@ -65,6 +69,8 @@ export class RegisterPage implements OnInit {
             this.comm.showToast('请输入图片验证码');
         } else if (!this.dataObj.smsCode) {
             this.comm.showToast('请输入短信验证码');
+        } else if (this.code !== this.dataObj.smsCode) {
+            this.comm.showToast('短信验证码不正确');
         } else if (!this.dataObj.pass) {
             this.comm.showToast('请输入密码');
         } else if (this.dataObj.pass.length < 6 || this.dataObj.pass.length > 16) {
@@ -72,7 +78,7 @@ export class RegisterPage implements OnInit {
         } else if (this.dataObj.pass !== this.apass) {
             this.comm.showToast('两次密码输入不一致');
         } else {
-            this.http.get('user/login/regDo', this.dataObj).subscribe(res => {
+            this.http.post('user/login/regDo', this.dataObj).subscribe(res => {
                 if (res.code === '1') {
                     this.comm.showToast('注册成功', () => {
                         this.nav.goBack();

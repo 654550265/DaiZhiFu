@@ -37,12 +37,13 @@ export class LoginPage implements OnInit {
         } else if (this.pass === '') {
             this.comm.showToast('请输入密码');
         } else {
-            this.http.get('user/login/loginDo', {
+            this.http.post('user/login/loginDo', {
                 tel: this.tel,
                 pass: this.pass
             }).subscribe(res => {
-                if (res.code === 1) {
-
+                if (res.code === "1") {
+                    localStorage.setItem("userInfo",JSON.stringify(res.data));
+                    this.nav.navigateForward("/tabs/tab1");
                 } else {
                     this.comm.showToast(res.msg);
                 }

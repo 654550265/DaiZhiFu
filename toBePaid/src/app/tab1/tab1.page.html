@@ -19,44 +19,23 @@
             <span class="{{item.isAcv?'acv':''}}">{{item.text}}</span>
         </div>
     </div>
-    <div class="task-list-box">
-        <div class="task-list">
+    <div class="task-list-box" *ngFor="let item of taskList">
+        <div class="task-list" (click)="gotoTaskDteailsPage(item.tasknum)">
             <div class="taskid">
-                <div class="taskNum">ID:D194641687485</div>
-                <div>49元</div>
+                <div class="taskNum">ID:{{item.tasknum}}</div>
+                <div>{{item.benjin}}元</div>
             </div>
             <div class="taskPrice">
                 <img src="../../assets/jifen.png">
-                <div class="taskPriceNum">￥3</div>
+                <div class="taskPriceNum">￥{{item.yongjin}}</div>
                 <div class="now">马上抢</div>
             </div>
         </div>
-        <div class="pop"></div>
-        <div class="text-box" (click)="gotoLoginPage()">
+        <div class="pop" *ngIf="item.isStart!=='1'"></div>
+        <div class="text-box" *ngIf="item.isStart!=='1'">
             <div class="nostart">暂未开始</div>
             <div class="clockBox">
-                2019-01-04 11:20左右
-                <img src="../../assets/clock.png">
-            </div>
-        </div>
-    </div>
-    <div class="task-list-box">
-        <div class="task-list" (click)="gotoTaskDteailsPage()">
-            <div class="taskid">
-                <div class="taskNum">ID:D194641687485</div>
-                <div>49元</div>
-            </div>
-            <div class="taskPrice">
-                <img src="../../assets/jifen.png">
-                <div class="taskPriceNum">￥3</div>
-                <div class="now">马上抢</div>
-            </div>
-        </div>
-        <div class="pop" *ngIf="false"></div>
-        <div class="text-box" *ngIf="false">
-            <div class="nostart">暂未开始</div>
-            <div class="clockBox">
-                2019-01-04 11:20左右
+                {{item.begin_time}}左右
                 <img src="../../assets/clock.png">
             </div>
         </div>

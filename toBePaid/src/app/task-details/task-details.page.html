@@ -10,12 +10,12 @@
     <div class="task-list-box">
         <div class="task-list" (click)="gotoTaskDteailsPage()">
             <div class="taskid">
-                <div class="taskNum">ID:D194641687485</div>
-                <div>49元</div>
+                <div class="taskNum">ID:{{taskObj.tasknum?taskObj.tasknum:""}}</div>
+                <div>{{taskObj.benjin}}元</div>
             </div>
             <div class="taskPrice">
                 <img src="../../assets/jifen.png">
-                <div class="taskPriceNum">￥3</div>
+                <div class="taskPriceNum">￥{{taskObj.yongjin}}</div>
             </div>
         </div>
         <div class="pop" *ngIf="false"></div>
