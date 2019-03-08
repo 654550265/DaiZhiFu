@@ -53,8 +53,8 @@ export class Tab1Page {
         this.http.post('portal/index/getTaskList', {
             taskType: type
         }).then(res => {
-            if (res.code === '1') {
-                this.taskList = res.data;
+            if (res['code'] === '1') {
+                this.taskList = res['data'];
             }
         });
     }

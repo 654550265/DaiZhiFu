@@ -40,12 +40,12 @@ export class LoginPage implements OnInit {
             this.http.post('user/login/loginDo', {
                 tel: this.tel,
                 pass: this.pass
-            }).subscribe(res => {
-                if (res.code === "1") {
-                    localStorage.setItem("userInfo",JSON.stringify(res.data));
-                    this.nav.navigateForward("/tabs/tab1");
+            }).then(res => {
+                if (res['code'] === '1') {
+                    localStorage.setItem('userInfo', JSON.stringify(res['data']));
+                    this.nav.navigateForward('/tabs/tab1');
                 } else {
-                    this.comm.showToast(res.msg);
+                    this.comm.showToast(res['msg']);
                 }
             });
         }

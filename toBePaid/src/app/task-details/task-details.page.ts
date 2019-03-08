@@ -29,8 +29,8 @@ export class TaskDetailsPage implements OnInit {
                 tasknum: params.taskNum,
                 uid: this.http.getUid()
             }).then(res => {
-                res.data.yaoqiu = JSON.parse(res.data.yaoqiu);
-                this.taskObj = res.data;
+                res['data'].yaoqiu = JSON.parse(res['data'].yaoqiu);
+                this.taskObj = res['data'];
             }).catch(err => {
                 this.comm.showToast(err.msg);
             });

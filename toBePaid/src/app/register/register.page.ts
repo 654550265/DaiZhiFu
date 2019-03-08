@@ -31,14 +31,14 @@ export class RegisterPage implements OnInit {
     getCode() {
         if (this.isGetCode) {
             let reg = /1[0-9]{10}/;
-            if (!reg.test(this.dataObj.tel)) {
+            if (!reg.test(this.dataObj['tel'])) {
                 this.comm.showToast('请输入正确的手机号');
-            } else if (!this.dataObj.tel) {
+            } else if (!this.dataObj['tel']) {
                 this.comm.showToast('请输入手机号');
             } else {
-                this.http.post('user/login/getSmsCode', {}).subscribe(res => {
-                    if (res.code === '1') {
-                        this.code = res.data;
+                this.http.post('user/login/getSmsCode', {}).then(res => {
+                    if (res['code'] === '1') {
+                        this.code = res['data'];
                         let time = 60;
                         let t = setInterval(() => {
                             if (time > 0) {
@@ -59,32 +59,32 @@ export class RegisterPage implements OnInit {
 
     register() {
         let reg = /1[0-9]{10}/;
-        if (!this.dataObj.tel) {
+        if (!this.dataObj['tel']) {
             this.comm.showToast('请输入手机号');
-        } else if (!reg.test(this.dataObj.tel)) {
+        } else if (!reg.test(this.dataObj['tel'])) {
             this.comm.showToast('请输入正确的手机号');
-        } else if (!this.dataObj.yqcode) {
+        } else if (!this.dataObj['yqcode']) {
             this.comm.showToast('请输入邀请码');
-        } else if (!this.dataObj.picCode) {
+        } else if (!this.dataObj['picCode']) {
             this.comm.showToast('请输入图片验证码');
-        } else if (!this.dataObj.smsCode) {
+        } else if (!this.dataObj['smsCode']) {
             this.comm.showToast('请输入短信验证码');
-        } else if (this.code !== this.dataObj.smsCode) {
+        } else if (this.code !== this.dataObj['smsCode']) {
             this.comm.showToast('短信验证码不正确');
-        } else if (!this.dataObj.pass) {
+        } else if (!this.dataObj['pass']) {
             this.comm.showToast('请输入密码');
-        } else if (this.dataObj.pass.length < 6 || this.dataObj.pass.length > 16) {
+        } else if (this.dataObj['pass'].length < 6 || this.dataObj['pass'].length > 16) {
             this.comm.showToast('请输入正确位数的密码');
-        } else if (this.dataObj.pass !== this.apass) {
+        } else if (this.dataObj['pass'] !== this.apass) {
             this.comm.showToast('两次密码输入不一致');
         } else {
-            this.http.post('user/login/regDo', this.dataObj).subscribe(res => {
-                if (res.code === '1') {
+            this.http.post('user/login/regDo', this.dataObj).then(res => {
+                if (res['code'] === '1') {
                     this.comm.showToast('注册成功', () => {
                         this.nav.goBack();
                     });
                 } else {
-                    this.comm.showToast(res.msg);
+                    this.comm.showToast(res['msg']);
                 }
             });
         }
