@@ -68,7 +68,6 @@ export class Tab2Page {
                 enddate.setHours(enddate.getHours()+1);
                 var endtime = Date.parse(enddate+'');
                 var time = endtime - (Date.parse(new Date()+'')/1000);
-                console.log(time);
                 var count_time = null;
                 function countdown() {
                     var s = time % 60;

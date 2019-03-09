@@ -16,6 +16,10 @@ export class TaskDetailssPage implements OnInit {
     init: boolean;
     taskObj: Object;
 
+    ngOnInit(){
+        
+    }
+
     constructor(public activeRoute: ActivatedRoute, public http: HttpService, public router: Router, public comm: CommentService) {
         this.color = '#fe5a51';
     }
