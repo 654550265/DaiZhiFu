@@ -88,6 +88,12 @@ export class TaskOrderPage implements OnInit {
     }
 
     lookMore() {
-        this.router.navigate([])
+        this.router.navigate(['/task-detailss'], {
+            queryParams: {
+                tasknum: this.tasknum,
+                taskType: this.taskType,
+                init: 123
+            }
+        });
     }
 }

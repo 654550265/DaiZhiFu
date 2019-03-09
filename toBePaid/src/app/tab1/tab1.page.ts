@@ -80,7 +80,8 @@ export class Tab1Page {
         this.router.navigate(['/task-details'], {
             queryParams: {
                 taskNum: taskNum,
-                taskType: taskType
+                taskType: taskType,
+                init: 456
             }
         });
     }

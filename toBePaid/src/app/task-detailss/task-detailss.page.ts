@@ -3,13 +3,13 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {HttpService} from '../http.service';
 import {CommentService} from '../comment.service';
 
-
 @Component({
-    selector: 'app-task-details',
-    templateUrl: './task-details.page.html',
-    styleUrls: ['./task-details.page.scss'],
+    selector: 'app-task-detailss',
+    templateUrl: './task-detailss.page.html',
+    styleUrls: ['./task-detailss.page.scss'],
 })
-export class TaskDetailsPage implements OnInit {
+export class TaskDetailssPage implements OnInit {
+
     color: string;
     tasknum: string;
     taskType: string;
@@ -22,10 +22,11 @@ export class TaskDetailsPage implements OnInit {
 
     ionViewDidEnter() {
         this.activeRoute.queryParams.subscribe((params: Params) => {
-            this.tasknum = params.taskNum;
+            console.log(params);
+            this.tasknum = params.tasknum;
             this.taskType = params.taskType;
             this.http.get('api/home/index/getTaskDetail', {
-                tasknum: params.taskNum,
+                tasknum: params.tasknum,
                 uid: this.http.getUid()
             }).then(res => {
                 res['data'].yaoqiu = JSON.parse(res['data'].yaoqiu);
@@ -36,14 +37,4 @@ export class TaskDetailsPage implements OnInit {
         });
     }
 
-    nextStep() {
-        //taobao-task
-        //look-task
-        this.router.navigate(['operation-instructions'], {
-            queryParams: {
-                taskNum: this.tasknum,
-                taskType: this.taskType
-            }
-        });
-    }
 }
