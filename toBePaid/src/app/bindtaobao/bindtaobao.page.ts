@@ -35,8 +35,8 @@ export class BindtaobaoPage implements OnInit {
         this.http.get('api/home/index/editTaobaoInfo', {
             uid: this.http.getUid()
         }).then(res => {
-            this.isSHowForm = res.data === '';
-            this.tabbaoInfo = res.data;
+            this.isSHowForm = res['data'] === '';
+            this.tabbaoInfo = res['data'];
         });
         this.http.get('api/home/index/get_area', {}).then(res => {
             this.proviceList = res['data'];

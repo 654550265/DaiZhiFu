@@ -90,7 +90,7 @@ export class ForgetPage implements OnInit {
         } else {
             this.http.get('user/login/redoDo', this.dataObj).then(res => {
                 this.comm.showToast('重置成功', () => {
-                    this.nav.back();
+                    this.nav.goBack();
                 });
             }).catch(err => {
                 this.comm.showToast(err.msg);

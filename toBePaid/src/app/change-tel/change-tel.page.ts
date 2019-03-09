@@ -89,7 +89,7 @@ export class ChangeTelPage implements OnInit {
                 smsCode: this.dataObj['smsCode']
             }).then(res => {
                 this.comm.showToast('修改成功', () => {
-                    this.nav.back();
+                    this.nav.goBack();
                 });
             }).catch(err => {
                 this.comm.showToast(err.msg);

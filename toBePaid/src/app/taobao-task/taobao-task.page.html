@@ -73,10 +73,10 @@
         <div class="careful pad-bottom1">3、付款完成后在支付宝截取付款账单详情图一张。</div>
         <div class="card-img-box bor-bottom1">
             <div class="card-img">
-                <div class="add-box" *ngIf="true">
+                <div class="add-box" *ngIf="xiadanPic===''" (click)="uploadImg()">
                     <img src="../../assets/add.png" class="add">
                 </div>
-                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <img src="{{xiadanPic===''?'../../assets/timg.png':xiadanPic}}" class="pic" *ngIf="xiadanPic!==''">
                 <div class="add-text">上传截图</div>
             </div>
         </div>

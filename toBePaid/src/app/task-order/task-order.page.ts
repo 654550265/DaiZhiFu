@@ -86,4 +86,8 @@ export class TaskOrderPage implements OnInit {
             }
         });
     }
+
+    lookMore() {
+        this.router.navigate([])
+    }
 }

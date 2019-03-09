@@ -33,7 +33,7 @@ export class BindcardPage implements OnInit {
         this.http.get('api/home/index/editBankInfo', {
             uid: this.http.getUid()
         }).then(res => {
-            this.bankInfo = res.data;
+            this.bankInfo = res['data'];
         });
     }
 
