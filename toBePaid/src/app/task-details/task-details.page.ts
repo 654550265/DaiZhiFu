@@ -20,8 +20,8 @@ export class TaskDetailsPage implements OnInit {
         this.color = '#fe5a51';
     }
 
-    ngOnInit() {
-
+    ngOnInit(){
+        
     }
 
     ionViewDidEnter() {
