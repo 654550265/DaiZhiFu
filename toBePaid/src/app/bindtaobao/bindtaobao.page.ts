@@ -28,7 +28,9 @@ export class BindtaobaoPage implements OnInit {
 
     constructor(public http: HttpService, public comm: CommentService, public nav: NavController) {
         this.sex = 1;
-
+        this.provice = '0';
+        this.city = '0';
+        this.qu = '0';
     }
 
     ngOnInit() {
@@ -64,21 +66,21 @@ export class BindtaobaoPage implements OnInit {
 
     subMiteData() {
         console.log(this.huabei);
-        let arr = [], reg = /1[0-9]{10}/;
+        let arr = [], reg = /^1[34578]\d{9}$/;
         for (let value of this.proviceList) {
-            if (value.id === this.provice) {
+            if (value.id === parseInt(this.provice)) {
                 arr[0] = value.name;
                 break;
             }
         }
         for (let value of this.cityList) {
-            if (value.id === this.city) {
+            if (value.id === parseInt(this.city)) {
                 arr[1] = value.name;
                 break;
             }
         }
         for (let value of this.quList) {
-            if (value.id === this.qu) {
+            if (value.id === parseInt(this.qu)) {
                 arr[2] = value.name;
                 break;
             }
@@ -101,6 +103,7 @@ export class BindtaobaoPage implements OnInit {
                 name: this.name,
                 area: arr.join(),
                 lxr: this.lxr,
+                mobile: this.tel,
                 addr: this.addr,
                 sex: this.sex,
                 taoqi: this.taoqi,

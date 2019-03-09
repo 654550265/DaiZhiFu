@@ -39,21 +39,23 @@
                 <div class="text">{{tabbaoInfo.addr}}</div>
             </div>
         </div>
+
         <div class="list-box">
             <div class="list bor-bottom1">
                 <div class="title">审核状态</div>
-                <div class="text {{bankInfo.bank_status===1?'have':'main-col'}}">{{tabbaoInfo.status===0?"待审核":tabbaoInfo.status===1?"审核通过":"审核不通过"}}</div>
+                <div class="text {{tabbaoInfo.status===1?'have':'main-col'}}">{{tabbaoInfo.status===0?"待审核":tabbaoInfo.status===1?"审核通过":"审核不通过"}}</div>
             </div>
         </div>
+
         <div class="list-box" *ngIf="tabbaoInfo.status===2">
             <div class="list">
                 <div class="title">驳回原因</div>
-                <div class="text">{{tabbaoInfo.text}}</div>
+                <div class="text">{{tabbaoInfo.allow_text}}</div>
             </div>
         </div>
     </div>
     <div *ngIf="isSHowForm">
-        <div class="list-box mar-top1" *ngIf="!isSHowForm">
+        <div class="list-box mar-top1">
             <div class="list bor-bottom1">
                 <div class="title">淘宝账户</div>
                 <input type="text" class="text" placeholder="请输入淘宝账户" [(ngModel)]="name">
@@ -76,16 +78,18 @@
                 <div class="title">选择区域</div>
                 <div class="text select-box">
                     <select [(ngModel)]="provice" (ngModelChange)="proviceChange($event)">
-                        <option value="0" selected="selected">请选择</option>
+                        <option value="0">请选择</option>
                         <option *ngFor="let item of proviceList" value="{{item.id}}">
                             {{item.name}}
                         </option>
                     </select>
                     <select [(ngModel)]="city" (ngModelChange)="cityChange($event)">
+                        <option value="0">请选择</option>
                         <option *ngFor="let item of cityList" value="{{item.id}}">{{item.name}}</option>
                     </select>
                     <select [(ngModel)]="qu">
-                        <option *ngFor="let item of quList" value="{{item.value}}">{{item.name}}</option>
+                        <option value="0">请选择</option>
+                        <option *ngFor="let item of quList" value="{{item.id}}">{{item.name}}</option>
                     </select>
                 </div>
                 <!--<span></span>-->

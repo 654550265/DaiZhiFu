@@ -1,6 +1,11 @@
-.list-box .list .text {
-	color: #333;
-	font-size: 1.3rem;
+.list-box .list {
+	.text {
+		color: #333;
+		font-size: 1.3rem;
+	}
+	.have {
+		color: #0ec254;
+	}
 }
 
 .list-box .list .main-col {

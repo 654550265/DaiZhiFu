@@ -13,7 +13,7 @@ export class CommentService {
         const toast = await this.toast.create({
             message: msg,
             duration: 1500,
-            position: 'bottom'
+            position: 'top'
         });
         toast.present();
         setTimeout(() => {
