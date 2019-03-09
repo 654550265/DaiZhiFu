@@ -8,57 +8,175 @@
 </ion-header>
 
 <ion-content color="favorite">
-    <div class="tishi">请填写本人真实信息</div>
-    <div class="put-box">
-        <div class="put bor-bottom1">
-            <div class="text">姓名</div>
-            <input type="text" placeholder="请输入真实姓名" [(ngModel)]="uname">
-        </div>
-        <div class="put bor-bottom1">
-            <div class="text">身份证号</div>
-            <input type="text" placeholder="请输入真实身份证号" [(ngModel)]="idnumber">
-        </div>
-    </div>
-    <div class="img-box mar-top1">
-        <div class="img-title bor-bottom1">
-            <div>上传身份证照片</div>
-            <div>代表您的形象,请认真上传</div>
-        </div>
-        <div class="imgs">
-            <div class="images">
-                <div class="image" *ngIf="!isIdPic1" (click)="chooseOneIdCard(1)">
-                    <img src="../../assets/photo.png">
-                    <div>上传正面照片</div>
-                </div>
-                <img src="{{idPic1}}" class="card" *ngIf="isIdPic1">
+    <div *ngIf="status === '0'">
+        <div class="tishi">请填写本人真实信息</div>
+        <div class="put-box">
+            <div class="put bor-bottom1">
+                <div class="text">姓名</div>
+                <input type="text" placeholder="请输入真实姓名" [(ngModel)]="name">
             </div>
-            <div class="images">
-                <div class="image" *ngIf="!isIdPic2" (click)="chooseOneIdCard(2)">
-                    <img src="../../assets/photo.png">
-                    <div>上传背面照片</div>
-                </div>
-                <img src="{{idPic2}}" class="card" *ngIf="isIdPic2">
-            </div>
-            <div class="images">
-                <div class="image" *ngIf="!isIdPic3" (click)="chooseOneIdCard(3)">
-                    <img src="../../assets/photo.png">
-                    <div>上传手持照片</div>
-                </div>
-                <img src="{{idPic3}}" class="card" *ngIf="isIdPic3">
+            <div class="put bor-bottom1">
+                <div class="text">身份证号</div>
+                <input type="text" placeholder="请输入真实身份证号" [(ngModel)]="idnumber">
             </div>
         </div>
-    </div>
-    <div class="biaozhuan-box mar-top1">
-        <div class="biaozhun-title bor-bottom1">上传标准</div>
-        <div class="biaozhun">
-            <img src="../../assets/timg.png">
-            <div>身份证正面要求人像、文字清晰可见，无模糊打码，如左图（为保护隐私打码）所示，</div>
+        <div class="img-box mar-top1">
+            <div class="img-title bor-bottom1">
+                <div>上传身份证照片</div>
+                <div>代表您的形象,请认真上传</div>
+            </div>
+            <div class="imgs">
+                <div class="images" (click)="chooseOneIdCard(1)">
+                    <div class="image" *ngIf="!idPic1">
+                        <img src="../../assets/photo.png">
+                        <div>上传正面照片</div>
+                    </div>
+                    <img *ngIf="idPic1" src="{{idPic1}}" class="card">
+                </div>
+                <div class="images" (click)="chooseOneIdCard(2)">
+                    <div class="image" *ngIf="!idPic2">
+                        <img src="../../assets/photo.png">
+                        <div>上传背面照片</div>
+                    </div>
+                    <img *ngIf="idPic2" src="{{idPic2}}" class="card">
+                </div>
+                <div class="images" (click)="chooseOneIdCard(3)">
+                    <div class="image" *ngIf="!idPic3">
+                        <img src="../../assets/photo.png">
+                        <div>上传手持照片</div>
+                    </div>
+                    <img *ngIf="idPic3" src="{{idPic3}}" class="card">
+                </div>
+            </div>
         </div>
-        <div class="biaozhun">
-            <img src="../../assets/timg(1).png">
-            <div>身份证手持照要求本人面部清晰可见，证件文字和人像必须清晰可见，无遮挡，无模糊，证件必须双手握持，如左图（为保护隐私打码）所示，</div>
+        <div class="biaozhuan-box mar-top1">
+            <div class="biaozhun-title bor-bottom1">上传标准</div>
+            <div class="biaozhun">
+                <img src="../../assets/timg.png">
+                <div>身份证正面要求人像、文字清晰可见，无模糊打码，如左图（为保护隐私打码）所示，</div>
+            </div>
+            <div class="biaozhun">
+                <img src="../../assets/timg(1).png">
+                <div>身份证手持照要求本人面部清晰可见，证件文字和人像必须清晰可见，无遮挡，无模糊，证件必须双手握持，如左图（为保护隐私打码）所示，</div>
+            </div>
+        </div>
+        <div class="zige">只有身份证和淘宝账号都上传齐全才具备审核资格</div>
+        <div class="save" (click)="save()">提交</div>
+    </div>
+    <div *ngIf="status === '1'">
+        <div class="put-box">
+            <div class="put bor-bottom1">
+                <div class="text">姓名</div>
+                {{name}}
+            </div>
+            <div class="put bor-bottom1">
+                <div class="text">身份证号</div>
+                {{idnumber}}
+            </div>
+        </div>
+        <div *ngIf="passStatus === 0">
+            <div class="put-box">
+                <div class="put bor-bottom1">
+                    <div class="text">审核状态</div>
+                    审核中
+                </div>
+            </div>
+            <div class="img-box mar-top1">
+                <div class="imgs">
+                    <div class="images" (click)="chooseOneIdCard(1)">
+                        <div class="image" *ngIf="!idPic1">
+                            <img src="../../assets/photo.png">
+                            <div>上传正面照片</div>
+                        </div>
+                        <img *ngIf="idPic1" src="{{idPic1}}" class="card">
+                    </div>
+                    <div class="images" (click)="chooseOneIdCard(2)">
+                        <div class="image" *ngIf="!idPic2">
+                            <img src="../../assets/photo.png">
+                            <div>上传背面照片</div>
+                        </div>
+                        <img *ngIf="idPic2" src="{{idPic2}}" class="card">
+                    </div>
+                    <div class="images" (click)="chooseOneIdCard(3)">
+                        <div class="image" *ngIf="!idPic3">
+                            <img src="../../assets/photo.png">
+                            <div>上传手持照片</div>
+                        </div>
+                        <img *ngIf="idPic3" src="{{idPic3}}" class="card">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="passStatus === 1">
+            <div class="put-box">
+                <div class="put bor-bottom1">
+                    <div class="text">审核状态</div>
+                    审核通过
+                </div>
+            </div>
+            <div class="img-box mar-top1">
+                <div class="imgs">
+                    <div class="images" (click)="chooseOneIdCard(1)">
+                        <div class="image" *ngIf="!idPic1">
+                            <img src="../../assets/photo.png">
+                            <div>上传正面照片</div>
+                        </div>
+                        <img *ngIf="idPic1" src="{{idPic1}}" class="card">
+                    </div>
+                    <div class="images" (click)="chooseOneIdCard(2)">
+                        <div class="image" *ngIf="!idPic2">
+                            <img src="../../assets/photo.png">
+                            <div>上传背面照片</div>
+                        </div>
+                        <img *ngIf="idPic2" src="{{idPic2}}" class="card">
+                    </div>
+                    <div class="images" (click)="chooseOneIdCard(3)">
+                        <div class="image" *ngIf="!idPic3">
+                            <img src="../../assets/photo.png">
+                            <div>上传手持照片</div>
+                        </div>
+                        <img *ngIf="idPic3" src="{{idPic3}}" class="card">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="passStatus === 2">
+            <div class="put-box">
+                <div class="put bor-bottom1">
+                    <div class="text">审核状态</div>
+                    审核未通过
+                </div>
+                <div class="put bor-bottom1">
+                    <div class="text">驳回原因</div>
+                    {{noPsssText}}
+                </div>
+            </div>
+            <div class="img-box mar-top1">
+                <div class="imgs">
+                    <div class="images" (click)="chooseOneIdCard(1)">
+                        <div class="image" *ngIf="!idPic1">
+                            <img src="../../assets/photo.png">
+                            <div>上传正面照片</div>
+                        </div>
+                        <img *ngIf="idPic1" src="{{idPic1}}" class="card">
+                    </div>
+                    <div class="images" (click)="chooseOneIdCard(2)">
+                        <div class="image" *ngIf="!idPic2">
+                            <img src="../../assets/photo.png">
+                            <div>上传背面照片</div>
+                        </div>
+                        <img *ngIf="idPic2" src="{{idPic2}}" class="card">
+                    </div>
+                    <div class="images" (click)="chooseOneIdCard(3)">
+                        <div class="image" *ngIf="!idPic3">
+                            <img src="../../assets/photo.png">
+                            <div>上传手持照片</div>
+                        </div>
+                        <img *ngIf="idPic3" src="{{idPic3}}" class="card">
+                    </div>
+                </div>
+            </div>
+            <div class="save" (click)="save()">提交</div>
         </div>
     </div>
-    <div class="zige">只有身份证和淘宝账号都上传齐全才具备审核资格</div>
-    <div class="save">提交</div>
 </ion-content>

@@ -37,16 +37,16 @@ tel: "12312312312"*/
 
     gotoidCardInfoPages() {
         // this.nav.navigateForward('id-card-info');
-        this.http.get('api/home/index/editIdStatus', {
-            uid: this.http.getUid()
-        }).then(res => {
-            let type = res['data'];
-            switch (type) {
-                case '0':
-                    this.router.navigate(['id-card-info-sure']);
-            }
-        });
-
+        // this.http.get('api/home/index/editIdStatus', {
+        //     uid: this.http.getUid()
+        // }).then(res => {
+        //     let type = res['data'];
+        //     switch (type) {
+        //         case '0':
+        //             this.router.navigate(['id-card-info-sure']);
+        //     }
+        // });
+        this.router.navigate(['id-card-info-sure']);
     }
 
     async logout() {
