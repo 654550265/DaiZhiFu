@@ -13,43 +13,23 @@
             <span class="{{item.isAcv?'acv':''}}">{{item.text}}</span>
         </div>
     </div>
-    <div class="shop-box" (click)="gotoTaskDetailPage()">
+    <div class="shop-box" *ngFor="let order of orders"  (click)="gotoTaskDetailPage(order)">
         <div class="shop-list">
             <div class="shop-list-top">
-                <img src="../../assets/400951737_wx.png">
+                <img src="{{order.pic}}">
                 <div class="shop-top-right">
                     <div class="shop-top-right-name-box">
-                        <div class="shop-name textLong">淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称</div>
-                        <div class="time">2019-01-11</div>
+                        <div class="shop-name textLong">{{order.name}}</div>
+                        <div class="time">{{order.create_time}}</div>
                     </div>
-                    <div class="shop-price"><span>￥3</span>/垫资49元</div>
-                    <div class="make-type">待操作</div>
+                    <div class="shop-price"><span>￥{{order.yongjin}}</span>/垫资{{order.benjin}}元</div>
+                    <div class="make-type">{{order.status}}</div>
                 </div>
             </div>
             <div class="daojishi">
                 倒计时
-                <span>00:24:04</span>
-                <img src="../../assets/barkColock.png">
-            </div>
-        </div>
-    </div>
-    <div class="shop-box">
-        <div class="shop-list">
-            <div class="shop-list-top">
-                <img src="../../assets/400951737_wx.png">
-                <div class="shop-top-right">
-                    <div class="shop-top-right-name-box">
-                        <div class="shop-name textLong">淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称淘宝昵称</div>
-                        <div class="time">2019-01-11</div>
-                    </div>
-                    <div class="shop-price"><span>￥3</span>/垫资49元</div>
-                    <div class="make-type">待操作</div>
-                </div>
-            </div>
-            <div class="daojishi">
-                倒计时
-                <span>00:24:04</span>
-                <img src="../../assets/barkColock.png">
+                <span>{{order.count}}</span>
+                <img src="assets/barkColock.png">
             </div>
         </div>
     </div>
