@@ -68,53 +68,53 @@
         <div class="careful">2、点击复制关键词并打开淘宝按钮，搜索指定关键词找到目标商品；</div>
         <div class="careful pad-bottom1">3、对目标商品从上到下进行至少两分钟的浏览，在浏览过程中分别截取搜索结果页、目标商品头部、目标商品尾部，上传全部截图提交任务。</div>
         <div class="card-img-box">
-            <div class="card-img">
-                <div class="add-box" *ngIf="true">
+            <div class="card-img" (click)="chooseImg('liulan',1)">
+                <div class="add-box" *ngIf="!liulan_pic1">
                     <img src="../../assets/add.png" class="add">
                 </div>
-                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <img src="{{liulan_pic1}}" class="pic" *ngIf="liulan_pic1">
                 <div class="add-text">搜索页</div>
             </div>
-            <div class="card-img">
-                <div class="add-box" *ngIf="true">
+            <div class="card-img" (click)="chooseImg('liulan',2)">
+                <div class="add-box" *ngIf="!liulan_pic2">
                     <img src="../../assets/add.png" class="add">
                 </div>
-                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <img src="{{liulan_pic2}}" class="pic" *ngIf="liulan_pic2">
                 <div class="add-text">商品头部</div>
             </div>
-            <div class="card-img">
-                <div class="add-box" *ngIf="true">
+            <div class="card-img" (click)="chooseImg('liulan',3)">
+                <div class="add-box" *ngIf="!liulan_pic3">
                     <img src="../../assets/add.png" class="add">
                 </div>
-                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <img src="{{liulan_pic3}}" class="pic" *ngIf="liulan_pic3">
                 <div class="add-text">商品尾部</div>
             </div>
         </div>
-        <div class="saves">一次选三张</div>
+        <div class="saves" (click)="chooseImgs('liulan')">一次选三张</div>
         <div class="card-img-box">
-            <div class="card-img">
-                <div class="add-box" *ngIf="true">
+            <div class="card-img" (click)="chooseImg('shoucang',1)">
+                <div class="add-box" *ngIf="!shoucang_pic1">
                     <img src="../../assets/add.png" class="add">
                 </div>
-                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <img src="{{shoucang_pic1}}" class="pic" *ngIf="shoucang_pic1">
                 <div class="add-text">搜索页</div>
             </div>
-            <div class="card-img">
-                <div class="add-box" *ngIf="true">
+            <div class="card-img" (click)="chooseImg('shoucang',2)">
+                <div class="add-box" *ngIf="!shoucang_pic2">
                     <img src="../../assets/add.png" class="add">
                 </div>
-                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <img src="{{shoucang_pic2}}" class="pic" *ngIf="shoucang_pic2">
                 <div class="add-text">商品头部</div>
             </div>
-            <div class="card-img">
-                <div class="add-box" *ngIf="true">
+            <div class="card-img" (click)="chooseImg('shoucang',3)">
+                <div class="add-box" *ngIf="!shoucang_pic3">
                     <img src="../../assets/add.png" class="add">
                 </div>
-                <img src="../../assets/timg.png" class="pic" *ngIf="false">
+                <img src="{{shoucang_pic3}}" class="pic" *ngIf="shoucang_pic3">
                 <div class="add-text">商品尾部</div>
             </div>
         </div>
-        <div class="saves">一次选三张</div>
+        <div class="saves" (click)="chooseImgs('shoucang')">一次选三张</div>
     </div>
     <div class="save" (click)="subMessage()">提交任务</div>
 </ion-content>
