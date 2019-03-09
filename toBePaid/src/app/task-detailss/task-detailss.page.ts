@@ -20,6 +20,10 @@ export class TaskDetailssPage implements OnInit {
         this.color = '#fe5a51';
     }
 
+    ngOnInit() {
+
+    }
+
     ionViewDidEnter() {
         this.activeRoute.queryParams.subscribe((params: Params) => {
             console.log(params);

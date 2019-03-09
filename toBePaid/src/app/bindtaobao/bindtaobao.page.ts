@@ -37,6 +37,9 @@ export class BindtaobaoPage implements OnInit {
         }).then(res => {
             this.isSHowForm = res['data'] === '';
             this.tabbaoInfo = res['data'];
+        }).catch(err => {
+            this.isSHowForm = err['data'] === '';
+            this.tabbaoInfo = err['data'];
         });
         this.http.get('api/home/index/get_area', {}).then(res => {
             this.proviceList = res['data'];
