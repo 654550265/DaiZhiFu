@@ -18,7 +18,7 @@ li, ul, ol {
 img {
   display: block; }
 
-input, textarea {
+input, textarea, select {
   border: 0;
   outline: none;
   resize: none; }

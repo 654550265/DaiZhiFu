@@ -93,4 +93,27 @@ export class HttpService {
         }
         return str;
     }
+
+    formatSeconds(value: any) {
+        let theTime = value;// 秒
+        let middle = 0;// 分
+        let hour = 0;// 小时
+
+        if (theTime > 60) {
+            middle = parseInt(theTime / 60);
+            theTime = parseInt(theTime % 60);
+            if (middle > 60) {
+                hour = parseInt(middle / 60);
+                middle = parseInt(middle % 60);
+            }
+        }
+        var result = `${parseInt(theTime)}秒`;
+        if (middle > 0) {
+            result = '' + parseInt(middle) + '分' + result;
+        }
+        if (hour > 0) {
+            result = '' + parseInt(hour) + '小时' + result;
+        }
+        return result;
+    }
 }

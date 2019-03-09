@@ -1,4 +1,14 @@
 .save {
   margin-top: 5.6rem; }
 
+.select-box {
+  display: flex; }
+  .select-box select {
+    width: 33.33%;
+    border: 0;
+    flex-grow: 1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; }
+
 /*# sourceMappingURL=bindtaobao.page.css.map */

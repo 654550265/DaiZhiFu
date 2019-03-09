@@ -11,20 +11,28 @@
     <div class="list-box mar-top1">
         <div class="list bor-bottom1">
             <div class="title">淘宝账户</div>
-            <input type="text" class="text" placeholder="请输入淘宝账户">
+            <input type="text" class="text" placeholder="请输入淘宝账户" [(ngModel)]="name">
         </div>
     </div>
     <div class="list-box">
         <div class="list bor-bottom1">
             <div class="title">收货人</div>
-            <input type="text" class="text" placeholder="请输入收货人姓名">
+            <input type="text" class="text" placeholder="请输入收货人姓名" [(ngModel)]="lxr">
         </div>
     </div>
     <div class="list-box">
         <div class="list bor-bottom1">
             <div class="title">选择区域</div>
-            <div class="text">
-
+            <div class="text select-box">
+                <select [(ngModel)]="provice" (ngModelChange)="proviceChange($event)">
+                    <option *ngFor="let item of proviceList" value="{{item.id}}">{{item.name}}</option>
+                </select>
+                <select>
+                    <option value="0">请选择</option>
+                </select>
+                <select>
+                    <option value="0">请选择</option>
+                </select>
             </div>
             <span></span>
         </div>
@@ -32,7 +40,7 @@
     <div class="list-box">
         <div class="list bor-bottom1">
             <div class="title">详细地址</div>
-            <input type="text" class="text" placeholder="请输入收货人的详细地址">
+            <input type="text" class="text" placeholder="请输入收货人的详细地址" [(ngModel)]="addr">
         </div>
     </div>
     <div class="list-box mar-top1">
@@ -44,12 +52,12 @@
     <div class="list-box">
         <div class="lists bor-bottom1">
             <div class="tetiles">性别</div>
-            <div class="sex">
-                <img src="../../assets/yes.png">
+            <div class="sex" (click)="chooseOne(1)">
+                <img src="{{sex===1?'../../assets/yes.png':'../../assets/no.png'}}">
                 男
             </div>
-            <div class="sex">
-                <img src="../../assets/no.png">
+            <div class="sex" (click)="chooseOne(2)">
+                <img src="{{sex===2?'../../assets/yes.png':'../../assets/no.png'}}">
                 女
             </div>
         </div>
@@ -57,7 +65,7 @@
     <div class="list-box">
         <div class="lists bor-bottom1">
             <div class="tetiles">淘气值</div>
-            <input type="text" class="text" placeholder="请输入淘气值">
+            <input type="text" class="text" placeholder="请输入淘气值" [(ngModel)]="taoqi">
         </div>
 
     </div>
@@ -65,12 +73,12 @@
         <div class="lists">
             <div class="tetiles">是否开通花呗</div>
             <div class="rev">
-                <ion-toggle color="danger"></ion-toggle>
+                <ion-toggle color="danger" [(ngModel)]="huabei"></ion-toggle>
             </div>
         </div>
     </div>
     <div class="tishi">
         提示：输入淘宝账户是指淘宝用户名，不是手机号、邮箱地址，登录淘宝后点击头像显示的名称；请确保淘宝账号和注册时间、信誉和实名认证能达到平台要求；请填写与淘宝下单一致的收货地址；请确认多个淘宝账号之间使用不同的收货信息（收货人姓名、地址、电话均不同）；账号人工审核约一个工作日内完成，只有审核通过方可接受任务；未通过审核的账号信息可以直接修改提交。
     </div>
-    <div class="save">提交</div>
+    <div class="save" (click)="subMiteData()">提交</div>
 </ion-content>

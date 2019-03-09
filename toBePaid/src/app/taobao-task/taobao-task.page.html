@@ -15,18 +15,18 @@
         </div>
         <div class="taobao">
             <span>店铺名称：</span>
-            <span class="shop-name">艾薇儿旗舰店</span>
+            <span class="shop-name">{{taskData['tb_name_star']}}</span>
             <span>(请认证核对店铺名称)</span>
         </div>
     </div>
     <div class="bg-white mar-top1">
         <div class="target-shop">目标商品</div>
         <div class="target-box">
-            <img src="../../assets/400951737_wx.png">
+            <img src="{{taskData['tb_pic']}}">
             <div class="target-message">
-                <div>搜索展示价格：<span>69.8元</span></div>
-                <div>商品成交单价：<span>69.8元</span></div>
-                <div>件数或规格：<span>1个</span></div>
+                <div>搜索展示价格：<span>{{taskData['tb_show_price']}}元</span></div>
+                <div>商品成交单价：<span>{{taskData['tb_chengjiao_price']}}元</span></div>
+                <div>件数或规格：<span>{{taskData['tb_jianshu']}}个</span></div>
             </div>
         </div>
     </div>
@@ -40,21 +40,9 @@
     </div>
     <div class="bg-white mar-top1">
         <div class="target-shop">任务要点</div>
-        <div class="requirement-list bor-top1">
-            任务类型
-            <span>淘宝任务</span>
-        </div>
-        <div class="requirement-list bor-top1">
-            件数
-            <span>目标商品拍1件</span>
-        </div>
-        <div class="requirement-list bor-top1">
-            规格尺寸
-            <span></span>
-        </div>
-        <div class="requirement-list bor-top1">
-            评论要求
-            <span>普通好评</span>
+        <div class="requirement-list bor-top1" *ngFor="let item of taskData['yaoqiu']">
+            {{item.title}}
+            <span>{{item.value}}</span>
         </div>
         <div class="requirement-list bor-top1">
             搜索关键字
@@ -74,10 +62,10 @@
     <div class="bg-white mar-top1">
         <div class="target-shop">任务步骤</div>
         <div class="bor-top1 hedui-text font-bold main-col">请先核对店铺名称后再进行下一步操作</div>
-        <div class="hedui-text">店铺名称：<span>艾薇儿旗舰店</span></div>
+        <div class="hedui-text">店铺名称：<span>{{taskData['tb_name_star']}}</span></div>
         <div class="hedui-input bor-bottom1">
-            <input type="text" placeholder="请输入店铺名称进行核对">
-            <span>核对</span>
+            <input type="text" placeholder="请输入店铺名称进行核对" [(ngModel)]="shopName">
+            <span (click)="checkIsRight()">核对</span>
         </div>
         <div class="target-shops font-bold">聊天下单支付（查看示例）</div>
         <div class="careful bor-top1">1、点击联系客服按钮，要求至少和商家客服有4个问题互动，不得一次性复制4个问题给客服，完成截图一张；</div>
@@ -95,13 +83,13 @@
         <div class="target-shops font-bold">填写单号和实付金额</div>
         <div class="hedui-text bor-top1">填写淘宝订单编号，请到手机淘宝查看并复制</div>
         <div class="hedui-input">
-            <input type="text" placeholder="请输入淘宝订单编号">
+            <input type="text" placeholder="请输入淘宝订单编号" [(ngModel)]="taskOrder">
         </div>
         <div class="hedui-text">填写实际付款金额，手机淘宝订单详情显示的金额就是实付金额</div>
         <div class="hedui-input">
-            <input type="text" placeholder="请输入实际付款金额">
+            <input type="text" placeholder="请输入实际付款金额" [(ngModel)]="realMoney">
         </div>
         <div class="isequally pad-bottom1">请确保下单地址和平台收货地址一致，如若不一致，请联系专属主管修改，否则此单无佣金。</div>
     </div>
-    <div class="save">提交任务</div>
+    <div class="save" (click)="subTaskMessage()">提交任务</div>
 </ion-content>
