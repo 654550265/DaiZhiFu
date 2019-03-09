@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpService} from '../http.service';
-import {Router} from '@angular/router';
+import { async } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
     selector: 'app-userinfo',
@@ -15,7 +17,8 @@ tel: "12312312312"*/
     level: string;
     tel: string;
 
-    constructor(public http: HttpService, public router: Router) {
+    constructor(public http: HttpService, public router: Router,
+        public alertController: AlertController) {
     }
 
     ngOnInit() {
@@ -44,6 +47,30 @@ tel: "12312312312"*/
             }
         });
 
+    }
+
+    async logout() {
+        const alert = await this.alertController.create({
+            header: '消息',
+            message: '确定退出？',
+            buttons: [
+                {
+                    text: '取消',
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                    handler: blah => {
+                    }
+                },
+                {
+                    text: '确定',
+                    handler: () => {
+                        localStorage.removeItem('userInfo');
+                        this.router.navigate(['/login']);
+                    }
+                }
+            ]
+        });
+        await alert.present();
     }
 
 }

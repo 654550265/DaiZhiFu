@@ -1,6 +1,5 @@
 import { HttpService } from './../http.service';
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +12,7 @@ export class Tab2Page {
     orders: Array<object>;
     type: string = '';
 
-    constructor(public http: HttpService, public nav: NavController, public router: Router) {
+    constructor(public http: HttpService, public router: Router) {
         this.subList = [{
             text: '全部订单',
             type: '',
