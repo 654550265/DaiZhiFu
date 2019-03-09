@@ -32,7 +32,7 @@ export class ChangePwdPage implements OnInit {
                 oldPass: this.oldPwd
             }).then(res => {
                 this.comm.showToast(res['msg'], () => {
-                    this.nav.goBack();
+                    this.nav.back();
                 });
             }).catch(err => {
                 this.comm.showToast(err['msg']);
