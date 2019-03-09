@@ -63,25 +63,30 @@ export class Tab2Page {
             type: this.type
         }).then(res => {
             this.orders = res['data'].map(item => {
-                // item.count = this.resetTime(item.create_time_s);
-                var time = item.create_time_s;
-                var count = '';
+                var starttime = item.create_time_s;
+                var enddate = new Date(item.create_time_s);
+                enddate.setHours(enddate.getHours()+1);
+                var endtime = Date.parse(enddate+'');
+                var time = endtime - (Date.parse(new Date()+'')/1000);
+                console.log(time);
                 var count_time = null;
                 function countdown() {
                     var s = time % 60;
                     var m = Math.floor((time / 60)) % 60;
-                    var h = Math.floor((time / (1000 * 60 * 60)) % 24);
-                    var msg = `${(h < 10 ? '0' : '') + h}:${(m < 10 ? '0' : '') + m}:${(s < 10 ? '0' : '') + s}`;
+                    var msg = `${(m < 10 ? '0' : '') + m}:${(s < 10 ? '0' : '') + s}`;
                     if (--time > 0) {
-                        setTimeout(countdown, 1000);
+                        count_time = setTimeout(countdown, 1000);
                     } else {
                         // 做结束的事
                         clearTimeout(count_time);
                     }
                     item.count = msg;
-                    // return msg;
                 }
-                countdown();
+                if(time > 0){
+                    countdown(); 
+                }else{
+                    item.count = "00:00";
+                }
                 return item;
             });
         });
