@@ -37,30 +37,30 @@
             </div>
         </div>
         <div class="make-group">
-            <div class="" (click)="takeTaskPage()">操作任务</div>
+            <div class="{{taskData['status']!==1?'noAcv':''}}" (click)="takeTaskPage(taskData.status)">操作任务</div>
             <!--<div>申诉任务</div>-->
             <!--<div>取消任务</div>-->
         </div>
         <div class="task-range-box">
             <div class="task-left">
                 <div class="time1 {{taskData['data1'].active==='1'?'acv':''}}">{{taskData['data1']['time']}}
-                    <div class="task-index {{taskData['data1'].active==='1'?'acv':''}}">1</div>
+                    <div class="task-index {{taskData['data1'].active==='1'?'acvs':''}}">1</div>
                 </div>
                 <div class="time2 {{taskData['data2'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
                     {{taskData['data2']['time']}}
-                    <div class="task-index {{taskData['data2'].active==='1'?'acv':''}}">2</div>
+                    <div class="task-index {{taskData['data2'].active==='1'?'acvs':''}}">2</div>
                 </div>
                 <div class="time3 {{taskData['data3'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
                     {{taskData['data3']['time']}}
-                    <div class="task-index {{taskData['data3'].active==='1'?'acv':''}}">3</div>
+                    <div class="task-index {{taskData['data3'].active==='1'?'acvs':''}}">3</div>
                 </div>
                 <div class="time4 {{taskData['data4'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
                     {{taskData['data4']['time']}}
-                    <div class="task-index {{taskData['data4'].active==='1'?'acv':''}}">4</div>
+                    <div class="task-index {{taskData['data4'].active==='1'?'acvs':''}}">4</div>
                 </div>
                 <div class="time5 {{taskData['data5'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
                     {{taskData['data5']['time']}}
-                    <div class="task-index {{taskData['data5'].active==='1'?'acv':''}}">5</div>
+                    <div class="task-index {{taskData['data5'].active==='1'?'acvs':''}}">5</div>
                 </div>
 
 
@@ -79,7 +79,7 @@
                     <div class="task-num-box">
                         <div>任务编号</div>
                         <div class="task-num">{{taskData['data1']['tasknum']}}</div>
-                        <div class="task-btn">复制</div>
+                        <!--<div class="task-btn">复制</div>-->
                     </div>
                     <div class="task-num-box">
                         <div>买号</div>
@@ -138,7 +138,7 @@
                     <div class="task-num-box">
                         <div></div>
                         <div class="task-num">此单为普通好评</div>
-                        <div class="task-btns">评价要求</div>
+                        <div class="task-btns" (click)="talkMessage(taskData['status'])">评价要求</div>
                     </div>
                 </div>
                 <div class="time5">

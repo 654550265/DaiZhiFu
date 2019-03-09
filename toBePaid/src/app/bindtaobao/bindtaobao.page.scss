@@ -1,3 +1,5 @@
+@import "../id-card-info/id-card-info.page";
+
 .save {
 	margin-top: 5.6rem;
 }
@@ -8,8 +10,6 @@
 		width: 33.33%;
 		border: 0;
 		flex-grow: 1;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
+		background-color: white;
 	}
 }

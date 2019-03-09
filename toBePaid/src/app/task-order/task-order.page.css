@@ -61,7 +61,7 @@
   .clock-box img {
     position: absolute;
     top: 1.3rem;
-    left: 35%;
+    left: 33%;
     width: 1.4rem;
     height: 1.25rem; }
   .clock-box div {
@@ -86,6 +86,8 @@
     color: white;
     text-align: center;
     border-radius: 0.3rem; }
+  .make-group .noAcv {
+    background-color: #818181; }
 
 .time1 {
   height: 11.95rem; }

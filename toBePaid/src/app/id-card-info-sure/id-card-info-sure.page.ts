@@ -41,14 +41,15 @@ export class IdCardInfoSurePage implements OnInit {
             const fileTransfer: FileTransferObject = this.transfer.create();
             let options: FileUploadOptions = {
                 fileKey: 'file',
-                fileName: 'name.jpg'
+                fileName: 'name.jpg',
+                mimeType: 'text/plain'
             };
             fileTransfer.upload(res[0], `${ENV.host}api/home/index/upload`, options)
                 .then((data) => {
                     console.log(data, src);
-                }, (err) => {
-                    console.log(err);
-                });
+                }).catch((err) => {
+                console.log(err);
+            });
             // switch (type) {
             //     case 1:
             //         this.isIdPic1 = true;

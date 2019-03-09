@@ -11,6 +11,7 @@ import {CommentService} from '../comment.service';
 export class OperationInstructionsPage implements OnInit {
     tasknum: string;
     taskType: string;
+    taobaoName: string;
 
     constructor(public activeRoute: ActivatedRoute, public http: HttpService, public router: Router, public comm: CommentService) {
     }
@@ -19,6 +20,11 @@ export class OperationInstructionsPage implements OnInit {
         this.activeRoute.queryParams.subscribe((params: Params) => {
             this.tasknum = params.taskNum;
             this.taskType = params.taskType;
+        });
+        this.http.get('api/home/index/getTaobaoName', {
+            uid: this.http.getUid()
+        }).then(res => {
+            this.taobaoName = res['data'];
         });
     }
 

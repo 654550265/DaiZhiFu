@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpService} from '../http.service';
 import {CommentService} from '../comment.service';
 import {ActivatedRoute, Params} from '@angular/router';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-look-task',
@@ -17,7 +18,7 @@ export class LookTaskPage implements OnInit {
     liulan_pic: Array<any>;
     shoucang_pic: Array<any>;
 
-    constructor(public http: HttpService, public comm: CommentService, public activeRoute: ActivatedRoute) {
+    constructor(public http: HttpService, public comm: CommentService, public activeRoute: ActivatedRoute, public nav: NavController) {
         this.liulan_pic = [];
         this.shoucang_pic = [];
     }
@@ -56,7 +57,9 @@ export class LookTaskPage implements OnInit {
             liulan_pic: this.liulan_pic.join(),
             shoucang_pic: this.shoucang_pic.join()
         }).then(res => {
-
+            this.comm.showToast('提交成功', () => {
+                this.nav.goBack();
+            });
         }).catch(err => {
             this.comm.showToast(err.msg);
         });

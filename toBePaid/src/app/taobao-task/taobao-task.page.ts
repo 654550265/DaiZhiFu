@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpService} from '../http.service';
 import {ActivatedRoute, Params} from '@angular/router';
 import {CommentService} from '../comment.service';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-taobao-task',
@@ -20,7 +21,7 @@ export class TaobaoTaskPage implements OnInit {
     inter: any;
     timeText: string;
 
-    constructor(public http: HttpService, public activeRoute: ActivatedRoute, public comm: CommentService) {
+    constructor(public http: HttpService, public activeRoute: ActivatedRoute, public comm: CommentService, public nav: NavController) {
         this.taskData = {};
         this.shopName = '';
         this.taskOrder = '';
@@ -29,7 +30,6 @@ export class TaobaoTaskPage implements OnInit {
     }
 
     ngOnInit() {
-
         this.activeRoute.queryParams.subscribe((params: Params) => {
             this.tasknum = params.taskNum;
             this.taskType = params.taskType;
@@ -43,6 +43,7 @@ export class TaobaoTaskPage implements OnInit {
             });
         });
     }
+
 
     subTaskMessage() {
         if (this.shopName === '') {
@@ -59,7 +60,11 @@ export class TaobaoTaskPage implements OnInit {
                 tbOrderPrice: this.realMoney,
                 xiadanPic: this.realMoney,
             }).then(res => {
-
+                this.comm.showToast('提交成功', () => {
+                    this.nav.goBack();
+                });
+            }).catch(err => {
+                this.comm.showToast(err.msg);
             });
         }
     }

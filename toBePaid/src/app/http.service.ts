@@ -94,26 +94,23 @@ export class HttpService {
         return str;
     }
 
-    formatSeconds(value: any) {
-        let theTime = value;// 秒
-        let middle = 0;// 分
-        let hour = 0;// 小时
-
-        if (theTime > 60) {
-            middle = parseInt(theTime / 60);
-            theTime = parseInt(theTime % 60);
-            if (middle > 60) {
-                hour = parseInt(middle / 60);
-                middle = parseInt(middle % 60);
+    formatSeconds(s: any) {
+        var t;
+        if(s > -1){
+            var hour = Math.floor(s/3600);
+            var min = Math.floor(s/60) % 60;
+            var sec = s % 60;
+            if(hour < 10) {
+                t = '0'+ hour + ":";
+            } else {
+                t = hour + ":";
             }
+
+            if(min < 10){t += "0";}
+            t += min + ":";
+            if(sec < 10){t += "0";}
+            t += sec.toFixed(2);
         }
-        var result = `${parseInt(theTime)}秒`;
-        if (middle > 0) {
-            result = '' + parseInt(middle) + '分' + result;
-        }
-        if (hour > 0) {
-            result = '' + parseInt(hour) + '小时' + result;
-        }
-        return result;
+        return t;
     }
 }

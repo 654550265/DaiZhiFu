@@ -57,11 +57,16 @@ export class Tab1Page {
     }
 
     chooseOne(index) {
-        for (let values of this.subList) {
-            values.isAcv = false;
+        let isUrl = this.subList[index].isUrl;
+        if (isUrl) {
+            this.router.navigate(['/money-making']);
+        } else {
+            for (let values of this.subList) {
+                values.isAcv = false;
+            }
+            this.subList[index].isAcv = true;
+            this.init(this.subList[index].type);
         }
-        this.subList[index].isAcv = true;
-        this.init(this.subList[index].type);
     }
 
     gotoTaskDteailsPage(taskNum) {
