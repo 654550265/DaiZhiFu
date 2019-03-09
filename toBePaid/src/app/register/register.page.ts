@@ -94,7 +94,7 @@ export class RegisterPage implements OnInit {
         } else {
             this.http.get('user/login/regDo', this.dataObj).then(res => {
                 this.comm.showToast('注册成功', () => {
-                    this.nav.goBack();
+                    this.nav.back();
                 });
             }).catch(err => {
                 this.comm.showToast(err.msg);
