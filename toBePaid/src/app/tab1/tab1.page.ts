@@ -37,25 +37,22 @@ export class Tab1Page {
         let user = localStorage.getItem('userInfo');
         if (!user) {
             this.nav.navigateForward('/login');
-        } else {
-            let type = '';
-            for (let value of this.subList) {
-                if (value.isAcv) {
-                    type = value.type;
-                    break;
-                }
-            }
-            this.init(type);
         }
+        let type = '';
+        for (let value of this.subList) {
+            if (value.isAcv) {
+                type = value.type;
+                break;
+            }
+        }
+        this.init(type);
     }
 
     init(type) {
-        this.http.post('portal/index/getTaskList', {
+        this.http.get('api/home/index/getTaskList', {
             taskType: type
         }).then(res => {
-            if (res.code === '1') {
-                this.taskList = res.data;
-            }
+            this.taskList = res['data'];
         });
     }
 

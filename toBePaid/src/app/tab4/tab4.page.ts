@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController} from '@ionic/angular';
+import {HttpService} from '../http.service';
 
 @Component({
     selector: 'app-tab4',
@@ -9,11 +10,12 @@ import {NavController} from '@ionic/angular';
 export class Tab4Page implements OnInit {
     isShow: boolean;
 
-    constructor(public nav: NavController) {
+    constructor(public nav: NavController, public http: HttpService) {
         this.isShow = false;
     }
 
     ngOnInit() {
+
     }
 
     gotoPage(url: string) {

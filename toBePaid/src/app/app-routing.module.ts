@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'get-money', loadChildren: './get-money/get-money.module#GetMoneyPageModule' },
   { path: 'get-money-detail', loadChildren: './get-money-detail/get-money-detail.module#GetMoneyDetailPageModule' },
   { path: 'operation-instructions', loadChildren: './operation-instructions/operation-instructions.module#OperationInstructionsPageModule' },
+  { path: 'task-order', loadChildren: './task-order/task-order.module#TaskOrderPageModule' },
 
 ];
 

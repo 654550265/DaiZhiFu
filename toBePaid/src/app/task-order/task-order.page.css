@@ -1,0 +1,187 @@
+.target-box {
+  padding-bottom: 0.5rem; }
+
+.target-shop, .shop-name {
+  width: 94%;
+  margin: 0 auto;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  color: #999999;
+  font-size: 1.2rem; }
+  .target-shop span, .shop-name span {
+    color: #fe5a51; }
+
+.shop-name span:first-child {
+  color: #262626; }
+.shop-name span:nth-child(2) {
+  color: #999;
+  font-size: 1.1rem; }
+
+.shop-list {
+  width: 94%;
+  margin: 0 auto;
+  display: flex; }
+  .shop-list img {
+    width: 6.25rem;
+    height: 6.25rem;
+    margin-right: 1rem; }
+  .shop-list .shop-price {
+    flex-grow: 1;
+    padding-top: 0.5rem; }
+    .shop-list .shop-price div {
+      color: #666666;
+      margin-bottom: 0.3rem; }
+      .shop-list .shop-price div span {
+        color: #fe5a51; }
+  .shop-list .look-more {
+    color: #999; }
+
+.task-type .task-status {
+  width: 94%;
+  margin: 0 auto;
+  height: 4rem;
+  line-height: 4rem; }
+  .task-type .task-status span {
+    display: inline-block;
+    width: 50%; }
+  .task-type .task-status .title {
+    color: #262626;
+    font-size: 1.3rem; }
+  .task-type .task-status .status-text {
+    color: #fe5a51;
+    font-size: 1.3rem;
+    text-align: right; }
+
+.clock-box {
+  position: relative;
+  height: 4rem;
+  line-height: 4rem;
+  background-color: white;
+  padding-left: 2.1rem; }
+  .clock-box img {
+    position: absolute;
+    top: 1.3rem;
+    left: 35%;
+    width: 1.4rem;
+    height: 1.25rem; }
+  .clock-box div {
+    color: #666666;
+    text-align: center;
+    font-size: 1.2rem; }
+    .clock-box div span {
+      color: #fe5a51; }
+
+.make-group {
+  height: 3.5rem;
+  line-height: 3.5rem;
+  width: 94%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; }
+  .make-group div {
+    width: 7.5rem;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: #fe5a51;
+    color: white;
+    text-align: center;
+    border-radius: 0.3rem; }
+
+.time1 {
+  height: 11.95rem; }
+
+.time2 {
+  height: 6.5rem; }
+
+.time3 {
+  height: 13.5rem; }
+
+.time4 {
+  height: 10.5rem; }
+
+.task-range-box {
+  width: 94%;
+  margin: 0 auto;
+  display: flex;
+  padding-bottom: 2rem; }
+  .task-range-box .task-left {
+    width: 8.25rem;
+    text-align: right; }
+    .task-range-box .task-left > div {
+      position: relative;
+      padding-right: 2.2rem;
+      font-size: 1rem;
+      color: #666666;
+      border-right: 1px dashed #9b9b9b; }
+      .task-range-box .task-left > div .task-index {
+        position: absolute;
+        width: 2.1rem;
+        height: 2.1rem;
+        line-height: 2rem;
+        text-align: center;
+        border: 1px solid #9b9b9b;
+        color: #9b9b9b;
+        border-radius: 50%;
+        background-color: white;
+        top: 0;
+        right: -1.05rem;
+        font-size: 1.3rem; }
+      .task-range-box .task-left > div .acvs {
+        border: 1px solid #fe5a51;
+        background-color: #fe5a51;
+        color: white; }
+    .task-range-box .task-left > .acv {
+      border-right: 1px dashed #fe5a51; }
+  .task-range-box .task-right {
+    margin-left: 1.5rem;
+    flex-grow: 1; }
+    .task-range-box .task-right .task-status-text {
+      color: #262626;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem; }
+      .task-range-box .task-right .task-status-text span {
+        color: #999999;
+        font-size: 1.1rem; }
+    .task-range-box .task-right .task-num-box {
+      position: relative;
+      display: flex;
+      height: 2rem;
+      line-height: 2rem;
+      margin-bottom: 0.5rem; }
+      .task-range-box .task-right .task-num-box div {
+        color: #666666;
+        font-size: 1.2rem; }
+      .task-range-box .task-right .task-num-box .task-num, .task-range-box .task-right .task-num-box .task-nums {
+        flex-grow: 1;
+        text-align: right; }
+      .task-range-box .task-right .task-num-box .task-btn {
+        background-color: #fe5a51;
+        color: white;
+        text-align: center;
+        width: 3rem;
+        border-radius: 0.3rem;
+        margin-left: 0.3rem; }
+      .task-range-box .task-right .task-num-box .img1, .task-range-box .task-right .task-num-box .img2 {
+        position: absolute;
+        top: 0;
+        right: 2.5rem;
+        width: 2rem;
+        height: 1.6rem; }
+      .task-range-box .task-right .task-num-box .img2 {
+        right: 0; }
+      .task-range-box .task-right .task-num-box .task-nums {
+        text-align: left; }
+      .task-range-box .task-right .task-num-box .task-btns {
+        color: white;
+        text-align: center;
+        padding: 0 0.5rem;
+        background-color: #999999;
+        line-height: 2rem;
+        border-radius: 0.3rem;
+        margin-left: 0.5rem; }
+    .task-range-box .task-right .suiyi {
+      color: #fe5a51;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem; }
+
+/*# sourceMappingURL=task-order.page.css.map */

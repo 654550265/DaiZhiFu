@@ -21,16 +21,14 @@ export class TaskDetailsPage implements OnInit {
 
     ngOnInit() {
         this.activeRoute.queryParams.subscribe((params: Params) => {
-            console.log(params);
             this.tasknum = params.taskNum;
             this.taskType = params.taskType;
-            debugger;
-            this.http.get('portal/index/getTaskDetail', {
+            this.http.get('api/home/index/getTaskDetail', {
                 tasknum: params.taskNum,
                 uid: this.http.getUid()
             }).then(res => {
-                res.data.yaoqiu = JSON.parse(res.data.yaoqiu);
-                this.taskObj = res.data;
+                res['data'].yaoqiu = JSON.parse(res['data'].yaoqiu);
+                this.taskObj = res['data'];
             }).catch(err => {
                 this.comm.showToast(err.msg);
             });
