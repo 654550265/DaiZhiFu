@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>确认收货好评</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="favorite">
+    <div class="bg-white mar-top1">
+        <div class="target-shop">目标商品</div>
+        <div class="target-box">
+            <img src="{{pic}}">
+            <div class="target-message dangerss">注意核对商品图片，切勿上传别家图片，否则将处罚</div>
+        </div>
+    </div>
+    <div class="mar-top1 bg-white pad-bottom1">
+        <div class="careful bor-top1">第一步：去淘宝评价并截图 普通好评</div>
+        <div class="careful">（此任务是<span>普通好评任务</span>，谢绝商家加QQ返现评价要求，否则被骗后果自负。<br>评价要求：全五星好评+10字以上自由发挥评价）</div>
+        <div class="card-img-box">
+            <div class="card-img" (click)="chooseImg(1)">
+                <div class="add-box" *ngIf="isSHow1===''">
+                    <img src="../../assets/add.png" class="add">
+                </div>
+                <img src="{{isSHow1}}" class="pic" *ngIf="isSHow1!==''">
+                <div class="add-text">评价截图</div>
+            </div>
+            <div class="card-img" (click)="chooseImg(2)">
+                <div class="add-box" *ngIf="isSHow2===''">
+                    <img src="../../assets/add.png" class="add">
+                </div>
+                <img src="{{isSHow2}}" class="pic" *ngIf="isSHow2!==''">
+                <div class="add-text">物流截图</div>
+            </div>
+        </div>
+        <div class="saves" (click)="chooseImgs()">一次选2张</div>
+
+    </div>
+    <div class="save" (click)="subMessage()" *ngIf="num==='3'">提交任务</div>
+</ion-content>

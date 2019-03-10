@@ -28,7 +28,7 @@ export class BindcardPage implements OnInit {
         this.http.get('api/home/index/editBankStatus', {
             uid: this.http.getUid()
         }).then(res => {
-            this.isSHowForm = res['data'] === '';
+            this.isSHowForm = res['data'] === '0';
         });
         this.http.get('api/home/index/editBankInfo', {
             uid: this.http.getUid()

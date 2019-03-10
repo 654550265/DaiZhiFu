@@ -54,12 +54,23 @@ export class TaskOrderPage implements OnInit {
     }
 
     async talkMessage(num) {
-        if (num === 4) {
+        if (num === 2 || num === 3 || num === 4) {
             const alert = await this.alertController.create({
                 header: '温馨提示',
                 subHeader: '1.请确认物流已签收',
                 message: '2.超过7天无发货或者物流信息（物流截图就是实际信息）符合以上一种情况，可收货评价。提前收货按违规处理（商家特殊要求除外）在平台确认好评价，再去收货评价！付款10天不收货评价将取消任务',
-                buttons: ['确认']
+                buttons: [{
+                    text: '确认',
+                    handler: (blah) => {
+                        this.router.navigate(['/talk'], {
+                            queryParams: {
+                                num: num,
+                                pic: this.taskData['tb_pic'],
+                                toid: this.toid
+                            }
+                        });
+                    }
+                }]
             });
             await alert.present();
         }

@@ -40,8 +40,8 @@ export class IdCardInfoSurePage implements OnInit {
                 this.http.get('api/home/index/editIdInfo', {
                     uid: this.http.getUid()
                 }).then(res => {
-                    // this.passStatus = res['data']['idnumber_status'];
-                    this.passStatus = 0;
+                    this.passStatus = res['data']['idnumber_status'];
+                    // this.passStatus = 0;
                     this.noPsssText = res['data']['idnumber_text'];
                     this.name = res['data']['name'];
                     this.idnumber = res['data']['idnumber'];

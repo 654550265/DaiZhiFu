@@ -30,5 +30,5 @@
         <div class="titles">卖家要求</div>
         <div class="shopYaoqiu">{{taskObj.yaodian?taskObj.yaodian:""}}</div>
     </div>
-    <div class="nickName center" *ngIf="!init" (click)="nextStep()">昵称（今日可接单{{taskObj.lasttasknum?taskObj.lasttasknum:""}}）</div>
+    <div class="nickName center" *ngIf="!init" (click)="nextStep()">{{TaobaoName}}（今日可接单{{taskObj.lasttasknum?taskObj.lasttasknum:""}}）</div>
 </ion-content>
