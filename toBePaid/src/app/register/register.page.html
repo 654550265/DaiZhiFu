@@ -24,7 +24,7 @@
         <div class="input bor-bottom1">
             <div>图片验证</div>
             <input type="text" placeholder="请输入图片验证码" [(ngModel)]="dataObj.picCode">
-            <img src="{{codeImg}}">
+            <img src="{{codeImg}}" (click)="changeCode()">
         </div>
     </div>
     <div class="input-box">

@@ -11,35 +11,40 @@ import {CommentService} from '../comment.service';
 })
 export class TaskDetailsPage implements OnInit {
     color: string;
-    taskType: string;
     tasknum: string;
-    benjin: string;
-    yongjin: string;
-    yaodian: string;
-    lasttasknum: string;
-    yaoqiu: Array<any>;
+    TaobaoName: string = '';
+    taskType: string;
+    init: boolean;
+    taskObj: Object = {
+        uaoqiu: []
+    };
 
     constructor(public activeRoute: ActivatedRoute, public http: HttpService, public router: Router, public comm: CommentService) {
         this.color = '#fe5a51';
     }
 
     ngOnInit() {
+
+    }
+
+    ionViewWillEnter() {
         this.activeRoute.queryParams.subscribe((params: Params) => {
             this.tasknum = params.taskNum;
             this.taskType = params.taskType;
-            this.http.get('portal/index/getTaskDetail', {
+            this.http.get('api/home/index/getTaskDetail', {
                 tasknum: params.taskNum,
                 uid: this.http.getUid()
             }).then(res => {
-                this.tasknum = res['data'].tasknum;
-                this.benjin = res['data'].benjin;
-                this.yongjin = res['data'].yongjin;
-                this.yaodian = res['data'].yaodian;
-                this.lasttasknum = res['data'].lasttasknum;
-                this.yaoqiu = JSON.parse(res['data'].yaoqiu);
+                res['data'].yaoqiu = JSON.parse(res['data'].yaoqiu);
+                this.taskObj = res['data'];
             }).catch(err => {
                 this.comm.showToast(err.msg);
             });
+        });
+        this.http.get('api/home/index/getTaobaoName', {
+            uid: this.http.getUid()
+        }).then(res => {
+            this.TaobaoName = res['data'];
         });
     }
 

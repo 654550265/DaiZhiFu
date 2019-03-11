@@ -16,16 +16,26 @@ export class RegisterPage implements OnInit {
     isGetCode: boolean;
     codeImg: string;
     code: string;
+    picCode: string;
 
     constructor(public http: HttpService, public comm: CommentService, public nav: NavController) {
+        let nums = this.http.getMathFour();
         this.dataObj = {};
         this.text = '获取验证码';
         this.isGetCode = true;
-        this.codeImg = ENV.host + 'captcha.html';
+        this.codeImg = ENV.host + 'user/login/getPicCode/code/' + nums;
+        this.picCode = nums;
     }
 
     ngOnInit() {
 
+    }
+
+    changeCode() {
+        let nums = this.http.getMathFour();
+        this.codeImg = ENV.host + 'user/login/getPicCode/code/' + nums;
+        this.picCode = nums;
+        this.dataObj['picCode'] = '';
     }
 
     getCode() {
@@ -35,8 +45,12 @@ export class RegisterPage implements OnInit {
                 this.comm.showToast('请输入正确的手机号');
             } else if (!this.dataObj['tel']) {
                 this.comm.showToast('请输入手机号');
+            } else if (this.dataObj['picCode'] !== this.picCode) {
+                this.comm.showToast('请输入正确的图形验证码');
             } else {
-                this.http.post('user/login/getSmsCode', {}).then(res => {
+                this.http.get('user/login/getSmsCode', {
+                    picCode: this.dataObj['picCode']
+                }).then(res => {
                     if (res['code'] === '1') {
                         this.code = res['data'];
                         let time = 60;
@@ -83,8 +97,9 @@ export class RegisterPage implements OnInit {
                     this.nav.goBack();
                 });
             }).catch(err => {
-                this.comm.showToast(err['msg']);
+                this.comm.showToast(err.msg);
             });
         }
     }
+
 }

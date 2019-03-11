@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
                 localStorage.setItem('userInfo', JSON.stringify(res['data']));
                 this.nav.navigateForward('/tabs/tab1');
             }).catch(err => {
-                this.comm.showToast(err['msg']);
+                this.comm.showToast(err.msg);
             });
         }
     }

@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>淘宝任务</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content color="favorite">
+    <div class="task-list-box">
+        <div class="task-list" (click)="gotoTaskDteailsPage()">
+            <div class="taskid">
+                <div class="taskNum">ID:{{taskObj.tasknum?taskObj.tasknum:""}}</div>
+                <div>{{taskObj.benjin?taskObj.benjin:""}}元</div>
+            </div>
+            <div class="taskPrice">
+                <img src="../../assets/jifen.png">
+                <div class="taskPriceNum">￥{{taskObj.yongjin?taskObj.yongjin:""}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="task-yaoqiu">
+        <div class="titles">任务要点</div>
+        <div class="yaoqiu-list" *ngFor="let item of taskObj.yaoqiu?taskObj.yaoqiu:[]">
+            <div class="key">{{item.title}}</div>
+            <div class="value textLong">{{item.value}}</div>
+        </div>
+    </div>
+    <div class="task-yaoqiu">
+        <div class="titles">卖家要求</div>
+        <div class="shopYaoqiu">{{taskObj.yaodian?taskObj.yaodian:""}}</div>
+    </div>
+</ion-content>

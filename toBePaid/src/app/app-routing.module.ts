@@ -15,15 +15,21 @@ const routes: Routes = [
     {path: 'bindcard', loadChildren: './bindcard/bindcard.module#BindcardPageModule'},
     {path: 'userinfo', loadChildren: './userinfo/userinfo.module#UserinfoPageModule'},
     {path: 'id-card-info', loadChildren: './id-card-info/id-card-info.module#IdCardInfoPageModule'},
-  { path: 'change-tel', loadChildren: './change-tel/change-tel.module#ChangeTelPageModule' },
-  { path: 'change-pwd', loadChildren: './change-pwd/change-pwd.module#ChangePwdPageModule' },
-  { path: 'id-card-info-sure', loadChildren: './id-card-info-sure/id-card-info-sure.module#IdCardInfoSurePageModule' },
-  { path: 'taobao-task', loadChildren: './taobao-task/taobao-task.module#TaobaoTaskPageModule' },
-  { path: 'look-task', loadChildren: './look-task/look-task.module#LookTaskPageModule' },
-  { path: 'commission', loadChildren: './commission/commission.module#CommissionPageModule' },
-  { path: 'get-money', loadChildren: './get-money/get-money.module#GetMoneyPageModule' },
-  { path: 'get-money-detail', loadChildren: './get-money-detail/get-money-detail.module#GetMoneyDetailPageModule' },
-  { path: 'operation-instructions', loadChildren: './operation-instructions/operation-instructions.module#OperationInstructionsPageModule' },
+    {path: 'change-tel', loadChildren: './change-tel/change-tel.module#ChangeTelPageModule'},
+    {path: 'change-pwd', loadChildren: './change-pwd/change-pwd.module#ChangePwdPageModule'},
+    {path: 'id-card-info-sure', loadChildren: './id-card-info-sure/id-card-info-sure.module#IdCardInfoSurePageModule'},
+    {path: 'taobao-task', loadChildren: './taobao-task/taobao-task.module#TaobaoTaskPageModule'},
+    {path: 'look-task', loadChildren: './look-task/look-task.module#LookTaskPageModule'},
+    {path: 'commission', loadChildren: './commission/commission.module#CommissionPageModule'},
+    {path: 'get-money', loadChildren: './get-money/get-money.module#GetMoneyPageModule'},
+    {path: 'get-money-detail', loadChildren: './get-money-detail/get-money-detail.module#GetMoneyDetailPageModule'},
+    {
+        path: 'operation-instructions',
+        loadChildren: './operation-instructions/operation-instructions.module#OperationInstructionsPageModule'
+    },
+    {path: 'task-order', loadChildren: './task-order/task-order.module#TaskOrderPageModule'},
+    {path: 'task-detailss', loadChildren: './task-detailss/task-detailss.module#TaskDetailssPageModule'},
+    {path: 'talk', loadChildren: './talk/talk.module#TalkPageModule'},
 
 ];
 

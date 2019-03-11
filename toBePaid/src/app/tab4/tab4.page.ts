@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController} from '@ionic/angular';
+import {HttpService} from '../http.service';
+import {CommentService} from '../comment.service';
 
 @Component({
     selector: 'app-tab4',
@@ -9,11 +11,12 @@ import {NavController} from '@ionic/angular';
 export class Tab4Page implements OnInit {
     isShow: boolean;
 
-    constructor(public nav: NavController) {
+    constructor(public nav: NavController, public http: HttpService, public comm: CommentService) {
         this.isShow = false;
     }
 
     ngOnInit() {
+
     }
 
     gotoPage(url: string) {
@@ -30,5 +33,9 @@ export class Tab4Page implements OnInit {
 
     gotoCommission() {
         this.nav.navigateForward('commission');
+    }
+
+    clearData() {
+        this.comm.showToast('清除成功');
     }
 }

@@ -18,7 +18,7 @@ li, ul, ol {
 img {
   display: block; }
 
-input, textarea {
+input, textarea, select {
   border: 0;
   outline: none;
   resize: none; }
@@ -65,6 +65,9 @@ input, textarea {
 
 .main-col {
   color: #fe5a51; }
+
+.have {
+  color: #0ec254; }
 
 .main-bg {
   background-color: #fe5a51; }
@@ -118,7 +121,7 @@ input, textarea {
 
 .list-box .list .title {
   width: 23%; }
-.list-box .list .text {
+.list-box .list .textss {
   text-align: left; }
 .list-box .lists {
   width: 91%;

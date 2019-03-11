@@ -1,3 +1,5 @@
+@import "../id-card-info/id-card-info.page";
+
 .save {
 	margin-top: 3.3rem;
 }
@@ -30,7 +32,7 @@
 	.bankName:last-child {
 		border-bottom: none;
 	}
-	.acv{
+	.acv {
 		color: #fe5a51;
 	}
 }

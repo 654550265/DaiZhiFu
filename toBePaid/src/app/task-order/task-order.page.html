@@ -1,0 +1,154 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{title}}任务</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content color="favorite">
+    <div class="target-box bg-white mar-top1">
+        <div class="target-shop">目标商品 <span>平台系统返款</span></div>
+        <div class="shop-name">店铺名称 <span>{{taskData['tb_name']}}</span> <span>（请认真核对店铺名称）</span></div>
+        <div class="shop-list">
+            <img src="{{taskData['tb_pic']}}">
+            <div class="shop-price">
+                <div>搜索展示价格：
+                    <span>{{taskData['tb_show_price']}}元</span>
+                </div>
+                <div>商品成交单价：
+                    <span>{{taskData['tb_chengjiao_price']}}元</span>
+                </div>
+                <div>件数或规格：
+                    <span>{{taskData['tb_jianshu']}}元</span>
+                </div>
+            </div>
+            <div class="look-more" (click)="lookMore()">查看详情</div>
+        </div>
+    </div>
+    <div class="mar-top1 bg-white task-type">
+        <div class="task-status bor-bottom1">
+            <span class="title">任务状态</span>
+            <span class="status-text">待操作</span>
+        </div>
+        <div class="clock-box">
+            <img src="../../assets/clockB.png">
+            <div>倒计时：<span>{{timeText}}</span>
+            </div>
+        </div>
+        <div class="make-group">
+            <div class="{{taskData['status']!==1?'noAcv':''}}" (click)="takeTaskPage(taskData.status)">操作任务</div>
+            <!--<div>申诉任务</div>-->
+            <!--<div>取消任务</div>-->
+        </div>
+        <div class="task-range-box">
+            <div class="task-left">
+                <div class="time1 {{taskData['data1'].active==='1'?'acv':''}}">{{taskData['data1']['time']}}
+                    <div class="task-index {{taskData['data1'].active==='1'?'acvs':''}}">1</div>
+                </div>
+                <div class="time2 {{taskData['data2'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
+                    {{taskData['data2']['time']}}
+                    <div class="task-index {{taskData['data2'].active==='1'?'acvs':''}}">2</div>
+                </div>
+                <div class="time3 {{taskData['data3'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
+                    {{taskData['data3']['time']}}
+                    <div class="task-index {{taskData['data3'].active==='1'?'acvs':''}}">3</div>
+                </div>
+                <div class="time4 {{taskData['data4'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
+                    {{taskData['data4']['time']}}
+                    <div class="task-index {{taskData['data4'].active==='1'?'acvs':''}}">4</div>
+                </div>
+                <div class="time5 {{taskData['data5'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
+                    {{taskData['data5']['time']}}
+                    <div class="task-index {{taskData['data5'].active==='1'?'acvs':''}}">5</div>
+                </div>
+
+
+                <div class="time2 {{taskData['data3'].active==='1'?'acv':''}}" *ngIf="taskType==='2'">
+                    {{taskData['data3']['time']}}
+                    <div class="task-index {{taskData['data3'].active==='1'?'acv':''}}">2</div>
+                </div>
+                <div class="time5 {{taskData['data5'].active==='1'?'acv':''}}" *ngIf="taskType==='2'">
+                    {{taskData['data5']['time']}}
+                    <div class="task-index {{taskData['data5'].active==='1'?'acv':''}}">3</div>
+                </div>
+            </div>
+            <div class="task-right">
+                <div class="time1">
+                    <div class="task-status-text">接受任务</div>
+                    <div class="task-num-box">
+                        <div>任务编号</div>
+                        <div class="task-num">{{taskData['data1']['tasknum']}}</div>
+                        <!--<div class="task-btn">复制</div>-->
+                    </div>
+                    <div class="task-num-box">
+                        <div>买号</div>
+                        <div class="task-num">{{taskData['data1']['shopname']}}</div>
+                    </div>
+                </div>
+                <div class="time2" *ngIf="taskType==='2'">
+                    <div class="task-status-text">提交任务
+                        <span>(点开图片可更换错误图片)</span>
+                    </div>
+                    <div class="task-num-box">
+                        <div>浏览店铺</div>
+                        <img src="../../assets/gary-pic.png" class="img1">
+                        <img src="../../assets/gary-pic.png" class="img2">
+                    </div>
+                </div>
+                <div class="time2" *ngIf="taskType==='1'">
+                    <div class="task-status-text">订单付款
+                        <span>(点开图片可更换错误图片)</span>
+                    </div>
+                    <div class="task-num-box">
+                        <div>聊天下单</div>
+                        <img src="{{taskData['data2'].pic!==''?taskData['data2'].pic:'../../assets/gary-pic.png'}}"
+                             class="img2">
+                    </div>
+                </div>
+                <div class="time3" *ngIf="taskType==='1'">
+                    <div class="task-status-text">商家确认订单</div>
+                    <div class="task-num-box">
+                        <div>返款方式</div>
+                        <div class="task-num">{{taskData['data3'].fktype}}</div>
+                    </div>
+                    <div class="task-num-box">
+                        <div>返款帐号</div>
+                        <div class="task-num">{{taskData['data3'].fkid}}</div>
+                    </div>
+                    <div class="task-num-box">
+                        <div>返款金额</div>
+                        <div class="task-num">{{taskData['data3'].fkmoney}}</div>
+                    </div>
+                    <div class="task-num-box">
+                        <div class="task-nums">平台规定商家24小时内操作返款</div>
+                        <div class="task-btns">催返款</div>
+                    </div>
+                </div>
+                <div class="time4" *ngIf="taskType==='1'">
+                    <div class="task-status-text">收货好评
+                        <span>(点开图片可更换错误图片)</span>
+                    </div>
+                    <div class="task-num-box">
+                        <div>评价及物流截图</div>
+                        <img src="../../assets/gary-pic.png" class="img1">
+                        <img src="../../assets/gary-pic.png" class="img2">
+                    </div>
+                    <div class="suiyi">随意上传图片将受到平台处罚</div>
+                    <div class="task-num-box">
+                        <div></div>
+                        <div class="task-num">此单为普通好评</div>
+                        <div class="task-btns acvsss" (click)="talkMessage(taskData['status'])">评价要求</div>
+                    </div>
+                </div>
+                <div class="time5">
+                    <div class="task-status-text">任务完成</div>
+                    <div class="task-num-box">
+                        <div>获得佣金</div>
+                        <div class="task-num" >获得{{taskData['data5'].money}}金</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

@@ -10,33 +10,25 @@
     <div class="task-list-box">
         <div class="task-list" (click)="gotoTaskDteailsPage()">
             <div class="taskid">
-                <div class="taskNum">ID:{{tasknum}}</div>
-                <div>{{benjin}}元</div>
+                <div class="taskNum">ID:{{taskObj.tasknum?taskObj.tasknum:""}}</div>
+                <div>{{taskObj.benjin?taskObj.benjin:""}}元</div>
             </div>
             <div class="taskPrice">
                 <img src="../../assets/jifen.png">
-                <div class="taskPriceNum">￥{{yongjin}}</div>
-            </div>
-        </div>
-        <div class="pop" *ngIf="false"></div>
-        <div class="text-box" *ngIf="false">
-            <div class="nostart">暂未开始</div>
-            <div class="clockBox">
-                2019-01-04 11:20左右
-                <img src="../../assets/clock.png">
+                <div class="taskPriceNum">￥{{taskObj.yongjin?taskObj.yongjin:""}}</div>
             </div>
         </div>
     </div>
     <div class="task-yaoqiu">
         <div class="titles">任务要点</div>
-        <div class="yaoqiu-list" *ngFor="let item of yaoqiu">
+        <div class="yaoqiu-list" *ngFor="let item of taskObj.yaoqiu?taskObj.yaoqiu:[]">
             <div class="key">{{item.title}}</div>
             <div class="value textLong">{{item.value}}</div>
         </div>
     </div>
     <div class="task-yaoqiu">
         <div class="titles">卖家要求</div>
-        <div class="shopYaoqiu">{{yaodian}}</div>
+        <div class="shopYaoqiu">{{taskObj.yaodian?taskObj.yaodian:""}}</div>
     </div>
-    <div class="nickName center" (click)="nextStep()">昵称（今日可接单{{lasttasknum}}）</div>
+    <div class="nickName center" *ngIf="!init" (click)="nextStep()">{{TaobaoName}}（今日可接单{{taskObj.lasttasknum?taskObj.lasttasknum:""}}）</div>
 </ion-content>

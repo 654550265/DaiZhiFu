@@ -49,6 +49,7 @@
 	img {
 		width: 6.25rem;
 		height: 6.25rem;
+		flex-shrink: 0;
 	}
 	.target-message {
 		margin-left: 1rem;
@@ -115,6 +116,9 @@
 	color: #666666;
 	font-size: 1.2rem;
 	padding-top: 0.5rem;
+	span {
+		color: #fe5a51;
+	}
 }
 
 .hedui-text {

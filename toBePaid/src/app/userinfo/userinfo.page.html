@@ -11,20 +11,20 @@
     <div class="list-box mar-top1" (click)="gotoPages('/change-tel')">
         <div class="list bor-bottom1">
             <div class="title">用户手机号</div>
-            <div class="text">13541565489</div>
+            <div class="text">{{tel}}</div>
             <span class="right"></span>
         </div>
     </div>
     <div class="list-box">
         <div class="list bor-bottom1">
             <div class="title">待支付ID</div>
-            <div class="text">792744</div>
+            <div class="text">{{id}}</div>
         </div>
     </div>
     <div class="list-box">
         <div class="list bor-bottom1">
             <div class="title">待支付等级</div>
-            <div class="text">LV0</div>
+            <div class="text">LV{{level}}</div>
         </div>
     </div>
     <div class="list-box" (click)="gotoPages('/change-pwd')">
@@ -55,5 +55,5 @@
             <span class="right"></span>
         </div>
     </div>
-    <div class="loginout">退出登录</div>
+    <div class="loginout" (click)="logout()" >退出登录</div>
 </ion-content>

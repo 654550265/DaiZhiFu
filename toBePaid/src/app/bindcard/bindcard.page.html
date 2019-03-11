@@ -8,32 +8,67 @@
 </ion-header>
 
 <ion-content color="favorite">
-    <div class="list-box mar-top1">
-        <div class="list bor-bottom1">
-            <div class="title">持卡人</div>
-            <input type="text" class="text" placeholder="请输入持卡人姓名">
+    <div *ngIf="!isSHowForm">
+        <div class="list-box mar-top1">
+            <div class="list bor-bottom1">
+                <div class="title">持卡人:</div>
+                <div class="text">{{bankInfo.bankname}}</div>
+            </div>
+        </div>
+        <div class="list-box">
+            <div class="list bor-bottom1">
+                <div class="title">银行卡号:</div>
+                <div class="text">{{bankInfo.banknum}}</div>
+            </div>
+        </div>
+        <div class="list-box">
+            <div class="list bor-bottom1">
+                <div class="title">银行名称:</div>
+                <div class="text">{{bankInfo.banktype}}</div>
+            </div>
+        </div>
+        <div class="list-box">
+            <div class="list bor-bottom1">
+                <div class="title">审核状态</div>
+                <div class="text {{bankInfo.bank_status===1?'have':'main-col'}}">{{bankInfo.bank_status===0?"待审核":bankInfo.bank_status===1?"审核通过":"审核未通过"}}
+                </div>
+            </div>
+        </div>
+        <div class="list-box" *ngIf="bankInfo.bank_status === 2">
+            <div class="list">
+                <div class="title">驳回原因</div>
+                <div class="text">{{bankInfo.bank_text}}</div>
+            </div>
         </div>
     </div>
-    <div class="list-box" (click)="showPop()">
-        <div class="list bor-bottom1">
-            <div class="title">银行名称</div>
-            <div class="text">{{bName}}</div>
-            <span class="right"></span>
+    <div *ngIf="isSHowForm">
+        <div class="list-box mar-top1">
+            <div class="list bor-bottom1">
+                <div class="title">持卡人</div>
+                <input type="text" class="text" placeholder="请输入持卡人姓名" [(ngModel)]="cardName">
+            </div>
         </div>
-    </div>
-    <div class="list-box">
-        <div class="list">
-            <div class="title">银行卡号</div>
-            <input type="text" class="text" placeholder="请输入银行卡号">
+        <div class="list-box" (click)="showPop()">
+            <div class="list bor-bottom1">
+                <div class="title">银行名称</div>
+                <div class="text">{{bName}}</div>
+                <span class="right"></span>
+            </div>
         </div>
-    </div>
-    <div class="tishi">提示：持卡人姓名必须和身份证中填写的一致，暂时不支持绑定信用卡；不支持代支付上没有显示的银行，如果绑定错误，请联系专属客服为您解决。</div>
-    <div class="save">提交</div>
-    <div class="pop" *ngIf="isShowPop"></div>
-    <div class="bankNames" *ngIf="isShowPop">
-        <div class="choose">请选择</div>
-        <div *ngFor="let i of bankName;let index = index" class="bankName {{i.isAcv?'acv':''}}"
-             (click)="chooseOneBank(index)">{{i.text}}
+        <div class="list-box">
+            <div class="list">
+                <div class="title">银行卡号</div>
+                <input type="text" class="text" placeholder="请输入银行卡号" [(ngModel)]="cardNum">
+            </div>
+        </div>
+        <div class="tishi">提示：持卡人姓名必须和身份证中填写的一致，暂时不支持绑定信用卡；不支持代支付上没有显示的银行，如果绑定错误，请联系专属客服为您解决。</div>
+        <div class="save" (click)="subMiteData()">提交</div>
+        <div class="pop" *ngIf="isShowPop"></div>
+        <div class="bankNames" *ngIf="isShowPop">
+            <div class="choose">请选择</div>
+            <div *ngFor="let i of bankName;let index = index" class="bankName {{i.isAcv?'acv':''}}"
+                 (click)="chooseOneBank(index)">{{i.text}}
+            </div>
         </div>
     </div>
 </ion-content>

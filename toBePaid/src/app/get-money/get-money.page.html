@@ -12,23 +12,23 @@
         <div class="tixian bor-bottom1">提现信息</div>
         <div class="message-list bor-bottom1">
             <div class="msg-title">姓名</div>
-            <div class="msg">李四</div>
+            <div class="msg">{{cardName}}</div>
         </div>
         <div class="message-list bor-bottom1">
             <div class="msg-title">银行卡号</div>
-            <div class="msg">6125426512354895210</div>
+            <div class="msg">{{bank}}</div>
         </div>
         <div class="message-list bor-bottom1">
             <div class="msg-title">总金额</div>
-            <div class="msg">0</div>
+            <div class="msg">{{money}}</div>
         </div>
         <div class="message-list bor-bottom1">
             <div class="msg-title">提现金额</div>
-            <input type="text" placeholder="请输入提现金额">
+            <input type="text" placeholder="请输入提现金额" [(ngModel)]="getHowMoney">
         </div>
         <div class="message-list">
             <div class="msg-title">密码</div>
-            <input type="password" placeholder="请输入登录密码">
+            <input type="password" placeholder="请输入登录密码"  [(ngModel)]="pwd">
         </div>
     </div>
     <div class="bg-white mar-top1">
@@ -40,5 +40,5 @@
             提现，如有疑问请联系客服。
         </div>
     </div>
-    <div class="saves">提交</div>
+    <div class="saves" (click)="tiajioo()">提交</div>
 </ion-content>

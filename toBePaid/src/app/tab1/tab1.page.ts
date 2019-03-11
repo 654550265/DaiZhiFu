@@ -37,37 +37,36 @@ export class Tab1Page {
         let user = localStorage.getItem('userInfo');
         if (!user) {
             this.nav.navigateForward('/login');
-        } else {
-            let type = '';
-            for (let value of this.subList) {
-                if (value.isAcv) {
-                    type = value.type;
-                    break;
-                }
-            }
-            this.init(type);
-            this.http.get('api/home/index/notice', {}).then(res => {
-
-            });
         }
+        let type = '';
+        for (let value of this.subList) {
+            if (value.isAcv) {
+                type = value.type;
+                break;
+            }
+        }
+        this.init(type);
     }
 
     init(type) {
-        this.http.post('portal/index/getTaskList', {
+        this.http.get('api/home/index/getTaskList', {
             taskType: type
         }).then(res => {
-            if (res['code'] === '1') {
-                this.taskList = res['data'];
-            }
+            this.taskList = res['data'];
         });
     }
 
     chooseOne(index) {
-        for (let values of this.subList) {
-            values.isAcv = false;
+        let isUrl = this.subList[index].isUrl;
+        if (isUrl) {
+            this.router.navigate(['/money-making']);
+        } else {
+            for (let values of this.subList) {
+                values.isAcv = false;
+            }
+            this.subList[index].isAcv = true;
+            this.init(this.subList[index].type);
         }
-        this.subList[index].isAcv = true;
-        this.init(this.subList[index].type);
     }
 
     gotoTaskDteailsPage(taskNum) {
@@ -81,7 +80,8 @@ export class Tab1Page {
         this.router.navigate(['/task-details'], {
             queryParams: {
                 taskNum: taskNum,
-                taskType: taskType
+                taskType: taskType,
+                init: 456
             }
         });
     }
