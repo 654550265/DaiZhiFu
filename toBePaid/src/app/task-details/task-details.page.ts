@@ -11,9 +11,13 @@ import {CommentService} from '../comment.service';
 })
 export class TaskDetailsPage implements OnInit {
     color: string;
-    tasknum: string;
     taskType: string;
-    taskObj: Object;
+    tasknum: string;
+    benjin: string;
+    yongjin: string;
+    yaodian: string;
+    lasttasknum: string;
+    yaoqiu: Array<any>;
 
     constructor(public activeRoute: ActivatedRoute, public http: HttpService, public router: Router, public comm: CommentService) {
         this.color = '#fe5a51';
@@ -21,16 +25,18 @@ export class TaskDetailsPage implements OnInit {
 
     ngOnInit() {
         this.activeRoute.queryParams.subscribe((params: Params) => {
-            console.log(params);
             this.tasknum = params.taskNum;
             this.taskType = params.taskType;
-            debugger;
             this.http.get('portal/index/getTaskDetail', {
                 tasknum: params.taskNum,
                 uid: this.http.getUid()
             }).then(res => {
-                res['data'].yaoqiu = JSON.parse(res['data'].yaoqiu);
-                this.taskObj = res['data'];
+                this.tasknum = res['data'].tasknum;
+                this.benjin = res['data'].benjin;
+                this.yongjin = res['data'].yongjin;
+                this.yaodian = res['data'].yaodian;
+                this.lasttasknum = res['data'].lasttasknum;
+                this.yaoqiu = JSON.parse(res['data'].yaoqiu);
             }).catch(err => {
                 this.comm.showToast(err.msg);
             });

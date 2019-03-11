@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ENV} from '../config/ENV';
 import * as CryptoJS from 'crypto-js';
 
@@ -12,13 +12,17 @@ export class HttpService {
     }
 
     get(url: string, obj: Object) {
-        let promse = new Promise((resolve, reject) => {
+        const promse = new Promise((resolve, reject) => {
             let str = `${ENV.host}${url}?`;
-            for (let key in obj) {
+            for (const key in obj) {
                 str += `${key}=${obj[key]}&`;
             }
             str = str.substr(0, str.length - 1);
-            this.httpClient.get(str).subscribe(res => {
+            let headers = new HttpHeaders()
+                .append('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
+            this.httpClient.get(str, {
+                headers: headers
+            }).subscribe(res => {
                 if (res['code'] === '1') {
                     resolve(res);
                 } else {

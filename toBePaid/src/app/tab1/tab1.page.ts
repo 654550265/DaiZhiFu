@@ -46,6 +46,9 @@ export class Tab1Page {
                 }
             }
             this.init(type);
+            this.http.get('api/home/index/notice', {}).then(res => {
+
+            });
         }
     }
 

@@ -81,15 +81,12 @@ export class ForgetPage implements OnInit {
             this.comm.showToast('两次密码输入不一致');
         } else {
             this.http.post('user/login/redoDo', this.dataObj).then(res => {
-                if (res['code'] === '1') {
-                    this.comm.showToast('重置成功', () => {
-                        this.nav.goBack();
-                    });
-                } else {
-                    this.comm.showToast(res['msg']);
-                }
+                this.comm.showToast('重置成功', () => {
+                    this.nav.goBack();
+                });
+            }).catch(err => {
+                this.comm.showToast(err['msg']);
             });
         }
     }
-
 }

@@ -78,16 +78,13 @@ export class RegisterPage implements OnInit {
         } else if (this.dataObj['pass'] !== this.apass) {
             this.comm.showToast('两次密码输入不一致');
         } else {
-            this.http.post('user/login/regDo', this.dataObj).then(res => {
-                if (res['code'] === '1') {
-                    this.comm.showToast('注册成功', () => {
-                        this.nav.goBack();
-                    });
-                } else {
-                    this.comm.showToast(res['msg']);
-                }
+            this.http.get('user/login/regDo', this.dataObj).then(res => {
+                this.comm.showToast('注册成功', () => {
+                    this.nav.goBack();
+                });
+            }).catch(err => {
+                this.comm.showToast(err['msg']);
             });
         }
     }
-
 }
