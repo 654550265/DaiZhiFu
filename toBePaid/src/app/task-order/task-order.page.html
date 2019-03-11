@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar color="mycolor">
         <ion-buttons slot="start">
-            <ion-back-button text=""></ion-back-button>
+            <ion-back-button text="" (click)="back()"></ion-back-button>
         </ion-buttons>
         <ion-title>{{title}}任务</ion-title>
     </ion-toolbar>
@@ -42,38 +42,41 @@
             <!--<div>取消任务</div>-->
         </div>
         <div class="task-range-box">
-            <div class="task-left">
+            <div class="task-left" *ngIf="taskType==='1'">
                 <div class="time1 {{taskData['data1'].active==='1'?'acv':''}}">{{taskData['data1']['time']}}
                     <div class="task-index {{taskData['data1'].active==='1'?'acvs':''}}">1</div>
                 </div>
-                <div class="time2 {{taskData['data2'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
+                <div class="time2 {{taskData['data2'].active==='1'?'acv':''}}">
                     {{taskData['data2']['time']}}
                     <div class="task-index {{taskData['data2'].active==='1'?'acvs':''}}">2</div>
                 </div>
-                <div class="time3 {{taskData['data3'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
+                <div class="time3 {{taskData['data3'].active==='1'?'acv':''}}">
                     {{taskData['data3']['time']}}
                     <div class="task-index {{taskData['data3'].active==='1'?'acvs':''}}">3</div>
                 </div>
-                <div class="time4 {{taskData['data4'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
+                <div class="time4 {{taskData['data4'].active==='1'?'acv':''}}">
                     {{taskData['data4']['time']}}
                     <div class="task-index {{taskData['data4'].active==='1'?'acvs':''}}">4</div>
                 </div>
-                <div class="time5 {{taskData['data5'].active==='1'?'acv':''}}" *ngIf="taskType==='1'">
+                <div class="time5 {{taskData['data5'].active==='1'?'acv':''}}">
                     {{taskData['data5']['time']}}
                     <div class="task-index {{taskData['data5'].active==='1'?'acvs':''}}">5</div>
                 </div>
-
-
-                <div class="time2 {{taskData['data3'].active==='1'?'acv':''}}" *ngIf="taskType==='2'">
-                    {{taskData['data3']['time']}}
-                    <div class="task-index {{taskData['data3'].active==='1'?'acv':''}}">2</div>
+            </div>
+            <div class="task-left" *ngIf="taskType==='2'">
+                <div class="time1 {{taskData['data1'].active==='1'?'acv':''}}">{{taskData['data1']['time']}}
+                    <div class="task-index {{taskData['data1'].active==='1'?'acvs':''}}">1</div>
                 </div>
-                <div class="time5 {{taskData['data5'].active==='1'?'acv':''}}" *ngIf="taskType==='2'">
-                    {{taskData['data5']['time']}}
-                    <div class="task-index {{taskData['data5'].active==='1'?'acv':''}}">3</div>
+                <div class="time2 {{taskData['data2'].active==='1'?'acv':''}}">
+                    {{taskData['data2']['time']}}
+                    <div class="task-index {{taskData['data2'].active==='1'?'acvs':''}}">2</div>
+                </div>
+                <div class="time5 {{taskData['data3'].active==='1'?'acv':''}}">
+                    {{taskData['data3']['time']}}
+                    <div class="task-index {{taskData['data3'].active==='1'?'acvs':''}}">3</div>
                 </div>
             </div>
-            <div class="task-right">
+            <div class="task-right" *ngIf="taskType==='1'">
                 <div class="time1">
                     <div class="task-status-text">接受任务</div>
                     <div class="task-num-box">
@@ -86,7 +89,7 @@
                         <div class="task-num">{{taskData['data1']['shopname']}}</div>
                     </div>
                 </div>
-                <div class="time2" *ngIf="taskType==='2'">
+                <div class="time2">
                     <div class="task-status-text">提交任务
                         <span>(点开图片可更换错误图片)</span>
                     </div>
@@ -96,7 +99,7 @@
                         <img src="../../assets/gary-pic.png" class="img2">
                     </div>
                 </div>
-                <div class="time2" *ngIf="taskType==='1'">
+                <div class="time2">
                     <div class="task-status-text">订单付款
                         <span>(点开图片可更换错误图片)</span>
                     </div>
@@ -106,7 +109,7 @@
                              class="img2">
                     </div>
                 </div>
-                <div class="time3" *ngIf="taskType==='1'">
+                <div class="time3">
                     <div class="task-status-text">商家确认订单</div>
                     <div class="task-num-box">
                         <div>返款方式</div>
@@ -125,7 +128,7 @@
                         <div class="task-btns">催返款</div>
                     </div>
                 </div>
-                <div class="time4" *ngIf="taskType==='1'">
+                <div class="time4">
                     <div class="task-status-text">收货好评
                         <span>(点开图片可更换错误图片)</span>
                     </div>
@@ -145,7 +148,39 @@
                     <div class="task-status-text">任务完成</div>
                     <div class="task-num-box">
                         <div>获得佣金</div>
-                        <div class="task-num" >获得{{taskData['data5'].money}}金</div>
+                        <div class="task-num">获得{{taskData['data5'].money}}金</div>
+                    </div>
+                </div>
+            </div>
+            <div class="task-right" *ngIf="taskType==='2'">
+                <div class="time1">
+                    <div class="task-status-text">接受任务</div>
+                    <div class="task-num-box">
+                        <div>任务编号</div>
+                        <div class="task-num">{{taskData['data1']['tasknum']}}</div>
+                        <!--<div class="task-btn">复制</div>-->
+                    </div>
+                    <div class="task-num-box">
+                        <div>买号</div>
+                        <div class="task-num">{{taskData['data1']['shopname']}}</div>
+                    </div>
+                </div>
+                <div class="time2">
+                    <div class="task-status-text">提交任务
+                        <span>(点开图片可更换错误图片)</span>
+                    </div>
+                    <div class="task-num-box">
+                        <div>浏览店铺</div>
+                        <img src="../../assets/gary-pic.png" class="img1">
+                        <img src="../../assets/gary-pic.png" class="img2">
+                    </div>
+                </div>
+
+                <div class="time5">
+                    <div class="task-status-text">任务完成</div>
+                    <div class="task-num-box">
+                        <div>获得佣金</div>
+                        <div class="task-num">获得{{taskData['data3'].money}}金</div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {NavController} from "@ionic/angular";
+import {NavController} from '@ionic/angular';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-complaint-center',
@@ -9,12 +10,12 @@ import {NavController} from "@ionic/angular";
 export class ComplaintCenterPage implements OnInit {
     subList: Array<any>;
 
-    constructor(public nav: NavController) {
+    constructor(public nav: NavController, public router: Router) {
         this.subList = [{
-            text: "我收到的申诉",
+            text: '我收到的申诉',
             isacv: true
         }, {
-            text: "我发起的申诉",
+            text: '我发起的申诉',
             isacv: false
         }];
     }
@@ -27,5 +28,9 @@ export class ComplaintCenterPage implements OnInit {
             value.isacv = false;
         }
         this.subList[index].isacv = true;
+    }
+
+    back(url: string) {
+        this.router.navigate([url]);
     }
 }

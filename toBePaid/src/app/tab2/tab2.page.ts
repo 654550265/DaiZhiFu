@@ -1,6 +1,6 @@
-import { HttpService } from './../http.service';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {HttpService} from './../http.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-tab2',
@@ -65,10 +65,11 @@ export class Tab2Page {
             this.orders = res['data'].map(item => {
                 var starttime = item.create_time_s;
                 var enddate = new Date(item.create_time_s);
-                enddate.setHours(enddate.getHours()+1);
-                var endtime = Date.parse(enddate+'');
-                var time = endtime - (Date.parse(new Date()+'')/1000);
+                enddate.setHours(enddate.getHours() + 1);
+                var endtime = Date.parse(enddate + '');
+                var time = endtime - (Date.parse(new Date() + '') / 1000);
                 var count_time = null;
+
                 function countdown() {
                     var s = time % 60;
                     var m = Math.floor((time / 60)) % 60;
@@ -81,10 +82,11 @@ export class Tab2Page {
                     }
                     item.count = msg;
                 }
-                if(time > 0){
-                    countdown(); 
-                }else{
-                    item.count = "00:00";
+
+                if (time > 0) {
+                    countdown();
+                } else {
+                    item.count = '00:00';
                 }
                 return item;
             });
@@ -92,7 +94,7 @@ export class Tab2Page {
     }
 
     resetTime(time: number) {
-        
+
     }
 
     chooseOne(index) {
@@ -105,11 +107,14 @@ export class Tab2Page {
     }
 
     gotoTaskDetailPage(item) {
+        console.log(item);
         this.router.navigate(['task-order'], {
             queryParams: {
                 taskNum: item.tasknum,
                 taskType: item.tasktype,
-                toid: item.toid
+                toid: item.toid,
+                count: item.count,
+                url: '/tabs/tab2'
             }
         });
     }

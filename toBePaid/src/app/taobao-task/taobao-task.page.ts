@@ -85,6 +85,15 @@ export class TaobaoTaskPage implements OnInit {
         });
     }
 
+    copyOpen() {
+        console.log(123);
+        this.http.openTaoBao(this.taskData['tb_name']);
+    }
+
+    openTb() {
+        console.log(123);
+        this.http.openTaoBao('');
+    }
 
     subTaskMessage() {
         if (this.shopName === '') {

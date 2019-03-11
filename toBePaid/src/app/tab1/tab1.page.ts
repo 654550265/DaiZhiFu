@@ -59,7 +59,11 @@ export class Tab1Page {
     chooseOne(index) {
         let isUrl = this.subList[index].isUrl;
         if (isUrl) {
-            this.router.navigate(['/money-making']);
+            this.router.navigate(['/money-making'], {
+                queryParams: {
+                    type: 1
+                }
+            });
         } else {
             for (let values of this.subList) {
                 values.isAcv = false;

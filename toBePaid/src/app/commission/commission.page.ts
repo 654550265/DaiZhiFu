@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController} from '@ionic/angular';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-commission',
@@ -8,7 +9,7 @@ import {NavController} from '@ionic/angular';
 })
 export class CommissionPage implements OnInit {
 
-    constructor(public nav: NavController) {
+    constructor(public nav: NavController, public router: Router) {
     }
 
     ngOnInit() {
@@ -16,5 +17,9 @@ export class CommissionPage implements OnInit {
 
     gotoGetMoney() {
         this.nav.navigateForward('get-money');
+    }
+
+    back(url: string) {
+        this.router.navigate([url]);
     }
 }

@@ -1,13 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ENV} from '../config/ENV';
+import {Clipboard} from '@ionic-native/clipboard/ngx';
+import {AlertController, Platform} from '@ionic/angular';
+import {AppAvailability} from '@ionic-native/app-availability/ngx';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HttpService {
 
-    constructor(private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient, private clipboard: Clipboard, private platform: Platform, private appAvailability: AppAvailability, public alertController: AlertController) {
     }
 
     public get(url: string, obj: Object) {
@@ -96,21 +99,78 @@ export class HttpService {
 
     formatSeconds(s: any) {
         var t;
-        if(s > -1){
-            var hour = Math.floor(s/3600);
-            var min = Math.floor(s/60) % 60;
+        if (s > -1) {
+            var hour = Math.floor(s / 3600);
+            var min = Math.floor(s / 60) % 60;
             var sec = s % 60;
-            if(hour < 10) {
-                t = '0'+ hour + ":";
+            if (hour < 10) {
+                t = '0' + hour + ':';
             } else {
-                t = hour + ":";
+                t = hour + ':';
             }
 
-            if(min < 10){t += "0";}
-            t += min + ":";
-            if(sec < 10){t += "0";}
+            if (min < 10) {
+                t += '0';
+            }
+            t += min + ':';
+            if (sec < 10) {
+                t += '0';
+            }
             t += sec.toFixed(0);
         }
         return t;
+    }
+
+    sec_to_time(time) {
+        // debugger;
+        var s = 0;
+
+        var hour = parseInt(time.split(':')[0]);
+        var min = parseInt(time.split(':')[1]);
+        // var sec = parseInt(time.split(':')[2]);
+
+        s = (hour * 60) + min;
+        return s;
+    }
+
+    openTaoBao(str) {
+        console.log('http');
+        //com.taobao.taobao
+        this.clipboard.copy(str);
+        let app = '', sApp;
+        if (this.platform.is('ios')) {
+            app = 'taobao://';
+            sApp = (window as any).startApp.set(app);
+        } else if (this.platform.is('android')) {
+            app = 'com.taobao.taobao';
+            sApp = (window as any).startApp.set({
+                'application': app
+            }, {
+                /* extras */
+                'EXTRA_STREAM': 'extraValue1',
+                'extraKey2': 'extraValue2'
+            });
+        }
+        console.log(app);
+        this.appAvailability.check(app).then(res => {
+            console.log(res, '成功');
+            sApp.start(function (ress) {
+                console.log(ress, '成功1');
+            }, function (error) {
+                console.log(error, '失败1');
+            });
+        }).catch(err => {
+            console.log(err, '失败');
+            this.presentAlert();
+        });
+    }
+
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: '温馨提示',
+            message: '客户端未安装',
+            buttons: ['确认']
+        });
+        await alert.present();
     }
 }
