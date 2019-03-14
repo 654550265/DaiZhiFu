@@ -217,6 +217,12 @@ input, textarea, select {
 	z-index: 1;
 }
 
+.huiBtn {
+	position: absolute;
+	top: 10px;
+	right: 3%;
+}
+
 .ion-color-mycolor {
 	--ion-color-base: #fe5a51;
 	--ion-color-base-rgb: 254, 90, 81;

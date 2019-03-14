@@ -3,6 +3,7 @@ import {NavController} from '@ionic/angular';
 import {HttpService} from '../http.service';
 import {CommentService} from '../comment.service';
 import {Clipboard} from '@ionic-native/clipboard/ngx';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-tab4',
@@ -13,7 +14,7 @@ export class Tab4Page implements OnInit {
     isShow: boolean;
     kefu: string = '123456';
 
-    constructor(public nav: NavController, public http: HttpService, public comm: CommentService, private clipboard: Clipboard) {
+    constructor(public nav: NavController, public http: HttpService, public comm: CommentService, private clipboard: Clipboard, public router: Router) {
         this.isShow = false;
     }
 
@@ -33,8 +34,12 @@ export class Tab4Page implements OnInit {
         this.isShow = false;
     }
 
-    gotoCommission() {
-        this.nav.navigateForward('commission');
+    gotoCommission(num) {
+        this.router.navigate(['/commission'], {
+            queryParams: {
+                type: num
+            }
+        });
     }
 
     clearData() {
