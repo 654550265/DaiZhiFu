@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>公告</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="favorite">
+    <div class="message-list" *ngFor="let item of msgList" (click)="gotoMessageInfoPage(item.id)">
+        <p class="title">{{item.content}}</p>
+        <p class="time">{{item.create_time}}</p>
+    </div>
+
+</ion-content>

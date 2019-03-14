@@ -1,4 +1,9 @@
 <ion-content color="favorite">
+    <ion-refresher  #refresherRef slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                refreshingSpinner="circles"></ion-refresher-content>
+    </ion-refresher>
     <div class="top-box">
         <img src="../../assets/title.png">
         <div class="pin center">莫羡他人高薪，且看闲时谁在拼</div>
@@ -6,11 +11,8 @@
     <div class="gonggao-box">
         <img src="../../assets/gonggao.png">
         <div class="message-box">
-            <div class="message">
-                <div>2018香港公司年审需要知道哪些？</div>
-                <div>2018香港公司年审需要知道哪些？</div>
-                <div>2018香港公司年审需要知道哪些？</div>
-                <div>2018香港公司年审需要知道哪些？</div>
+            <div class="message" (click)="gotoMessageList()">
+                <div *ngFor="let item of msgList">{{item.content}}</div>
             </div>
         </div>
     </div>

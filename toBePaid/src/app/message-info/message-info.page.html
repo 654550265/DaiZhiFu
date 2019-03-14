@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>公告</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="favorite">
+    <div class="title">{{obj.content}}</div>
+    <div class="ctime">发布时间：
+        <span class="main-col">{{obj.create_time}}</span>
+    </div>
+    <div class="content">{{obj.contents}}</div>
+</ion-content>

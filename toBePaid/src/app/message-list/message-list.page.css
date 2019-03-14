@@ -1,0 +1,13 @@
+.message-list {
+  background-color: white;
+  padding: 0.5rem 3%;
+  margin-bottom: 1rem; }
+  .message-list .title {
+    color: black;
+    font-size: 1.6rem; }
+  .message-list .time {
+    font-size: 1.2rem;
+    color: #818181;
+    margin-top: 0.5rem; }
+
+/*# sourceMappingURL=message-list.page.css.map */

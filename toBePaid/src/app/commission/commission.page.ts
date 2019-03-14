@@ -10,6 +10,7 @@ import {HttpService} from '../http.service';
 })
 export class CommissionPage implements OnInit {
     types: string = '';
+    title: string = '';
 
     constructor(public nav: NavController, public router: Router, public activeRoute: ActivatedRoute, public http: HttpService) {
     }
@@ -17,6 +18,7 @@ export class CommissionPage implements OnInit {
     ngOnInit() {
         this.activeRoute.queryParams.subscribe((params: Params) => {
             this.types = params.type;
+            this.title = params.type==='1'?"佣金":"本金"
         });
     }
 

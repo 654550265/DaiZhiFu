@@ -223,6 +223,10 @@ input, textarea, select {
 	right: 3%;
 }
 
+.has-refresher > .scroll-content {
+	background-color: transparent !important;
+}
+
 .ion-color-mycolor {
 	--ion-color-base: #fe5a51;
 	--ion-color-base-rgb: 254, 90, 81;

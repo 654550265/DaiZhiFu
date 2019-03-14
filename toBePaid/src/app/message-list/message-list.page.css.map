@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,aAAc;EACb,gBAAgB,EAAE,KAAK;EACvB,OAAO,EAAE,SAAS;EAClB,aAAa,EAAE,IAAI;EACnB,oBAAO;IACN,KAAK,EAAE,KAAK;IACZ,SAAS,EAAE,MAAM;EAElB,mBAAM;IACL,SAAS,EAAE,MAAM;IACjB,KAAK,EAAE,OAAO;IACd,UAAU,EAAE,MAAM",
+"sources": ["message-list.page.scss"],
+"names": [],
+"file": "message-list.page.css"
+}

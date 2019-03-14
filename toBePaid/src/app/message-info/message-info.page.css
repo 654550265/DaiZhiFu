@@ -1,0 +1,13 @@
+.title, .ctime, .content {
+  width: 94%;
+  margin: 0 auto; }
+
+.title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem; }
+
+.time {
+  margin-bottom: 1rem; }
+
+/*# sourceMappingURL=message-info.page.css.map */
