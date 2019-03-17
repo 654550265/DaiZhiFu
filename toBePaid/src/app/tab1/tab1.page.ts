@@ -50,7 +50,7 @@ export class Tab1Page {
         }
         this.init(type);
         this.http.get('/api/home/index/notice', {}).then(res => {
-            if (res.code === 1) {
+            if (res['code'] === 1) {
                 this.msgList = res['data'];
             }
         });

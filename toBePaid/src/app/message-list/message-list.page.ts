@@ -15,7 +15,7 @@ export class MessageListPage implements OnInit {
 
     ngOnInit() {
         this.http.get('/api/home/index/notice', {}).then(res => {
-            if (res.code === 1) {
+            if (res['code'] === 1) {
                 this.msgList = res['data'];
             }
         });

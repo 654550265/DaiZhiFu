@@ -18,7 +18,7 @@ export class MessageInfoPage implements OnInit {
             this.http.get('/api/home/index/noticeDetail', {
                 id: parm.id
             }).then(res => {
-                if (res.code === 1) {
+                if (res['code'] === 1) {
                     this.obj = res['data'];
                 }
             });
