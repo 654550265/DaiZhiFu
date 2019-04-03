@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar color="mycolor">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>图片预览</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="favorite">
+    <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let item of pics">
+            <img src="{{item}}">
+        </ion-slide>
+    </ion-slides>
+</ion-content>

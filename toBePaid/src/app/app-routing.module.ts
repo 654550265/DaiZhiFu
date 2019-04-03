@@ -32,6 +32,7 @@ const routes: Routes = [
     {path: 'talk', loadChildren: './talk/talk.module#TalkPageModule'},
   { path: 'message-list', loadChildren: './message-list/message-list.module#MessageListPageModule' },
   { path: 'message-info', loadChildren: './message-info/message-info.module#MessageInfoPageModule' },
+  { path: 'show-pic', loadChildren: './show-pic/show-pic.module#ShowPicPageModule' },
 
 ];
 

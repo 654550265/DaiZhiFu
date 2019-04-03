@@ -51,6 +51,12 @@
     color: #fe5a51;
     font-size: 1.3rem;
     text-align: right; }
+.task-type .quicty {
+  width: 94%;
+  margin: 0 auto;
+  height: 3rem;
+  line-height: 4rem;
+  color: #fe5a51; }
 
 .clock-box {
   position: relative;

@@ -85,6 +85,24 @@ export class TaskOrderPage implements OnInit {
         }
     }
 
+    showShopPic(src) {
+        this.router.navigate(['show-pic'], {
+            queryParams: {
+                pic: src,
+            }
+        });
+    }
+
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: '温馨提示',
+            message: '请勿将此截图用于拍立得，否则将处罚',
+            buttons: ['确认']
+        });
+
+        await alert.present();
+    }
+
     ionViewDidEnter() {
         if (this.num !== 1) {
             this.http.get('api/home/index/taskOrderDetail', {

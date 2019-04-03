@@ -94,5 +94,8 @@
     <plugin name="cordova-clipboard" spec="1.2.1" />
     <plugin name="cordova-plugin-appavailability" spec="0.4.2" />
     <plugin name="com.lampa.startapp" spec="6.1.6" />
+    <plugin name="com.darktalker.cordova.screenshot" spec="0.1.6" />
+    <plugin name="com-sarriaroman-photoviewer" spec="1.2.1" />
+    <plugin name="cordova-plugin-x-toast" spec="2.7.2" />
     <engine name="android" spec="7.1.4" />
 </widget>

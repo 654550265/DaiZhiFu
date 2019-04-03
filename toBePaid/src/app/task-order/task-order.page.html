@@ -11,7 +11,7 @@
         <div class="target-shop">目标商品 <span>平台系统返款</span></div>
         <div class="shop-name">店铺名称 <span>{{taskData['tb_name']}}</span> <span>（请认真核对店铺名称）</span></div>
         <div class="shop-list">
-            <img src="{{taskData['tb_pic']}}">
+            <img src="{{taskData['tb_pic']}}" (click)="showShopPic(taskData['tb_pic'])">
             <div class="shop-price">
                 <div>搜索展示价格：
                     <span>{{taskData['tb_show_price']}}元</span>
@@ -31,6 +31,7 @@
             <span class="title">任务状态</span>
             <span class="status-text">待操作</span>
         </div>
+        <div class="quicty">温馨提示：请尽快完成任务</div>
         <div class="clock-box">
             <img src="../../assets/clockB.png">
             <div>倒计时：<span>{{timeText}}</span>
