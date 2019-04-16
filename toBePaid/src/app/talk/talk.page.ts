@@ -27,7 +27,6 @@ export class TalkPage implements OnInit {
 
     ngOnInit() {
         this.activeRoute.queryParams.subscribe((params: Params) => {
-            console.log(params);
             this.pic = params.pic;
             this.toid = params.toid;
             this.num = params.num;

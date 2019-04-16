@@ -14,7 +14,6 @@ export class MoneyMakingPage implements OnInit {
 
     ngOnInit() {
         this.activeRoute.queryParams.subscribe((params: Params) => {
-            console.log(params);
             this.url = params['type'] === '1' ? '/tabs/tab1' : '/tabs/tab4';
         });
     }

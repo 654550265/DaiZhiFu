@@ -134,7 +134,6 @@ export class HttpService {
     }
 
     openTaoBao(str) {
-        console.log('http');
         //com.taobao.taobao
         this.clipboard.copy(str);
         let app = '', sApp;
@@ -151,16 +150,11 @@ export class HttpService {
                 'extraKey2': 'extraValue2'
             });
         }
-        console.log(app);
         this.appAvailability.check(app).then(res => {
-            console.log(res, '成功');
             sApp.start(function (ress) {
-                console.log(ress, '成功1');
             }, function (error) {
-                console.log(error, '失败1');
             });
         }).catch(err => {
-            console.log(err, '失败');
             this.presentAlert();
         });
     }

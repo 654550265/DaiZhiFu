@@ -54,7 +54,6 @@ export class Tab2Page {
         //         return msg;
         //     }
         //     count = countdown();
-        //     console.log(count);
         //     return count;
         // }
 
@@ -107,7 +106,6 @@ export class Tab2Page {
     }
 
     gotoTaskDetailPage(item) {
-        console.log(item);
         this.router.navigate(['task-order'], {
             queryParams: {
                 taskNum: item.tasknum,

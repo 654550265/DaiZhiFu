@@ -60,11 +60,7 @@ export class IdCardInfoSurePage implements OnInit {
         }).then(res => {
             let fileURL = res[0];
             var win = function (r) {
-                console.log("Code = " + r.responseCode);
-                console.log("Response = " + r.response);
-                console.log("Sent = " + r.bytesSent);
                 var res = JSON.parse(r.response);
-                console.log(res);
                 that['idPic' + type] = res['data'];
             }
 

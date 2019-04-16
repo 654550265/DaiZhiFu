@@ -15,7 +15,6 @@ export class Tab3Page {
 
     ionViewWillEnter() {
         this.videoPlayer.play('http://222app.qnbug.cn/upload/video.mp4').then(() => {
-            console.log('video completed');
         }).catch(err => {
             console.log(err);
         });

@@ -67,11 +67,7 @@ export class LookTaskPage implements OnInit {
         }).then(res => {
             let fileURL = res[0];
             var win = function (r) {
-                console.log("Code = " + r.responseCode);
-                console.log("Response = " + r.response);
-                console.log("Sent = " + r.bytesSent);
                 var res = JSON.parse(r.response);
-                console.log(res);
                 that[type+'_pic' + num] = res['data'];
             }
 
@@ -100,11 +96,7 @@ export class LookTaskPage implements OnInit {
             for (let index = 0; index < res.length; index++) {
                 const fileURL = res[index];
                 var win = function (r) {
-                    console.log("Code = " + r.responseCode);
-                    console.log("Response = " + r.response);
-                    console.log("Sent = " + r.bytesSent);
                     var res = JSON.parse(r.response);
-                    console.log(res);
                     that[type+'_pic' + (index+1)] = res['data'];
                 }
 

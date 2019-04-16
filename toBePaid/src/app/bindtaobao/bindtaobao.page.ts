@@ -65,7 +65,6 @@ export class BindtaobaoPage implements OnInit {
     }
 
     subMiteData() {
-        console.log(this.huabei);
         let arr = [], reg = /^1[34578]\d{9}$/;
         for (let value of this.proviceList) {
             if (value.id === parseInt(this.provice)) {

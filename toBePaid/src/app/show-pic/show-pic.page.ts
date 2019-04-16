@@ -31,5 +31,4 @@ export class ShowPicPage implements OnInit {
         });
         await alert.present();
     }
-
 }

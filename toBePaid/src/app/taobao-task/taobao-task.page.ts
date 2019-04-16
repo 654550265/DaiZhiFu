@@ -44,9 +44,6 @@ export class TaobaoTaskPage implements OnInit {
             let src = res[0], self = this;
 
             var win = function (r) {
-                console.log('Code = ' + r.responseCode);
-                console.log('Response = ' + r.response);
-                console.log('Sent = ' + r.bytesSent);
                 let res = JSON.parse(r.response);
                 if (res.code === 1) {
                     self.xiadanPic = res.data;
@@ -86,12 +83,10 @@ export class TaobaoTaskPage implements OnInit {
     }
 
     copyOpen() {
-        console.log(123);
         this.http.openTaoBao(this.taskData['tb_name']);
     }
 
     openTb() {
-        console.log(123);
         this.http.openTaoBao('');
     }
 

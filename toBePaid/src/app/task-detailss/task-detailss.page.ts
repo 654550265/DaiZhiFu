@@ -26,7 +26,6 @@ export class TaskDetailssPage implements OnInit {
 
     ionViewDidEnter() {
         this.activeRoute.queryParams.subscribe((params: Params) => {
-            console.log(params);
             this.tasknum = params.tasknum;
             this.taskType = params.taskType;
             this.http.get('api/home/index/getTaskDetail', {
