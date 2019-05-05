@@ -38,52 +38,6 @@ export class HttpService {
         return promse;
     }
 
-    // public post(url: string, data) {
-    //     let promse = new Promise((resolve, reject) => {
-    //         // const params = typeof(data) === 'object' && String(data) !== '[object File]' ? this.paramFormat(data) : data;
-    //         this.httpClient.post(`${ENV.host}${url}`, null, {
-    //             headers: {
-    //                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    //                 'Accept': '*/*'
-    //             },
-    //             params: data
-    //         }).subscribe(res => {
-    //             if (res['code'] === '1') {
-    //                 resolve(res);
-    //             } else {
-    //                 reject(res);
-    //             }
-    //         });
-    //     });
-    //     return promse;
-    // }
-    //
-    // private paramFormat(data: any): string {
-    //     let paramStr = '', name, value, subName, innerObj;
-    //     for (name in data) {
-    //         value = data[name];
-    //         if (value instanceof Array) {
-    //             for (let i of value) {
-    //                 subName = name;
-    //                 innerObj = {};
-    //                 innerObj[subName] = i;
-    //                 paramStr += this.paramFormat(innerObj) + '&';
-    //             }
-    //         } else if (value instanceof Object) {
-    //             Object.keys(value).forEach(function (key) {
-    //                 subName = name + '[' + key + ']';
-    //                 innerObj = {};
-    //                 innerObj[subName] = value[key];
-    //                 paramStr += this.paramFormat(innerObj) + '&';
-    //             });
-    //         } else if (value !== undefined && value !== null) {
-    //             paramStr += encodeURIComponent(name) + '='
-    //                 + encodeURIComponent(value) + '&';
-    //         }
-    //     }
-    //     return paramStr.length ? paramStr.substr(0, paramStr.length - 1) : paramStr;
-    // }
-
     getUid() {
         let user = JSON.parse(localStorage.getItem('userInfo'));
         return user.id;

@@ -49,8 +49,10 @@ export class RegisterPage implements OnInit {
                 this.comm.showToast('请输入正确的图形验证码');
             } else {
                 this.http.get('user/login/getSmsCode', {
-                    picCode: this.dataObj['picCode']
+                    picCode: this.dataObj['picCode'],
+                    tel: this.dataObj['tel']
                 }).then(res => {
+                    this.comm.showToast(res['msg']);
                     if (res['code'] === '1') {
                         this.code = res['data'];
                         let time = 60;
@@ -83,9 +85,11 @@ export class RegisterPage implements OnInit {
             this.comm.showToast('请输入图片验证码');
         } else if (!this.dataObj['smsCode']) {
             this.comm.showToast('请输入短信验证码');
-        } else if (this.code !== this.dataObj['smsCode']) {
-            this.comm.showToast('短信验证码不正确');
-        } else if (!this.dataObj['pass']) {
+        } else
+        //     if (this.code !== this.dataObj['smsCode']) {
+        //     this.comm.showToast('短信验证码不正确');
+        // } else
+        if (!this.dataObj['pass']) {
             this.comm.showToast('请输入密码');
         } else if (this.dataObj['pass'].length < 6 || this.dataObj['pass'].length > 16) {
             this.comm.showToast('请输入正确位数的密码');

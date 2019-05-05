@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NavController} from '@ionic/angular';
 import {HttpService} from '../http.service';
 import {CommentService} from '../comment.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
     tel: string;
     pass: string;
 
-    constructor(public nav: NavController, public http: HttpService, public comm: CommentService) {
+    constructor(public nav: NavController, public http: HttpService, public comm: CommentService, public router: Router) {
         this.tel = '';
         this.pass = '';
     }

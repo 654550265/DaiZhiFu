@@ -11,6 +11,8 @@ import {AppComponent} from './app.component';
 import {CommentService} from './comment.service';
 import {HttpService} from './http.service';
 import {HttpClientModule} from '@angular/common/http';
+import {Keyboard} from '@ionic-native/keyboard/ngx';
+import {AppMinimize} from '@ionic-native/app-minimize/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -21,6 +23,8 @@ import {HttpClientModule} from '@angular/common/http';
         SplashScreen,
         CommentService,
         HttpService,
+        Keyboard,
+        AppMinimize,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent]

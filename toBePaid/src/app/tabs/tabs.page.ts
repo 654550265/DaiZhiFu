@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-tabs',
@@ -10,10 +11,11 @@ export class TabsPage {
     color: string;
     acvcolor: string;
 
-    constructor() {
+    constructor(public nav: NavController) {
         this.tabType = 'tab1';
         this.color = '#333333';
         this.acvcolor = '#fe5a51';
+
     }
 
     change(e) {

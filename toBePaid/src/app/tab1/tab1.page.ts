@@ -37,9 +37,10 @@ export class Tab1Page {
     }
 
     ionViewWillEnter() {
+        console.log(123);
         let user = localStorage.getItem('userInfo');
         if (!user) {
-            this.nav.navigateForward('/login');
+            this.router.navigateByUrl('/login');
         }
         let type = '';
         for (let value of this.subList) {

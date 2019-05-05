@@ -9,7 +9,7 @@ switch (env) {
         host = 'http://localhost:4200/';
         break;
     case 'prod':
-        host = 'http://222app.qnbug.cn/';
+        host = 'http://cirkul.cn/';
         break;
 }
 

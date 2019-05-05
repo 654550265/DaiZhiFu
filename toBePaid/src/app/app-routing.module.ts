@@ -30,9 +30,9 @@ const routes: Routes = [
     {path: 'task-order', loadChildren: './task-order/task-order.module#TaskOrderPageModule'},
     {path: 'task-detailss', loadChildren: './task-detailss/task-detailss.module#TaskDetailssPageModule'},
     {path: 'talk', loadChildren: './talk/talk.module#TalkPageModule'},
-  { path: 'message-list', loadChildren: './message-list/message-list.module#MessageListPageModule' },
-  { path: 'message-info', loadChildren: './message-info/message-info.module#MessageInfoPageModule' },
-  { path: 'show-pic', loadChildren: './show-pic/show-pic.module#ShowPicPageModule' },
+    {path: 'message-list', loadChildren: './message-list/message-list.module#MessageListPageModule'},
+    {path: 'message-info', loadChildren: './message-info/message-info.module#MessageInfoPageModule'},
+    {path: 'show-pic', loadChildren: './show-pic/show-pic.module#ShowPicPageModule'},
 
 ];
 

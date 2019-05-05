@@ -22,10 +22,12 @@
     "@angular/platform-browser-dynamic": "~7.1.4",
     "@angular/router": "~7.1.4",
     "@ionic-native/app-availability": "^5.2.0",
+    "@ionic-native/app-minimize": "^5.5.1",
     "@ionic-native/clipboard": "^5.2.0",
     "@ionic-native/core": "5.0.0-beta.21",
     "@ionic-native/file-transfer": "^5.2.0",
     "@ionic-native/image-picker": "^5.2.0",
+    "@ionic-native/keyboard": "^5.5.1",
     "@ionic-native/photo-viewer": "^5.3.0",
     "@ionic-native/screenshot": "^5.3.0",
     "@ionic-native/splash-screen": "5.0.0-beta.21",
@@ -38,9 +40,12 @@
     "com-sarriaroman-photoviewer": "1.2.1",
     "com.darktalker.cordova.screenshot": "0.1.6",
     "com.lampa.startapp": "6.1.6",
+    "com.moust.cordova.videoplayer": "~1.0.1",
     "cordova-android": "7.1.4",
     "cordova-clipboard": "1.2.1",
+    "cordova-ios": "4.5.5",
     "cordova-plugin-appavailability": "0.4.2",
+    "cordova-plugin-appminimize": "1.0.1",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-file-transfer": "1.7.1",
@@ -103,10 +108,12 @@
       "com.lampa.startapp": {},
       "com.darktalker.cordova.screenshot": {},
       "com-sarriaroman-photoviewer": {},
-      "cordova-plugin-x-toast": {}
+      "cordova-plugin-x-toast": {},
+      "cordova-plugin-appminimize": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
