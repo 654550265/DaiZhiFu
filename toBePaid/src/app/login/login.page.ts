@@ -3,6 +3,7 @@ import {NavController} from '@ionic/angular';
 import {HttpService} from '../http.service';
 import {CommentService} from '../comment.service';
 import {Router} from '@angular/router';
+import {Device} from '@ionic-native/device/ngx';
 
 @Component({
     selector: 'app-login',
@@ -13,12 +14,13 @@ export class LoginPage implements OnInit {
     tel: string;
     pass: string;
 
-    constructor(public nav: NavController, public http: HttpService, public comm: CommentService, public router: Router) {
+    constructor(public nav: NavController, public http: HttpService, public comm: CommentService, public router: Router, private device: Device) {
         this.tel = '';
         this.pass = '';
     }
 
     ngOnInit() {
+        console.log('Device UUID is: ', this.device);
     }
 
     gotoRegisterPage() {

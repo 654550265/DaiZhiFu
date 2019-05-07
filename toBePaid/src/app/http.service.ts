@@ -4,13 +4,14 @@ import {ENV} from '../config/ENV';
 import {Clipboard} from '@ionic-native/clipboard/ngx';
 import {AlertController, Platform} from '@ionic/angular';
 import {AppAvailability} from '@ionic-native/app-availability/ngx';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HttpService {
 
-    constructor(private httpClient: HttpClient, private clipboard: Clipboard, private platform: Platform, private appAvailability: AppAvailability, public alertController: AlertController) {
+    constructor(private httpClient: HttpClient, private clipboard: Clipboard, private platform: Platform, private appAvailability: AppAvailability, public alertController: AlertController, private iab: InAppBrowser) {
     }
 
     public get(url: string, obj: Object) {
@@ -105,9 +106,13 @@ export class HttpService {
             });
         }
         this.appAvailability.check(app).then(res => {
-            sApp.start(function (ress) {
-            }, function (error) {
-            });
+            if (this.platform.is('ios')) {
+                this.iab.create(app, '_system');
+            } else {
+                sApp.start(function (ress) {
+                }, function (error) {
+                });
+            }
         }).catch(err => {
             this.presentAlert();
         });

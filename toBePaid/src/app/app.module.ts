@@ -13,6 +13,9 @@ import {HttpService} from './http.service';
 import {HttpClientModule} from '@angular/common/http';
 import {Keyboard} from '@ionic-native/keyboard/ngx';
 import {AppMinimize} from '@ionic-native/app-minimize/ngx';
+import {File} from '@ionic-native/file/ngx';
+import {Device} from '@ionic-native/device/ngx';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -25,6 +28,9 @@ import {AppMinimize} from '@ionic-native/app-minimize/ngx';
         HttpService,
         Keyboard,
         AppMinimize,
+        File,
+        Device,
+        InAppBrowser,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent]

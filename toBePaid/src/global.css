@@ -12,6 +12,9 @@
   padding: 0;
   font-family: "Microsoft YaHei"; }
 
+i {
+  font-style: normal; }
+
 li, ul, ol {
   list-style: none; }
 

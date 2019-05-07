@@ -27,25 +27,25 @@
             </div>
             <div class="imgs">
                 <div class="images" (click)="chooseOneIdCard(1)">
-                    <div class="image" *ngIf="!idPic1">
+                    <div class="image" *ngIf="idPic1===''">
                         <img src="../../assets/photo.png">
                         <div>上传正面照片</div>
                     </div>
-                    <img *ngIf="idPic1" src="{{idPic1}}" class="card">
+                    <img *ngIf="idPic1!==''" src="{{idPic1}}" class="card">
                 </div>
                 <div class="images" (click)="chooseOneIdCard(2)">
-                    <div class="image" *ngIf="!idPic2">
+                    <div class="image" *ngIf="idPic2===''">
                         <img src="../../assets/photo.png">
                         <div>上传背面照片</div>
                     </div>
-                    <img *ngIf="idPic2" src="{{idPic2}}" class="card">
+                    <img *ngIf="idPic2!==''" src="{{idPic2}}" class="card">
                 </div>
                 <div class="images" (click)="chooseOneIdCard(3)">
-                    <div class="image" *ngIf="!idPic3">
+                    <div class="image" *ngIf="idPic3===''">
                         <img src="../../assets/photo.png">
                         <div>上传手持照片</div>
                     </div>
-                    <img *ngIf="idPic3" src="{{idPic3}}" class="card">
+                    <img *ngIf="idPic3!==''" src="{{idPic3}}" class="card">
                 </div>
             </div>
         </div>

@@ -6,7 +6,6 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {CommentService} from './comment.service';
 import {Keyboard} from '@ionic-native/keyboard/ngx';
 import {Router} from '@angular/router';
-import {AppMinimize} from '@ionic-native/app-minimize/ngx';
 
 @Component({
     selector: 'app-root',
@@ -20,7 +19,7 @@ export class AppComponent {
         private keyboard: Keyboard,
         public comm: CommentService,
         public router: Router,
-        public appMinimize: AppMinimize
+        public nav: NavController
     ) {
         this.initializeApp();
     }
@@ -32,7 +31,7 @@ export class AppComponent {
             this.splashScreen.hide();
             let timePeriodToExit = 3000;
             let lastTimeBackPress;
-            this.platform.backButton.subscribe(() => {
+            this.platform.backButton.subscribeWithPriority(9999, () => {
                 // this.comm.showToast('单击了返回按钮');
                 if (this.keyboard && this.keyboard.isVisible) {
                     this.keyboard.hide();
@@ -40,9 +39,17 @@ export class AppComponent {
                 }
                 let url = this.router.url;
                 console.log(url);
-
-                if (url === '/tabs/tab1' || url === '/tabs/tab2' || url === '/tabs/tab3' || url === '/tabs/tab4' || url === '/login') {
-                    // this.appMinimize.minimize();
+                let pageArr = ['/tabs/tab1', '/tabs/tab2', '/tabs/tab3', '/tabs/tab4', '/login', '', ''];
+                if (pageArr.includes(url)) {
+                    if (new Date().getTime() - lastTimeBackPress < timePeriodToExit) {
+                        navigator['app'].exitApp();
+                    } else {
+                        this.comm.showToast('再按一次返回键退出应用', () => {
+                            lastTimeBackPress = new Date().getTime();
+                        });
+                    }
+                } else {
+                    this.nav.goBack();
                 }
             });
         });

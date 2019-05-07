@@ -8,8 +8,15 @@
 </ion-header>
 <ion-content color="favorite">
     <div class="target-box bg-white mar-top1">
-        <div class="target-shop">目标商品 <span>平台系统返款</span></div>
-        <div class="shop-name">店铺名称 <span>{{taskData['tb_name']}}</span> <span>（请认真核对店铺名称）</span></div>
+        <div class="target-shop">
+            <i>目标商品</i>
+            <span>平台系统返款</span>
+        </div>
+        <div class="shop-name">
+            <i>店铺名称</i>
+            <span class="shop-names-hui">{{taskData['tb_name']}}</span>
+            <span class="asdawrer">（请认真核对店铺名称）</span>
+        </div>
         <div class="shop-list">
             <img src="{{taskData['tb_pic']}}" (click)="showShopPic(taskData['tb_pic'])">
             <div class="shop-price">

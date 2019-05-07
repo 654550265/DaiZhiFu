@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {ToastController} from '@ionic/angular';
+import {LoadingController, ToastController} from '@ionic/angular';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CommentService {
 
-    constructor(private toast: ToastController) {
+    constructor(private toast: ToastController, public loadingController: LoadingController) {
     }
 
     async showToast(msg: string, fn?) {
@@ -19,5 +19,15 @@ export class CommentService {
         setTimeout(() => {
             fn ? fn() : '';
         }, 1500);
+    }
+
+    async presentLoadingWithOptions(loadingController: LoadingController, msg: string) {
+        const loading = await loadingController.create({
+            spinner: null,
+            message: msg,
+            translucent: true,
+            cssClass: 'custom-class custom-loading'
+        });
+        return await loading.present();
     }
 }

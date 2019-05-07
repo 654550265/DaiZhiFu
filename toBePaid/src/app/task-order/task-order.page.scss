@@ -11,17 +11,34 @@
 	font-size: 1.2rem;
 	span {
 		color: #fe5a51;
+		margin-left: 0.5rem;
 	}
 }
 
 .shop-name {
-	@extend .target-shop;
-	span:first-child {
+	width: 94%;
+	margin: 0 auto;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	color: #999999;
+	font-size: 1.2rem;
+	display: flex;
+	i {
+		width: 7rem;
+		margin-right: 0.5rem;
+	}
+	.shop-names-hui {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		flex-grow: 1;
 		color: #262626;
 	}
-	span:nth-child(2) {
+
+	.asdawrer {
 		color: #999;
 		font-size: 1.1rem;
+		width: 23rem;
 	}
 }
 
