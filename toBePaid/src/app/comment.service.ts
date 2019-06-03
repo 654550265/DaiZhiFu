@@ -23,7 +23,7 @@ export class CommentService {
 
     async presentLoadingWithOptions(loadingController: LoadingController, msg: string) {
         const loading = await loadingController.create({
-            spinner: null,
+            spinner: 'crescent',
             message: msg,
             translucent: true,
             cssClass: 'custom-class custom-loading'

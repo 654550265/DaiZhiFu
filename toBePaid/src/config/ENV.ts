@@ -57,3 +57,25 @@ export const ENV = {
         type: 10
     }]
 };
+
+/**
+ * debug开发者模式
+ */
+export const DEBUG = {
+    //是否debug模式，true:是, false:否
+    IS_DEBUG: true
+};
+
+/**
+ * 热更新发布的key
+ */
+export const CODE_PUSH_DEPLOYMENT_KEY = {
+    ANDROID: {
+        Production: 'TB-u0CplUsgLihogXdpjZdvOpqE_a00f89c3-6618-46d2-bee3-93b3972dd119',
+        Staging: 'w0XT17H6Aw8huAVY6-mciDIdJoOva00f89c3-6618-46d2-bee3-93b3972dd119'
+    },
+    IOS: {
+        Production: 'WS_mEwG5s5kDONErdyRiAkPouk1Ua00f89c3-6618-46d2-bee3-93b3972dd119',
+        Staging: 'Ho47p9cdJA-6TJwJg5V49mvEVnyNa00f89c3-6618-46d2-bee3-93b3972dd119'
+    }
+};

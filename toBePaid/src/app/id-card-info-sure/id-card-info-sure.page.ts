@@ -6,7 +6,8 @@ import {ImagePicker} from '@ionic-native/image-picker/ngx';
 import {ENV} from '../../config/ENV';
 import {FileTransfer, FileTransferObject, FileUploadOptions} from '@ionic-native/file-transfer/ngx';
 import {File} from '@ionic-native/file/ngx';
-import {LoadingController} from '@ionic/angular';
+import {AlertController, LoadingController} from '@ionic/angular';
+import {PhotoViewer} from '@ionic-native/photo-viewer/ngx';
 
 @Component({
     selector: 'app-id-card-info-sure',
@@ -24,7 +25,7 @@ export class IdCardInfoSurePage implements OnInit {
     passStatus: number;//0 提交 1 通过 2不通过
     noPsssText: string;
 
-    constructor(public http: HttpService, private imagePicker: ImagePicker, public comm: CommentService, public router: Router, private transfer: FileTransfer, private file: File, public loading: LoadingController) {
+    constructor(public http: HttpService, private imagePicker: ImagePicker, public comm: CommentService, public router: Router, private transfer: FileTransfer, private file: File, public loading: LoadingController, public photoViewer: PhotoViewer) {
     }
 
     ngOnInit() {
@@ -57,42 +58,46 @@ export class IdCardInfoSurePage implements OnInit {
     chooseOneIdCard(type) {
         let that = this;
         const fileTransfer: FileTransferObject = this.transfer.create();
-        this.imagePicker.getPictures({
-            maximumImagesCount: 1
-        }).then(res => {
-            let fileURL = res[0];
-            let options: FileUploadOptions = {
-                fileKey: 'file',
-                fileName: fileURL.substr(fileURL.lastIndexOf('/') + 1),
-                mimeType: 'image/jpeg',
-                chunkedMode: false,
-                headers: {
-                    Connection: 'close'
-                }
-            };
-            this.comm.presentLoadingWithOptions(this.loading, '上传中...');
-            fileTransfer.upload(fileURL, `${ENV.host}api/home/index/upload`, options, true).then(res => {
-                console.log('成功', res);
-                that.loading.dismiss();
-                that.comm.showToast('上传成功');
-                var ress = JSON.parse(res.response);
-                switch (type) {
-                    case 1:
-                        that.idPic1 = ress['data'];
-                        break;
-                    case 2:
-                        that.idPic2 = ress['data'];
-                        break;
-                    case 3:
-                        that.idPic3 = ress['data'];
-                        break;
-                }
-            }).catch(err => {
-                that.loading.dismiss();
-                that.comm.showToast('上传失败');
-                console.log('失败', err);
+        if (this['idPic' + type]) {
+            this.photoViewer.show(this['idPic' + type]);
+        } else {
+            this.imagePicker.getPictures({
+                maximumImagesCount: 1
+            }).then(res => {
+                let fileURL = res[0];
+                let options: FileUploadOptions = {
+                    fileKey: 'file',
+                    fileName: fileURL.substr(fileURL.lastIndexOf('/') + 1),
+                    mimeType: 'image/jpeg',
+                    chunkedMode: false,
+                    headers: {
+                        Connection: 'close'
+                    }
+                };
+                this.comm.presentLoadingWithOptions(this.loading, '上传中...');
+                fileTransfer.upload(fileURL, `${ENV.host}api/home/index/upload`, options, true).then(res => {
+                    console.log('成功', res);
+                    that.loading.dismiss();
+                    that.comm.showToast('上传成功');
+                    var ress = JSON.parse(res.response);
+                    switch (type) {
+                        case 1:
+                            that.idPic1 = ress['data'];
+                            break;
+                        case 2:
+                            that.idPic2 = ress['data'];
+                            break;
+                        case 3:
+                            that.idPic3 = ress['data'];
+                            break;
+                    }
+                }).catch(err => {
+                    that.loading.dismiss();
+                    that.comm.showToast('上传失败');
+                    console.log('失败', err);
+                });
             });
-        });
+        }
     }
 
     save() {

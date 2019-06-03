@@ -24,6 +24,7 @@
     "@ionic-native/app-availability": "^5.2.0",
     "@ionic-native/app-minimize": "^5.5.1",
     "@ionic-native/clipboard": "^5.2.0",
+    "@ionic-native/code-push": "^5.6.0",
     "@ionic-native/core": "5.0.0-beta.21",
     "@ionic-native/device": "^5.5.1",
     "@ionic-native/file": "^5.5.1",
@@ -37,9 +38,11 @@
     "@ionic-native/status-bar": "^5.0.0-beta.24",
     "@ionic-native/toast": "^5.3.0",
     "@ionic-native/video-player": "^5.2.0",
+    "@ionic-native/wechat": "^5.6.0",
     "@ionic/angular": "^4.0.0-rc.0",
     "@ionic/pro": "2.0.4",
     "@types/crypto-js": "^3.1.43",
+    "code-push": "2.0.6",
     "com-sarriaroman-photoviewer": "1.2.1",
     "com.darktalker.cordova.screenshot": "0.1.6",
     "com.lampa.startapp": "6.1.6",
@@ -49,7 +52,9 @@
     "cordova-ios": "4.5.5",
     "cordova-plugin-appavailability": "0.4.2",
     "cordova-plugin-appminimize": "1.0.1",
+    "cordova-plugin-code-push": "1.11.18",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-dialogs": "2.0.1",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-file-transfer": "1.7.1",
     "cordova-plugin-inappbrowser": "3.0.0",
@@ -62,6 +67,7 @@
     "cordova-plugin-wechat": "2.8.0",
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-x-toast": "2.7.2",
+    "cordova-plugin-zip": "^3.1.0",
     "core-js": "^2.5.4",
     "crypto-js": "^3.1.9-1",
     "ion-multi-picker": "^2.1.2",
@@ -115,7 +121,12 @@
       "com-sarriaroman-photoviewer": {},
       "cordova-plugin-x-toast": {},
       "cordova-plugin-appminimize": {},
-      "cordova-plugin-inappbrowser": {}
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-wechat": {
+        "WECHATAPPID": "wxc27cfc8bdfa0f59d"
+      },
+      "cordova-plugin-code-push": {},
+      "cordova-plugin-zip": {}
     },
     "platforms": [
       "android",

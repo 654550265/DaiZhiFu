@@ -3,6 +3,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {HttpService} from '../http.service';
 import {CommentService} from '../comment.service';
 import {AlertController} from '@ionic/angular';
+import {PhotoViewer} from '@ionic-native/photo-viewer/ngx';
 
 @Component({
     selector: 'app-task-order',
@@ -13,14 +14,14 @@ export class TaskOrderPage implements OnInit {
     tasknum: string;
     taskType: string;
     toid: string;
-    taskData: Object;
+    taskData: Object = {};
     title: string;
     timeText: string;
     inter: any;
     num: number;
     url: string = '';
 
-    constructor(public activeRoute: ActivatedRoute, public http: HttpService, public router: Router, public comm: CommentService, public alertController: AlertController) {
+    constructor(public activeRoute: ActivatedRoute, public http: HttpService, public router: Router, public comm: CommentService, public alertController: AlertController, public photoViewer: PhotoViewer) {
         this.taskData = {};
         this.inter = null;
         this.timeText = '';
@@ -29,7 +30,6 @@ export class TaskOrderPage implements OnInit {
 
 
     ngOnInit() {
-
         this.activeRoute.queryParams.subscribe((params: Params) => {
             this.tasknum = params.taskNum;
             this.url = params.url;
@@ -51,6 +51,11 @@ export class TaskOrderPage implements OnInit {
                 uid: this.http.getUid()
             }).then(res => {
                 this.num++;
+                if (res['data'].data4.pic !== '') {
+                    res['data'].data4.pic = res['data'].data4.pic.split(',');
+                } else {
+                    res['data'].data4.pic = [];
+                }
                 this.taskData = res['data'];
             });
         });
@@ -91,6 +96,10 @@ export class TaskOrderPage implements OnInit {
                 pic: src,
             }
         });
+    }
+
+    privetPic(str, index) {
+        this.photoViewer.show(this.taskData[str].pic.split(',')[index]);
     }
 
     async presentAlert() {

@@ -99,12 +99,12 @@
                 </div>
                 <div class="time2">
                     <div class="task-status-text">订单付款
-                        <span>(点开图片可更换错误图片)</span>
+                        <!--                        <span>(点开图片可更换错误图片)</span>-->
                     </div>
                     <div class="task-num-box">
                         <div>聊天下单</div>
-                        <img src="{{taskData['data2'].pic!==''?taskData['data2'].pic:'../../assets/gary-pic.png'}}"
-                             class="img2">
+                        <img *ngFor="let item of taskData['data2'].pic;let indexs = index" src="{{item}}"
+                             class="img2" (click)="privetPic('data2',indexs)">
                     </div>
                 </div>
                 <div class="time3">
@@ -128,12 +128,12 @@
                 </div>
                 <div class="time4">
                     <div class="task-status-text">收货好评
-                        <span>(点开图片可更换错误图片)</span>
+                        <!--                        <span>(点开图片可更换错误图片)</span>-->
                     </div>
                     <div class="task-num-box">
                         <div>评价及物流截图</div>
-                        <img src="../../assets/gary-pic.png" class="img1">
-                        <img src="../../assets/gary-pic.png" class="img2">
+                        <img *ngFor="let items of taskData['data4'].pic;let indexss = index" src="{{items}}"
+                             class="img{{indexss+1}}" (click)="privetPic('data4',indexss)">
                     </div>
                     <div class="suiyi">随意上传图片将受到平台处罚</div>
                     <div class="task-num-box">
@@ -165,7 +165,7 @@
                 </div>
                 <div class="time2">
                     <div class="task-status-text">提交任务
-                        <span>(点开图片可更换错误图片)</span>
+                        <!--                        <span>(点开图片可更换错误图片)</span>-->
                     </div>
                     <div class="task-num-box">
                         <div>浏览店铺</div>

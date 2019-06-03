@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpService} from '../http.service';
 import {ActivatedRoute, Params} from '@angular/router';
 import {CommentService} from '../comment.service';
-import {NavController} from '@ionic/angular';
+import {LoadingController, NavController} from '@ionic/angular';
 import {ENV} from '../../config/ENV';
 import {ImagePicker} from '@ionic-native/image-picker/ngx';
 
@@ -27,7 +27,7 @@ export class TaobaoTaskPage implements OnInit {
     timeText: string;
     isRight: boolean;
 
-    constructor(public http: HttpService, public activeRoute: ActivatedRoute, public comm: CommentService, public nav: NavController, private imagePicker: ImagePicker) {
+    constructor(public http: HttpService, public activeRoute: ActivatedRoute, public comm: CommentService, public nav: NavController, private imagePicker: ImagePicker, public loading: LoadingController) {
         this.taskData = {};
         this.shopName = '';
         this.taskOrder = '';
@@ -38,6 +38,7 @@ export class TaobaoTaskPage implements OnInit {
     }
 
     uploadImg() {
+        let that = this;
         this.imagePicker.getPictures({
             maximumImagesCount: 1
         }).then(res => {
@@ -48,6 +49,7 @@ export class TaobaoTaskPage implements OnInit {
                 if (res.code === 1) {
                     self.xiadanPic = res.data;
                 }
+                that.loading.dismiss();
             };
 
             var fail = function (error) {
@@ -63,7 +65,10 @@ export class TaobaoTaskPage implements OnInit {
             options.chunkedMode = false;
 
             var ft = new FileTransfer();
+            this.comm.presentLoadingWithOptions(this.loading, '上传中...');
             ft.upload(src, encodeURI(`${ENV.host}api/home/index/upload`), win, fail, options);
+        }).catch(err => {
+            console.log(err);
         });
     }
 
